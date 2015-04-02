@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: http://coopcoding.com/sitemap.xml

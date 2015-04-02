@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+
+  <title>Blog Post 1</title>
+
+  <meta name="description" content="You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different wa...">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://coopcoding.com/assets/images/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="http://coopcoding.com/assets/images/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://coopcoding.com/assets/images/favicon/favicon-32x32.png">
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro&text=COP.DING' rel='stylesheet' type='text/css'>
+  <link href="http://coopcoding.com/css/styles.css" rel="stylesheet" media="all">
+  <link rel="canonical" href="http://coopcoding.com/blog/blog-post-1">
+  <link rel="alternate" type="application/rss+xml" title="Coop...Coding" href="http://coopcoding.com/feed.xml" />
+
+  
+  <meta name="keywords" content="foo1 and foo2" />
+  
+
+
+</head>
+
+  <body class="single-blog-post">
+
+    <aside class="sidebar">
+
+  <a class="site-logo" href="http://coopcoding.com" title="Coop.Coding Home Page" rel="home">
+    <img src="http://coopcoding.com/assets/images/sitebranding/cooper-small-avatar.jpg" alt="avatar image" class="avatar-image">
+  </a>
+
+  <div class="site-branding">
+
+    <h1 class="site-title">Coop...Coding</h1>
+
+  </div>
+
+  <nav class="main-navigation" role="navigation">
+
+    <!-- http://pixelcog.com/blog/2013/jekyll-from-scratch-core-architecture/ -->
+    
+
+    <a href="http://coopcoding.com"   title="Coop.Coding Home Page">Home</a>
+
+    <a href="http://coopcoding.com/projects/"  title="Coop.Coding Projects Page">Projects</a>
+
+    
+
+    <a href="http://coopcoding.com/blog/" class="nav-active"  title="Coop.Coding Blog">Blog</a>
+
+    
+    <a href="/blog/blog-post-1" class="nav-active sub-link" title="Blog Post 1 blog post link">
+      <div>Blog Post 1</div>
+    </a>
+    
+
+    <a href="https://www.google.com/cse/publicurl?cx=017656873701660410302:dlj9xkst79m" id="navSearchLink" title="Search">Search</a>
+    <form class="nav-search hiddenSearch" action="http://www.google.com/cse" method="get">
+      <input name="cx" type="hidden" value="017656873701660410302:dlj9xkst79m" />
+      <input name="ie" type="hidden" value="UTF-8" />
+      <label class="searchbox-label" for="searchbox">Search Box</label>
+      <input class="searchInput" id="searchbox" type="search" placeholder="Search" name="q">
+      <button type="submit" name="sa">Search</button>
+    </form>
+
+    <a href="http://coopcoding.com/contact/"  title="Contact">Contact</a>
+    <a title="Rss Feed Link" href="http://coopcoding.com/feed.xml">RSS Feed</a>
+
+  </nav>
+
+  <!-- don't show recent posts on the homepage -->
+  
+  <div class="sidebar-recent-posts">
+    <h3>Recent Blog Posts:</h3>
+    <ul>
+      
+      <li>
+        <a href="/blog/foo-bar">Fooest The Bar</a>
+      </li>
+      
+      <li>
+        <a href="/blog/another-blog-post">Another Blog Post</a>
+      </li>
+      
+      <li>
+        <a href="/blog/welcome-to-jekyll">Welcome to Jekyll!</a>
+      </li>
+      
+      <li>
+        <a href="/blog/blog-post-1">Blog Post 1</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+</aside>
+
+
+
+    <header role="banner" class="mobile-header">
+    <h1>Coop...Coding</h1>
+    <a href="#" id="mobileMenButton"></a>
+</header>
+
+    <main class="main-content" role="main">
+
+      <section class="post-container">
+
+  <article>
+     <header class="post-header">
+      <h1 class="post-title">
+        <a href="/blog/blog-post-1">Blog Post 1</a>
+      </h1>
+      <span class="post-date">Mar 14, 2015</span>
+    </header>
+
+    <section class="post-body">
+    <p>You’ll find this post in your <code>_posts</code> directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run <code>jekyll serve</code>, which launches a web server and auto-regenerates your site when a file is updated.</p>
+
+<p>To add new posts, simply add a file in the <code>_posts</code> directory that follows the convention <code>YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">&quot;Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">)</span>
+<span class="c1">#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
+<span class="k">for</span> <span class="n">test_string</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;555-1212&#39;</span><span class="p">,</span> <span class="s">&#39;ILL-EGAL&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">r&#39;^\d{3}-\d{4}$&#39;</span><span class="p">,</span> <span class="n">test_string</span><span class="p">):</span>
+        <span class="k">print</span> <span class="n">test_string</span><span class="p">,</span> <span class="s">&#39;is a valid US local phone number&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span> <span class="n">test_string</span><span class="p">,</span> <span class="s">&#39;rejected&#39;</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">prices</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;apple&#39;</span><span class="p">:</span> <span class="mf">0.40</span><span class="p">,</span> <span class="s">&#39;banana&#39;</span><span class="p">:</span> <span class="mf">0.50</span><span class="p">}</span>
+<span class="n">my_purchase</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&#39;apple&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">&#39;banana&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+<span class="n">grocery_bill</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">prices</span><span class="p">[</span><span class="n">fruit</span><span class="p">]</span> <span class="o">*</span> <span class="n">my_purchase</span><span class="p">[</span><span class="n">fruit</span><span class="p">]</span>
+                   <span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">my_purchase</span><span class="p">)</span>
+<span class="k">print</span> <span class="s">&#39;I owe the grocer $</span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">grocery_bill</span></code></pre></div>
+
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;keydown&quot;</span><span class="p">,</span> <span class="nx">moveSnake</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">game_over</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">snake</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">snakeLen</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">food</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">level</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">total_height</span> <span class="o">=</span> <span class="mi">640</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">total_width</span> <span class="o">=</span> <span class="mi">640</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">lvl_width</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">lvl_height</span> <span class="o">=</span> <span class="mi">20</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
+
+<span class="nx">snakeHeadImage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nx">snakeHeadImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;resources/head.png&quot;</span><span class="p">;</span>
+<span class="nx">snakeBodyImage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nx">snakeBodyImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;resources/body.png&quot;</span><span class="p">;</span>
+<span class="nx">snakeTailImage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nx">snakeTailImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;resources/tail.png&quot;</span><span class="p">;</span>
+
+<span class="c1">//food</span>
+<span class="nx">foodImage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
+<span class="nx">foodImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;resources/food.png&quot;</span><span class="p">;</span>
+
+<span class="nx">create_snake</span><span class="p">();</span>
+<span class="nx">create_food</span><span class="p">();</span>
+
+<span class="k">for</span><span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">lvl_width</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">level</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="nx">lvl_height</span><span class="p">);</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">ii</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">ii</span> <span class="o">&lt;</span> <span class="nx">lvl_height</span><span class="p">;</span> <span class="nx">ii</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">level</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="nx">ii</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimFrame</span> <span class="o">=</span> <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">return</span> <span class="nb">window</span><span class="p">.</span><span class="nx">requestAnimationFrame</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">webkitRequestAnimationFrame</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">mozRequestAnimationFrame</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">oRequestAnimationFrame</span> <span class="o">||</span> <span class="nb">window</span><span class="p">.</span><span class="nx">msRequestAnimationFrame</span> <span class="o">||</span>
+    <span class="kd">function</span><span class="p">(</span><span class="nx">callback</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nb">window</span><span class="p">.</span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">};</span>
+<span class="p">})();</span>
+
+
+<span class="kd">var</span> <span class="nx">the_date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">test1</span> <span class="o">=</span> <span class="nx">the_date</span><span class="p">.</span><span class="nx">getTime</span><span class="p">();</span>
+<span class="kd">var</span> <span class="nx">stamp</span> <span class="o">=</span> <span class="nx">the_date</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">+</span> <span class="mi">250</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">animate</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="nx">the_date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+    <span class="nx">test1</span> <span class="o">=</span> <span class="nx">the_date</span><span class="p">.</span><span class="nx">getTime</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">stamp</span> <span class="o">&lt;=</span> <span class="nx">test1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">move_snake</span><span class="p">();</span>
+        <span class="nx">the_date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span>
+        <span class="nx">stamp</span> <span class="o">=</span> <span class="nx">the_date</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()</span> <span class="o">+</span> <span class="mi">250</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">game_over</span> <span class="o">==</span> <span class="kc">false</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// clear</span>
+        <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
+        <span class="nx">displayText</span><span class="p">(</span><span class="s2">&quot;Score: &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">snakeLen</span> <span class="o">-</span> <span class="mi">4</span><span class="p">));</span>
+        <span class="nx">display</span><span class="p">();</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="nx">displayText</span><span class="p">(</span><span class="s2">&quot;You so Sux.. Game Over homie&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">//context.drawImage(aniblock, aniblock_x, aniblock_y);</span>
+
+    <span class="c1">// request new frame</span>
+    <span class="nx">requestAnimFrame</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span>
+    <span class="p">{</span>
+      <span class="nx">animate</span><span class="p">();</span>
+    <span class="p">});</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">displayText</span><span class="p">(</span><span class="nx">what</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="s2">&quot;30px Arial&quot;</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">what</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">checkSnakeCollide</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">==</span> <span class="nx">food</span><span class="p">.</span><span class="nx">xx</span> <span class="o">&amp;&amp;</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">==</span> <span class="nx">food</span><span class="p">.</span><span class="nx">yy</span> <span class="p">)</span>
+    <span class="p">{</span>
+        <span class="nx">create_food</span><span class="p">();</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="c1">//if head moving right</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">&gt;</span> <span class="nx">lvl_width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">game_over</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">game_over</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;up&quot;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">game_over</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;down&quot;</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">&gt;=</span> <span class="nx">lvl_height</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">game_over</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">snakeLen</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">==</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">==</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span><span class="p">)</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">game_over</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+<span class="nx">animate</span><span class="p">();</span>
+<span class="p">},</span> <span class="mi">1000</span><span class="p">);</span>
+
+<span class="kd">function</span> <span class="nx">moveSnake</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">37</span><span class="o">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">38</span><span class="o">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">&quot;down&quot;</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;up&quot;</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">39</span><span class="o">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="mi">40</span><span class="o">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">&quot;up&quot;</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;down&quot;</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">break</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">checkAllowMove</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">x</span> <span class="o">&lt;</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">x_index</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">x_index</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">x</span> <span class="o">/</span> <span class="mi">32</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">y</span> <span class="o">&lt;</span> <span class="mi">32</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">y_index</span> <span class="o">=</span> <span class="mi">19</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">y_index</span> <span class="o">=</span> <span class="p">(</span><span class="nx">total_height</span> <span class="o">/</span> <span class="mi">32</span><span class="p">)</span> <span class="o">-</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">round</span><span class="p">(</span><span class="nx">y</span> <span class="o">/</span> <span class="mi">32</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="nx">level</span><span class="p">[</span><span class="nx">x_index</span><span class="p">][</span><span class="nx">y_index</span><span class="p">]</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">create_food</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">recreate</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="k">do</span>
+    <span class="p">{</span>
+        <span class="nx">recreate</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+        <span class="nx">x</span> <span class="o">=</span>  <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">lvl_width</span><span class="o">-</span><span class="mi">1</span><span class="p">)));</span>
+        <span class="nx">y</span> <span class="o">=</span>  <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">((</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span> <span class="o">*</span> <span class="p">(</span><span class="nx">lvl_height</span><span class="o">-</span><span class="mi">1</span><span class="p">)));</span>
+
+        <span class="k">for</span><span class="p">(</span><span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">snakeLen</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">==</span> <span class="nx">x</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">==</span> <span class="nx">y</span><span class="p">)</span> <span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">recreate</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+                <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="nx">recreate</span> <span class="o">==</span> <span class="kc">true</span><span class="p">);</span>
+    <span class="nx">food</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">y</span><span class="p">};</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">create_snake</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="c1">//var x =  Math.floor((Math.random() * (lvl_width-1)));</span>
+    <span class="c1">//var y =  Math.floor((Math.random() * (lvl_height-1)));</span>
+    <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
+    <span class="nx">snake</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
+    <span class="nx">snake</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
+    <span class="nx">snake</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
+    <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">move_snake</span><span class="p">()</span>
+<span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">temp_x</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">temp_y</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">temp_xx</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">temp_yy</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">swap</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+
+    <span class="c1">//move snake forward</span>
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">ii</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">ii</span> <span class="o">&lt;</span> <span class="nx">snakeLen</span><span class="p">;</span> <span class="nx">ii</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">ii</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="nx">temp_x</span> <span class="o">=</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">].</span><span class="nx">xx</span><span class="p">;</span>
+            <span class="nx">temp_y</span> <span class="o">=</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">].</span><span class="nx">yy</span><span class="p">;</span>
+
+            <span class="c1">//if head moving right</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span><span class="p">};</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span><span class="p">};</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;up&quot;</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)};</span>
+            <span class="p">}</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;down&quot;</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)};</span>
+            <span class="p">}</span>
+
+            <span class="k">if</span><span class="p">(</span><span class="nx">checkSnakeCollide</span><span class="p">())</span>
+            <span class="p">{</span>
+                <span class="nx">snake</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[(</span><span class="nx">snake</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">)].</span><span class="nx">xx</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[(</span><span class="nx">snake</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">)].</span><span class="nx">yy</span><span class="p">});</span>
+                <span class="nx">snakeLen</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">swap</span> <span class="o">==</span> <span class="kc">true</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">temp_xx</span> <span class="o">=</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">].</span><span class="nx">xx</span><span class="p">;</span>
+                <span class="nx">temp_yy</span> <span class="o">=</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">].</span><span class="nx">yy</span><span class="p">;</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">temp_x</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">temp_y</span><span class="p">};</span>
+
+                <span class="nx">swap</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="k">else</span>
+            <span class="p">{</span>
+                <span class="nx">temp_x</span> <span class="o">=</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">].</span><span class="nx">xx</span><span class="p">;</span>
+                <span class="nx">temp_y</span> <span class="o">=</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">].</span><span class="nx">yy</span><span class="p">;</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">temp_xx</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">temp_yy</span><span class="p">};</span>
+                <span class="nx">swap</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">display</span><span class="p">()</span>
+<span class="p">{</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">snakeLen</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">switch</span> <span class="p">(</span><span class="nx">dir</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="k">case</span> <span class="s2">&quot;left&quot;</span><span class="o">:</span>
+                    <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">snakeHeadImage</span><span class="p">,</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">)</span> <span class="p">);</span>
+                    <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="s2">&quot;right&quot;</span><span class="o">:</span>
+                    <span class="nx">drawRotatedImage</span><span class="p">(</span><span class="nx">snakeHeadImage</span><span class="p">,(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="mi">180</span><span class="p">);</span>
+                    <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="s2">&quot;up&quot;</span><span class="o">:</span>
+                    <span class="nx">drawRotatedImage</span><span class="p">(</span><span class="nx">snakeHeadImage</span><span class="p">,(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="mi">90</span><span class="p">);</span>
+                    <span class="k">break</span><span class="p">;</span>
+                <span class="k">case</span> <span class="s2">&quot;down&quot;</span><span class="o">:</span>
+                    <span class="nx">drawRotatedImage</span><span class="p">(</span><span class="nx">snakeHeadImage</span><span class="p">,(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="mi">270</span><span class="p">);</span>
+                    <span class="k">break</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">i</span> <span class="o">==</span> <span class="p">(</span><span class="nx">snakeLen</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+        <span class="p">{</span>
+            <span class="c1">//following left</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">&gt;</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nx">xx</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">snakeTailImage</span><span class="p">,</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">)</span> <span class="p">);</span>
+            <span class="p">}</span>
+            <span class="c1">//following right</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">&lt;</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nx">xx</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">drawRotatedImage</span><span class="p">(</span><span class="nx">snakeTailImage</span><span class="p">,(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="mi">180</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="c1">//following up</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">&gt;</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nx">yy</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">drawRotatedImage</span><span class="p">(</span><span class="nx">snakeTailImage</span><span class="p">,(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="mi">90</span><span class="p">);</span>
+            <span class="p">}</span>
+            <span class="c1">//following down</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">&lt;</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nx">yy</span><span class="p">)</span>
+            <span class="p">{</span>
+                <span class="nx">drawRotatedImage</span><span class="p">(</span><span class="nx">snakeTailImage</span><span class="p">,(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="mi">270</span><span class="p">);</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">snakeBodyImage</span><span class="p">,</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">)</span> <span class="p">);</span>
+        <span class="p">}</span>
+
+    <span class="p">}</span>
+
+    <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">foodImage</span><span class="p">,</span> <span class="p">(</span><span class="nx">food</span><span class="p">.</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">food</span><span class="p">.</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">)</span> <span class="p">);</span>
+
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">drawRotatedImage</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">,</span> <span class="nx">angle</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">TO_RADIANS</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">PI</span><span class="o">/</span><span class="mi">180</span><span class="p">;</span>
+
+    <span class="c1">// save the current co-ordinate system</span>
+    <span class="c1">// before we screw with it</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+
+    <span class="c1">// move to the middle of where we want to draw our image</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">translate</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">);</span>
+
+    <span class="c1">// rotate around that point, converting our</span>
+    <span class="c1">// angle from degrees to radians</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">rotate</span><span class="p">(</span><span class="nx">angle</span> <span class="o">*</span> <span class="nx">TO_RADIANS</span><span class="p">);</span>
+
+    <span class="c1">// draw it up and to the left by half the width</span>
+    <span class="c1">// and height of the image</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">image</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="nx">image</span><span class="p">.</span><span class="nx">width</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="p">(</span><span class="nx">image</span><span class="p">.</span><span class="nx">height</span><span class="o">/</span><span class="mi">2</span><span class="p">));</span>
+
+    <span class="c1">// and restore the co-ords to how they were when we began</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">restore</span><span class="p">();</span>
+<span class="p">}</span></code></pre></div>
+
+<p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://github.com/jekyll/jekyll-help">Jekyll’s dedicated Help repository</a>.</p>
+
+
+
+    </section>
+
+    <footer>
+      <ul class="tags">
+      
+        <li class="tag-item">
+          <a href="http://coopcoding.com/tag/foo1">foo1</a>
+          <!-- <span class="tag-description">Find articles tagged &quot;foo1&quot;</span> -->
+        </li>
+      
+        <li class="tag-item">
+          <a href="http://coopcoding.com/tag/foo2">foo2</a>
+          <!-- <span class="tag-description">Find articles tagged &quot;foo1&quot;</span> -->
+        </li>
+      
+      </ul>
+    </footer>
+
+    <hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'coopcoding';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+    <div class="cc-license">
+      This post is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+    </div>
+
+
+    <div class="rssfeed">
+      <a title="Rss Feed Link" href="http://coopcoding.com/feed.xml">RSS Feed</a>
+    </div>
+
+  </article>
+
+</section>
+
+    </main>
+
+    
+    </main>
+    
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="http://coopcoding.com/js/min/jquery.fitvids-min.js"></script>
+      <script src="http://coopcoding.com/js/min/main-min.js"></script>
+    
+
+  </body>
+
+</html>
+
