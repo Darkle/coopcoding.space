@@ -1,99 +1,99 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://coopcoding.com/projects/submarine</loc>
+        <loc>http://192.168.1.2:5757/projects/submarine</loc>
         <lastmod>2015-03-28T13:37:41+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/projects/safe</loc>
+        <loc>http://192.168.1.2:5757/projects/safe</loc>
         <lastmod>2015-04-04T14:55:34+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/projects/game</loc>
+        <loc>http://192.168.1.2:5757/projects/game</loc>
         <lastmod>2015-04-04T14:55:25+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/projects/circus</loc>
+        <loc>http://192.168.1.2:5757/projects/circus</loc>
         <lastmod>2015-04-04T14:54:34+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/projects/cake</loc>
+        <loc>http://192.168.1.2:5757/projects/cake</loc>
         <lastmod>2015-04-04T14:57:27+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/projects/cabin</loc>
+        <loc>http://192.168.1.2:5757/projects/cabin</loc>
         <lastmod>2015-03-26T13:46:13+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/blog-post-7</loc>
+        <loc>http://192.168.1.2:5757/blog/blog-post-7</loc>
         <lastmod>2015-04-04T14:56:13+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/blog-post-6</loc>
+        <loc>http://192.168.1.2:5757/blog/blog-post-6</loc>
         <lastmod>2015-04-04T14:56:05+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/blog-post-5</loc>
+        <loc>http://192.168.1.2:5757/blog/blog-post-5</loc>
         <lastmod>2015-04-04T14:55:49+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/blog-post-4</loc>
+        <loc>http://192.168.1.2:5757/blog/blog-post-4</loc>
         <lastmod>2015-04-04T14:56:29+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/blog-post-3</loc>
+        <loc>http://192.168.1.2:5757/blog/blog-post-3</loc>
         <lastmod>2015-04-04T14:56:38+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/blog-post-2</loc>
+        <loc>http://192.168.1.2:5757/blog/blog-post-2</loc>
         <lastmod>2015-04-04T14:56:46+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/blog-post-1</loc>
+        <loc>http://192.168.1.2:5757/blog/blog-post-1</loc>
         <lastmod>2015-04-04T17:58:23+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/welcome-to-jekyll</loc>
+        <loc>http://192.168.1.2:5757/blog/welcome-to-jekyll</loc>
         <lastmod>2015-04-04T14:57:03+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/another-blog-post</loc>
+        <loc>http://192.168.1.2:5757/blog/another-blog-post</loc>
         <lastmod>2015-03-28T14:36:05+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/foo-bar</loc>
+        <loc>http://192.168.1.2:5757/blog/foo-bar</loc>
         <lastmod>2015-03-28T14:36:05+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/projects/test-project-5</loc>
+        <loc>http://192.168.1.2:5757/projects/test-project-5</loc>
         <lastmod>2015-04-02T16:54:42+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/another-jekyll-test</loc>
+        <loc>http://192.168.1.2:5757/blog/another-jekyll-test</loc>
         <lastmod>2015-04-02T17:00:45+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/projects/project-27</loc>
+        <loc>http://192.168.1.2:5757/projects/project-27</loc>
         <lastmod>2015-04-02T17:04:20+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/</loc>
+        <loc>http://192.168.1.2:5757/blog/</loc>
         <lastmod>2015-03-28T13:19:41+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/projects/</loc>
+        <loc>http://192.168.1.2:5757/projects/</loc>
         <lastmod>2015-04-02T14:08:00+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/</loc>
+        <loc>http://192.168.1.2:5757/</loc>
         <lastmod>2015-04-04T17:58:23+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/contact/</loc>
+        <loc>http://192.168.1.2:5757/contact/</loc>
         <lastmod>2015-03-25T13:22:42+11:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/robots.txt</loc>
+        <loc>http://192.168.1.2:5757/robots.txt</loc>
         <lastmod>2015-03-28T15:45:44+11:00</lastmod>
     </url>
 </urlset>

@@ -3,10 +3,10 @@
   <channel>
     <title>Coop...Coding</title>
     <description>Coop...Coding</description>
-    <link>http://coopcoding.com/</link>
-    <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 04 Apr 2015 18:00:28 +1100</pubDate>
-    <lastBuildDate>Sat, 04 Apr 2015 18:00:28 +1100</lastBuildDate>
+    <link>http://192.168.1.2:5757/</link>
+    <atom:link href="http://192.168.1.2:5757/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Sat, 04 Apr 2015 18:27:35 +1100</pubDate>
+    <lastBuildDate>Sat, 04 Apr 2015 18:27:35 +1100</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -14,8 +14,8 @@
         <description>&lt;p&gt;This is project 27!&lt;/p&gt;
 </description>
         <pubDate>Fri, 03 Apr 2015 04:04:07 +1100</pubDate>
-        <link>http://coopcoding.com/projects/project-27</link>
-        <guid isPermaLink="true">http://coopcoding.com/projects/project-27</guid>
+        <link>http://192.168.1.2:5757/projects/project-27</link>
+        <guid isPermaLink="true">http://192.168.1.2:5757/projects/project-27</guid>
         
         
         <category>projects</category>
@@ -27,8 +27,8 @@
         <description>
 </description>
         <pubDate>Fri, 03 Apr 2015 04:00:45 +1100</pubDate>
-        <link>http://coopcoding.com/blog/another-jekyll-test</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/another-jekyll-test</guid>
+        <link>http://192.168.1.2:5757/blog/another-jekyll-test</link>
+        <guid isPermaLink="true">http://192.168.1.2:5757/blog/another-jekyll-test</guid>
         
         
         <category>blog</category>
@@ -40,8 +40,8 @@
         <description>&lt;p&gt;This is a test fot the project 5&lt;/p&gt;
 </description>
         <pubDate>Fri, 03 Apr 2015 03:54:16 +1100</pubDate>
-        <link>http://coopcoding.com/projects/test-project-5</link>
-        <guid isPermaLink="true">http://coopcoding.com/projects/test-project-5</guid>
+        <link>http://192.168.1.2:5757/projects/test-project-5</link>
+        <guid isPermaLink="true">http://192.168.1.2:5757/projects/test-project-5</guid>
         
         
         <category>projects</category>
@@ -203,8 +203,8 @@ adder(2, 6);
 
 </description>
         <pubDate>Tue, 17 Mar 2015 16:20:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/foo-bar</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/foo-bar</guid>
+        <link>http://192.168.1.2:5757/blog/foo-bar</link>
+        <guid isPermaLink="true">http://192.168.1.2:5757/blog/foo-bar</guid>
         
         <category>foo1</category>
         
@@ -222,8 +222,8 @@ adder(2, 6);
 &lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.&lt;/p&gt;
 </description>
         <pubDate>Mon, 16 Mar 2015 22:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/another-blog-post</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/another-blog-post</guid>
+        <link>http://192.168.1.2:5757/blog/another-blog-post</link>
+        <guid isPermaLink="true">http://192.168.1.2:5757/blog/another-blog-post</guid>
         
         <category>alonzi</category>
         
@@ -251,8 +251,8 @@ print_hi(&#39;Tom&#39;)
 
 </description>
         <pubDate>Sun, 15 Mar 2015 21:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/welcome-to-jekyll</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/welcome-to-jekyll</guid>
+        <link>http://192.168.1.2:5757/blog/welcome-to-jekyll</link>
+        <guid isPermaLink="true">http://192.168.1.2:5757/blog/welcome-to-jekyll</guid>
         
         <category>foo1</category>
         
@@ -728,8 +728,8 @@ function drawRotatedImage(image, x, y, angle)
 
 </description>
         <pubDate>Sat, 14 Mar 2015 21:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/blog-post-1</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/blog-post-1</guid>
+        <link>http://192.168.1.2:5757/blog/blog-post-1</link>
+        <guid isPermaLink="true">http://192.168.1.2:5757/blog/blog-post-1</guid>
         
         <category>foo1</category>
         
@@ -759,8 +759,8 @@ print_hi(&#39;Tom&#39;)
 
 </description>
         <pubDate>Fri, 13 Mar 2015 21:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/blog-post-2</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/blog-post-2</guid>
+        <link>http://192.168.1.2:5757/blog/blog-post-2</link>
+        <guid isPermaLink="true">http://192.168.1.2:5757/blog/blog-post-2</guid>
         
         <category>foo1</category>
         
@@ -790,8 +790,8 @@ print_hi(&#39;Tom&#39;)
 
 </description>
         <pubDate>Thu, 12 Mar 2015 21:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/blog-post-3</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/blog-post-3</guid>
+        <link>http://192.168.1.2:5757/blog/blog-post-3</link>
+        <guid isPermaLink="true">http://192.168.1.2:5757/blog/blog-post-3</guid>
         
         <category>foo1</category>
         
@@ -821,8 +821,8 @@ print_hi(&#39;Tom&#39;)
 
 </description>
         <pubDate>Wed, 11 Mar 2015 21:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/blog-post-4</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/blog-post-4</guid>
+        <link>http://192.168.1.2:5757/blog/blog-post-4</link>
+        <guid isPermaLink="true">http://192.168.1.2:5757/blog/blog-post-4</guid>
         
         <category>foo1</category>
         
