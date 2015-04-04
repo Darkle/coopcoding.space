@@ -128,33 +128,39 @@
 
 <p>Jekyll also offers powerful support for code snippets:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-  <span class="nb">puts</span> <span class="s2">&quot;Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">&quot;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
 <span class="k">end</span>
-<span class="n">print_hi</span><span class="p">(</span><span class="s1">&#39;Tom&#39;</span><span class="p">)</span>
-<span class="c1">#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.</span></code></pre></div>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span>
+</code></pre>
+</div>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">re</span>
-<span class="k">for</span> <span class="n">test_string</span> <span class="ow">in</span> <span class="p">[</span><span class="s">&#39;555-1212&#39;</span><span class="p">,</span> <span class="s">&#39;ILL-EGAL&#39;</span><span class="p">]:</span>
-    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">r&#39;^\d{3}-\d{4}$&#39;</span><span class="p">,</span> <span class="n">test_string</span><span class="p">):</span>
-        <span class="k">print</span> <span class="n">test_string</span><span class="p">,</span> <span class="s">&#39;is a valid US local phone number&#39;</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">re</span>
+<span class="k">for</span> <span class="n">test_string</span> <span class="ow">in</span> <span class="p">[</span><span class="s">'555-1212'</span><span class="p">,</span> <span class="s">'ILL-EGAL'</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="s">r'^</span><span class="err">\</span><span class="s">d{3}-</span><span class="err">\</span><span class="s">d{4}$'</span><span class="p">,</span> <span class="n">test_string</span><span class="p">):</span>
+        <span class="k">print</span> <span class="n">test_string</span><span class="p">,</span> <span class="s">'is a valid US local phone number'</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">print</span> <span class="n">test_string</span><span class="p">,</span> <span class="s">&#39;rejected&#39;</span></code></pre></div>
+        <span class="k">print</span> <span class="n">test_string</span><span class="p">,</span> <span class="s">'rejected'</span>
+</code></pre>
+</div>
 
-<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">prices</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;apple&#39;</span><span class="p">:</span> <span class="mf">0.40</span><span class="p">,</span> <span class="s">&#39;banana&#39;</span><span class="p">:</span> <span class="mf">0.50</span><span class="p">}</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="n">prices</span> <span class="o">=</span> <span class="p">{</span><span class="s">'apple'</span><span class="p">:</span> <span class="mf">0.40</span><span class="p">,</span> <span class="s">'banana'</span><span class="p">:</span> <span class="mf">0.50</span><span class="p">}</span>
 <span class="n">my_purchase</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s">&#39;apple&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s">&#39;banana&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
+    <span class="s">'apple'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">'banana'</span><span class="p">:</span> <span class="mi">6</span><span class="p">}</span>
 <span class="n">grocery_bill</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">prices</span><span class="p">[</span><span class="n">fruit</span><span class="p">]</span> <span class="o">*</span> <span class="n">my_purchase</span><span class="p">[</span><span class="n">fruit</span><span class="p">]</span>
                    <span class="k">for</span> <span class="n">fruit</span> <span class="ow">in</span> <span class="n">my_purchase</span><span class="p">)</span>
-<span class="k">print</span> <span class="s">&#39;I owe the grocer $</span><span class="si">%.2f</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">grocery_bill</span></code></pre></div>
+<span class="k">print</span> <span class="s">'I owe the grocer $</span><span class="si">%.2</span><span class="s">f'</span> <span class="o">%</span> <span class="n">grocery_bill</span>
+</code></pre>
+</div>
 
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">&quot;keydown&quot;</span><span class="p">,</span> <span class="nx">moveSnake</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s2">"keydown"</span><span class="p">,</span> <span class="nx">moveSnake</span><span class="p">,</span> <span class="kc">false</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">game_over</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">snake</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>
 <span class="kd">var</span> <span class="nx">snakeLen</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">food</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">dir</span> <span class="o">=</span> <span class="s2">"right"</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">food</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">level</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Array</span><span class="p">();</span>
 <span class="kd">var</span> <span class="nx">total_height</span> <span class="o">=</span> <span class="mi">640</span><span class="p">;</span>
 <span class="kd">var</span> <span class="nx">total_width</span> <span class="o">=</span> <span class="mi">640</span><span class="p">;</span>
@@ -163,15 +169,15 @@
 <span class="kd">var</span> <span class="nx">speed</span> <span class="o">=</span> <span class="mi">16</span><span class="p">;</span>
 
 <span class="nx">snakeHeadImage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
-<span class="nx">snakeHeadImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;resources/head.png&quot;</span><span class="p">;</span>
+<span class="nx">snakeHeadImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">"resources/head.png"</span><span class="p">;</span>
 <span class="nx">snakeBodyImage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
-<span class="nx">snakeBodyImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;resources/body.png&quot;</span><span class="p">;</span>
+<span class="nx">snakeBodyImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">"resources/body.png"</span><span class="p">;</span>
 <span class="nx">snakeTailImage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
-<span class="nx">snakeTailImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;resources/tail.png&quot;</span><span class="p">;</span>
+<span class="nx">snakeTailImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">"resources/tail.png"</span><span class="p">;</span>
 
 <span class="c1">//food</span>
 <span class="nx">foodImage</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Image</span><span class="p">();</span>
-<span class="nx">foodImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">&quot;resources/food.png&quot;</span><span class="p">;</span>
+<span class="nx">foodImage</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="s2">"resources/food.png"</span><span class="p">;</span>
 
 <span class="nx">create_snake</span><span class="p">();</span>
 <span class="nx">create_food</span><span class="p">();</span>
@@ -213,12 +219,12 @@
     <span class="p">{</span>
         <span class="c1">// clear</span>
         <span class="nx">context</span><span class="p">.</span><span class="nx">clearRect</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">width</span><span class="p">,</span> <span class="nx">canvas</span><span class="p">.</span><span class="nx">height</span><span class="p">);</span>
-        <span class="nx">displayText</span><span class="p">(</span><span class="s2">&quot;Score: &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="nx">snakeLen</span> <span class="o">-</span> <span class="mi">4</span><span class="p">));</span>
+        <span class="nx">displayText</span><span class="p">(</span><span class="s2">"Score: "</span> <span class="o">+</span> <span class="p">(</span><span class="nx">snakeLen</span> <span class="o">-</span> <span class="mi">4</span><span class="p">));</span>
         <span class="nx">display</span><span class="p">();</span>
     <span class="p">}</span>
     <span class="k">else</span>
     <span class="p">{</span>
-        <span class="nx">displayText</span><span class="p">(</span><span class="s2">&quot;You so Sux.. Game Over homie&quot;</span><span class="p">);</span>
+        <span class="nx">displayText</span><span class="p">(</span><span class="s2">"You so Sux.. Game Over homie"</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="c1">//context.drawImage(aniblock, aniblock_x, aniblock_y);</span>
 
@@ -231,7 +237,7 @@
 
 <span class="kd">function</span> <span class="nx">displayText</span><span class="p">(</span><span class="nx">what</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="nx">context</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="s2">&quot;30px Arial&quot;</span><span class="p">;</span>
+    <span class="nx">context</span><span class="p">.</span><span class="nx">font</span> <span class="o">=</span> <span class="s2">"30px Arial"</span><span class="p">;</span>
     <span class="nx">context</span><span class="p">.</span><span class="nx">fillText</span><span class="p">(</span><span class="nx">what</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">);</span>
 <span class="p">}</span>
 
@@ -245,28 +251,28 @@
     <span class="k">else</span>
     <span class="p">{</span>
         <span class="c1">//if head moving right</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">"right"</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">&gt;</span> <span class="nx">lvl_width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
             <span class="p">{</span>
                 <span class="nx">game_over</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">"left"</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
             <span class="p">{</span>
                 <span class="nx">game_over</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;up&quot;</span><span class="p">)</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">"up"</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">&lt;=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
             <span class="p">{</span>
                 <span class="nx">game_over</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
-        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;down&quot;</span><span class="p">)</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">=</span> <span class="s2">"down"</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="k">if</span><span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">&gt;=</span> <span class="nx">lvl_height</span><span class="p">)</span>
             <span class="p">{</span>
@@ -295,28 +301,28 @@
 <span class="p">{</span>
     <span class="k">switch</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">keyCode</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="k">case</span> <span class="mi">37</span><span class="o">:</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">37</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">"right"</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;left&quot;</span><span class="p">;</span>
+                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">"left"</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="k">break</span><span class="p">;</span>
-        <span class="k">case</span> <span class="mi">38</span><span class="o">:</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">&quot;down&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">38</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">"down"</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;up&quot;</span><span class="p">;</span>
+                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">"up"</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="k">break</span><span class="p">;</span>
-        <span class="k">case</span> <span class="mi">39</span><span class="o">:</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">39</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">"left"</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">;</span>
+                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">"right"</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="k">break</span><span class="p">;</span>
-        <span class="k">case</span> <span class="mi">40</span><span class="o">:</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">&quot;up&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">40</span><span class="p">:</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">!=</span> <span class="s2">"up"</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;down&quot;</span><span class="p">;</span>
+                <span class="nx">dir</span> <span class="o">=</span> <span class="s2">"down"</span><span class="p">;</span>
             <span class="p">}</span>
             <span class="k">break</span><span class="p">;</span>
     <span class="p">}</span>
@@ -372,18 +378,18 @@
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span><span class="k">while</span><span class="p">(</span><span class="nx">recreate</span> <span class="o">==</span> <span class="kc">true</span><span class="p">);</span>
-    <span class="nx">food</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">x</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">y</span><span class="p">};</span>
+    <span class="nx">food</span> <span class="o">=</span> <span class="p">{</span><span class="na">xx</span><span class="p">:</span> <span class="nx">x</span><span class="p">,</span> <span class="na">yy</span><span class="p">:</span> <span class="nx">y</span><span class="p">};</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">create_snake</span><span class="p">()</span>
 <span class="p">{</span>
     <span class="c1">//var x =  Math.floor((Math.random() * (lvl_width-1)));</span>
     <span class="c1">//var y =  Math.floor((Math.random() * (lvl_height-1)));</span>
-    <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="mi">4</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
-    <span class="nx">snake</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
-    <span class="nx">snake</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
-    <span class="nx">snake</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="mi">1</span><span class="p">};</span>
-    <span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;right&quot;</span><span class="p">;</span>
+    <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="na">xx</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="na">yy</span><span class="p">:</span> <span class="mi">1</span><span class="p">};</span>
+    <span class="nx">snake</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="na">xx</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="na">yy</span><span class="p">:</span> <span class="mi">1</span><span class="p">};</span>
+    <span class="nx">snake</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="na">xx</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="na">yy</span><span class="p">:</span> <span class="mi">1</span><span class="p">};</span>
+    <span class="nx">snake</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="na">xx</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="na">yy</span><span class="p">:</span> <span class="mi">1</span><span class="p">};</span>
+    <span class="nx">dir</span> <span class="o">=</span> <span class="s2">"right"</span><span class="p">;</span>
 <span class="p">}</span>
 
 <span class="kd">function</span> <span class="nx">move_snake</span><span class="p">()</span>
@@ -403,26 +409,26 @@
             <span class="nx">temp_y</span> <span class="o">=</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">].</span><span class="nx">yy</span><span class="p">;</span>
 
             <span class="c1">//if head moving right</span>
-            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;right&quot;</span><span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">"right"</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span><span class="p">};</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="na">xx</span><span class="p">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="na">yy</span><span class="p">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span><span class="p">};</span>
             <span class="p">}</span>
-            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;left&quot;</span><span class="p">)</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">"left"</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span><span class="p">};</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="na">xx</span><span class="p">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span> <span class="na">yy</span><span class="p">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span><span class="p">};</span>
             <span class="p">}</span>
-            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">&quot;up&quot;</span><span class="p">)</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">==</span> <span class="s2">"up"</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)};</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="na">xx</span><span class="p">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span><span class="p">,</span> <span class="na">yy</span><span class="p">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)};</span>
             <span class="p">}</span>
-            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">=</span> <span class="s2">&quot;down&quot;</span><span class="p">)</span>
+            <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="nx">dir</span> <span class="o">=</span> <span class="s2">"down"</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)};</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="na">xx</span><span class="p">:</span> <span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">xx</span><span class="p">,</span> <span class="na">yy</span><span class="p">:</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">yy</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)};</span>
             <span class="p">}</span>
 
             <span class="k">if</span><span class="p">(</span><span class="nx">checkSnakeCollide</span><span class="p">())</span>
             <span class="p">{</span>
-                <span class="nx">snake</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[(</span><span class="nx">snake</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">)].</span><span class="nx">xx</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">snake</span><span class="p">[(</span><span class="nx">snake</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">)].</span><span class="nx">yy</span><span class="p">});</span>
+                <span class="nx">snake</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="na">xx</span><span class="p">:</span> <span class="nx">snake</span><span class="p">[(</span><span class="nx">snake</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">)].</span><span class="nx">xx</span><span class="p">,</span> <span class="na">yy</span><span class="p">:</span> <span class="nx">snake</span><span class="p">[(</span><span class="nx">snake</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">)].</span><span class="nx">yy</span><span class="p">});</span>
                 <span class="nx">snakeLen</span><span class="o">++</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -432,7 +438,7 @@
             <span class="p">{</span>
                 <span class="nx">temp_xx</span> <span class="o">=</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">].</span><span class="nx">xx</span><span class="p">;</span>
                 <span class="nx">temp_yy</span> <span class="o">=</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">].</span><span class="nx">yy</span><span class="p">;</span>
-                <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">temp_x</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">temp_y</span><span class="p">};</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="na">xx</span><span class="p">:</span> <span class="nx">temp_x</span><span class="p">,</span> <span class="na">yy</span><span class="p">:</span> <span class="nx">temp_y</span><span class="p">};</span>
 
                 <span class="nx">swap</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
             <span class="p">}</span>
@@ -440,7 +446,7 @@
             <span class="p">{</span>
                 <span class="nx">temp_x</span> <span class="o">=</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">].</span><span class="nx">xx</span><span class="p">;</span>
                 <span class="nx">temp_y</span> <span class="o">=</span> <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">].</span><span class="nx">yy</span><span class="p">;</span>
-                <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nx">xx</span><span class="o">:</span> <span class="nx">temp_xx</span><span class="p">,</span> <span class="nx">yy</span><span class="o">:</span> <span class="nx">temp_yy</span><span class="p">};</span>
+                <span class="nx">snake</span><span class="p">[</span><span class="nx">ii</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="na">xx</span><span class="p">:</span> <span class="nx">temp_xx</span><span class="p">,</span> <span class="na">yy</span><span class="p">:</span> <span class="nx">temp_yy</span><span class="p">};</span>
                 <span class="nx">swap</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
             <span class="p">}</span>
         <span class="p">}</span>
@@ -457,16 +463,16 @@
         <span class="p">{</span>
             <span class="k">switch</span> <span class="p">(</span><span class="nx">dir</span><span class="p">)</span>
             <span class="p">{</span>
-                <span class="k">case</span> <span class="s2">&quot;left&quot;</span><span class="o">:</span>
+                <span class="k">case</span> <span class="s2">"left"</span><span class="p">:</span>
                     <span class="nx">context</span><span class="p">.</span><span class="nx">drawImage</span><span class="p">(</span><span class="nx">snakeHeadImage</span><span class="p">,</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">)</span> <span class="p">);</span>
                     <span class="k">break</span><span class="p">;</span>
-                <span class="k">case</span> <span class="s2">&quot;right&quot;</span><span class="o">:</span>
+                <span class="k">case</span> <span class="s2">"right"</span><span class="p">:</span>
                     <span class="nx">drawRotatedImage</span><span class="p">(</span><span class="nx">snakeHeadImage</span><span class="p">,(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="mi">180</span><span class="p">);</span>
                     <span class="k">break</span><span class="p">;</span>
-                <span class="k">case</span> <span class="s2">&quot;up&quot;</span><span class="o">:</span>
+                <span class="k">case</span> <span class="s2">"up"</span><span class="p">:</span>
                     <span class="nx">drawRotatedImage</span><span class="p">(</span><span class="nx">snakeHeadImage</span><span class="p">,(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="mi">90</span><span class="p">);</span>
                     <span class="k">break</span><span class="p">;</span>
-                <span class="k">case</span> <span class="s2">&quot;down&quot;</span><span class="o">:</span>
+                <span class="k">case</span> <span class="s2">"down"</span><span class="p">:</span>
                     <span class="nx">drawRotatedImage</span><span class="p">(</span><span class="nx">snakeHeadImage</span><span class="p">,(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">xx</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="p">(</span><span class="nx">snake</span><span class="p">[</span><span class="nx">i</span><span class="p">].</span><span class="nx">yy</span> <span class="o">*</span> <span class="mi">32</span><span class="p">),</span> <span class="mi">270</span><span class="p">);</span>
                     <span class="k">break</span><span class="p">;</span>
             <span class="p">}</span>
@@ -526,7 +532,9 @@
 
     <span class="c1">// and restore the co-ords to how they were when we began</span>
     <span class="nx">context</span><span class="p">.</span><span class="nx">restore</span><span class="p">();</span>
-<span class="p">}</span></code></pre></div>
+<span class="p">}</span>
+</code></pre>
+</div>
 
 <p>Check out the <a href="http://jekyllrb.com">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://github.com/jekyll/jekyll-help">Jekyll’s dedicated Help repository</a>.</p>
 
