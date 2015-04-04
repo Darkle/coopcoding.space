@@ -70,11 +70,31 @@
     </url>
     <url>
         <loc>http://coopcoding.com/blog/another-jekyll-test</loc>
-        <lastmod>2015-04-02T17:00:45+11:00</lastmod>
+        <lastmod>2015-04-04T18:44:19+11:00</lastmod>
     </url>
     <url>
         <loc>http://coopcoding.com/projects/project-27</loc>
         <lastmod>2015-04-02T17:04:20+11:00</lastmod>
+    </url>
+    <url>
+        <loc>http://coopcoding.com/blog/trying-out-the-markdown-editor</loc>
+        <lastmod>2015-04-04T18:46:37+11:00</lastmod>
+    </url>
+    <url>
+        <loc>http://coopcoding.com/blog/try-2-for-the-new-markdown-editor</loc>
+        <lastmod>2015-04-04T18:47:55+11:00</lastmod>
+    </url>
+    <url>
+        <loc>http://coopcoding.com/blog/asdnother</loc>
+        <lastmod>2015-04-04T18:48:34+11:00</lastmod>
+    </url>
+    <url>
+        <loc>http://coopcoding.com/blog/asdasd</loc>
+        <lastmod>2015-04-04T18:48:52+11:00</lastmod>
+    </url>
+    <url>
+        <loc>http://coopcoding.com/projects/testserser</loc>
+        <lastmod>2015-04-04T18:50:16+11:00</lastmod>
     </url>
     <url>
         <loc>http://coopcoding.com/blog/</loc>
@@ -86,7 +106,7 @@
     </url>
     <url>
         <loc>http://coopcoding.com/</loc>
-        <lastmod>2015-04-04T17:58:23+11:00</lastmod>
+        <lastmod>2015-04-04T18:50:16+11:00</lastmod>
     </url>
     <url>
         <loc>http://coopcoding.com/contact/</loc>
