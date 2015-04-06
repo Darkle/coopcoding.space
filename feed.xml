@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Apr 2015 18:10:11 +1000</pubDate>
-    <lastBuildDate>Mon, 06 Apr 2015 18:10:11 +1000</lastBuildDate>
+    <pubDate>Mon, 06 Apr 2015 18:16:08 +1000</pubDate>
+    <lastBuildDate>Mon, 06 Apr 2015 18:16:08 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -412,7 +412,7 @@ print_hi(&#39;Tom&#39;)
 
 &lt;p&gt;Because Github pages only supports a &lt;a href=&quot;https://help.github.com/articles/using-jekyll-plugins-with-github-pages/&quot;&gt;few plugins&lt;/a&gt; and I wanted to use &lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;this&lt;/a&gt; tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my &lt;a href=&quot;https://github.com/Darkle/darkle.github.io&quot;&gt;darkle.github.io repository&lt;/a&gt;. Doing this manually is a bit of a pain, but I stumbled on to &lt;a href=&quot;http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/&quot;&gt;this neat article&lt;/a&gt; about using an &lt;a href=&quot;http://www.alfredapp.com/&quot;&gt;Alfred&lt;/a&gt; workflow to make things faster and easier.&lt;/p&gt;
 
-&lt;p&gt;Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. Originally I was going to use &lt;a href=&quot;http://www.alfredapp.com/&quot;&gt;this Markdown app called Whiskey&lt;/a&gt;, but it’s still in beta and I had a few issues with it crashing when posting complex code blocks.&lt;/p&gt;
+&lt;p&gt;Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/0B2rOnFGX-QzGTHpQbksyRUExd1k/view?usp=sharing&quot;&gt;My Alfred workflow&lt;/a&gt; shortcuts look like this:&lt;/p&gt;
 
@@ -518,12 +518,12 @@ fi
 
 &lt;p&gt;What this does is iterate through all of the files in the &lt;code&gt;_posts/blog&lt;/code&gt; directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in Whiskey.app.&lt;/p&gt;
 
-&lt;p&gt;Since the Whiskey Markdown app wasn’t working for me properly, I had a search around and stumbled upon &lt;a href=&quot;https://stackedit.io&quot;&gt;https://stackedit.io&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Originally I was using &lt;a href=&quot;http://www.alfredapp.com/&quot;&gt;this Markdown app called Whiskey&lt;/a&gt;, but it’s still in beta and I had a few issues with it crashing when posting complex code blocks. I had a search around for a replacement Markdown editor and stumbled upon &lt;a href=&quot;https://stackedit.io&quot;&gt;https://stackedit.io&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Stack Edit is able to open, edit and save/sync with dropbox, so since my site repository is already in my dropbox folder, I can just use Stack Edit to edit markdown files.  It’s pretty awesome, here’s a screenshot of me typing this post: &lt;br /&gt;
-&lt;a href=&quot;/assets/images/blogpostimages/StackEdit-editor-ss.png&quot;&gt;&lt;img src=&quot;/assets/images/blogpostimages/StackEdit-editor-ss.png&quot; alt=&quot;Stack Edit Screen Shot&quot; title=&quot;&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;a href=&quot;/assets/images/blogpostimages/StackEdit-editor-ss.png&quot;&gt;&lt;img src=&quot;/assets/images/blogpostimages/StackEdit-editor-ss.png&quot; alt=&quot;Stack Edit Screen Shot&quot; title=&quot;&quot; /&gt;&lt;/a&gt;.(notice the auto code highlighting in the preview 👀)&lt;/p&gt;
 
-&lt;p&gt;So I changed the bash script for both the new blog and new project so that instead of opening the Whiskey markdown editor, it opens https://stackedit.io in the default browser.&lt;/p&gt;
+&lt;p&gt;So I changed the bash script for both the new blog post and new project post so that instead of opening the Whiskey markdown editor, it opens https://stackedit.io in the default browser.&lt;/p&gt;
 
 &lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;tags:[]
 ---
@@ -533,7 +533,7 @@ EOT
 open https://stackedit.io/editor
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;One of the neat things about Stack Edit is that if you open a second tab with Stack Edit open in it, it will detect a second tab open and close the other tab. 👍&lt;/p&gt;
+&lt;p&gt;One of the neat things about Stack Edit is that if you open a second tab in your browser with Stack Edit open in it, it will detect a second tab open and close the other tab. 👍&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 06 Apr 2015 22:46:26 +1000</pubDate>
