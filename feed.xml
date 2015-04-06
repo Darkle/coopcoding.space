@@ -5,8 +5,8 @@
     <description>Coop...Coding</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Apr 2015 11:34:29 +1000</pubDate>
-    <lastBuildDate>Mon, 06 Apr 2015 11:34:29 +1000</lastBuildDate>
+    <pubDate>Mon, 06 Apr 2015 11:35:29 +1000</pubDate>
+    <lastBuildDate>Mon, 06 Apr 2015 11:35:29 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -19,19 +19,6 @@
         
         
         <category>projects</category>
-        
-      </item>
-    
-      <item>
-        <title>Another Jekyll Test</title>
-        <description>&lt;p&gt;sdfasdf&lt;/p&gt;
-</description>
-        <pubDate>Fri, 03 Apr 2015 04:00:45 +1100</pubDate>
-        <link>http://coopcoding.com/blog/another-jekyll-test</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/another-jekyll-test</guid>
-        
-        
-        <category>blog</category>
         
       </item>
     
@@ -202,8 +189,8 @@ adder(2, 6);
 
 </description>
         <pubDate>Tue, 17 Mar 2015 16:20:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/foo-bar</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/foo-bar</guid>
+        <link>http://coopcoding.com/blog/blog-test-post</link>
+        <guid isPermaLink="true">http://coopcoding.com/blog/blog-test-post</guid>
         
         <category>foo1</category>
         
@@ -215,24 +202,59 @@ adder(2, 6);
       </item>
     
       <item>
-        <title>Another Blog Post</title>
-        <description>&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore&lt;/p&gt;
+        <title>Cabin</title>
+        <description>&lt;p&gt;###Description:&lt;/p&gt;
 
-&lt;p&gt;Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.&lt;/p&gt;
+&lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href=&quot;#&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,&lt;br /&gt;
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.&lt;br /&gt;
+Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;###Version History:&lt;/p&gt;
+
+&lt;ul class=&quot;version-history&quot;&gt;
+  &lt;li&gt;0.5 Added feature y&lt;/li&gt;
+  &lt;li&gt;0.4 Fixed the thing again&lt;/li&gt;
+  &lt;li&gt;0.3 Added feature x&lt;/li&gt;
+  &lt;li&gt;0.2 Fixed the thing&lt;/li&gt;
+  &lt;li&gt;0.1 Initial Commit&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&quot;gradient-more&quot;&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a class=&quot;link-more&quot; href=&quot;#&quot;&gt;Show more&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;###Support:&lt;/p&gt;
+
+&lt;video controls=&quot;&quot;&gt;
+  &lt;source src=&quot;http://www.w3schools.com/html/mov_bbb.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;source src=&quot;http://www.w3schools.com/html/mov_bbb.ogg&quot; type=&quot;video/ogg&quot; /&gt;
+  Your browser does not support HTML5 video.
+&lt;/video&gt;
+&lt;hr /&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/OsV5RQtmBVw&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;hr /&gt;
+
 </description>
-        <pubDate>Mon, 16 Mar 2015 22:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/another-blog-post</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/another-blog-post</guid>
+        <pubDate>Sun, 15 Feb 2015 21:14:35 +1100</pubDate>
+        <link>http://coopcoding.com/projects/cabin</link>
+        <guid isPermaLink="true">http://coopcoding.com/projects/cabin</guid>
         
-        <category>alonzi</category>
+        <category>foo1</category>
+        
+        <category>foo2</category>
         
         
-        <category>blog</category>
+        <category>projects</category>
         
       </item>
     
       <item>
-        <title>Welcome to Jekyll!</title>
+        <title>Cake</title>
         <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
@@ -249,498 +271,21 @@ print_hi(&#39;Tom&#39;)
 &lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
 
 </description>
-        <pubDate>Sun, 15 Mar 2015 21:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/welcome-to-jekyll</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/welcome-to-jekyll</guid>
+        <pubDate>Sat, 14 Feb 2015 21:14:35 +1100</pubDate>
+        <link>http://coopcoding.com/projects/cake</link>
+        <guid isPermaLink="true">http://coopcoding.com/projects/cake</guid>
         
         <category>foo1</category>
         
         <category>foo2</category>
         
         
-        <category>blog</category>
+        <category>projects</category>
         
       </item>
     
       <item>
-        <title>Blog Post 1</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-
-&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
-
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
-
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;class A &amp;lt; B; def self.create(object = User)
-class Zebra; def inspect; &quot;X#{2 + self.object_id}&quot;
-
-module ABC::DEF
-  include Comparable
-
-  # @param test
-  # @return [String] nothing
-  def foo(test)
-    Thread.new do |blockvar|
-      ABC::DEF.reverse(:a_symbol, :&#39;a symbol&#39;, :&amp;lt;=&amp;gt;, &#39;test&#39;)
-    end.join
-  end
-
-  # A really really long line than goes on and on and on, continuing outside of the  bounds of the code box
-
-  def [](index) self[index] end
-  def ==(other) other == self end
-end
-
-anIdentifier = an_identifier
-Constant = 1
-render action: :new
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;pre {
-  border: solid 1px #ddd;
-  background: #fff;
-  padding: 0;
-  line-height: 23px;
-  margin-bottom: 30px;
-  white-space: pre;
-  overflow-x: auto;
-  word-break: inherit;
-  word-wrap: inherit;
-}
-
-.highlight td {
-    padding: 8px 15px;
-}
-
-.gl {
-  background: #fafafa;
-  border-right: 1px solid #ddd;
-  color: #999;
-
-  /* Stop line numbers being visually selected */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;import re
-for test_string in [&#39;555-1212&#39;, &#39;ILL-EGAL&#39;]:
-    if re.match(r&#39;^\d{3}-\d{4}$&#39;, test_string):
-        print test_string, &#39;is a valid US local phone number&#39;
-    else:
-        print test_string, &#39;rejected&#39;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-python&quot;&gt;prices = {&#39;apple&#39;: 0.40, &#39;banana&#39;: 0.50}
-my_purchase = {
-    &#39;apple&#39;: 1,
-    &#39;banana&#39;: 6}
-grocery_bill = sum(prices[fruit] * my_purchase[fruit]
-                   for fruit in my_purchase)
-print &#39;I owe the grocer $%.2f&#39; % grocery_bill
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;window.addEventListener(&quot;keydown&quot;, moveSnake, false);
-var game_over = false;
-var snake = new Array(4);
-var snakeLen = 4;
-var dir = &quot;right&quot;;
-var food = &quot;&quot;;
-var level = new Array();
-var total_height = 640;
-var total_width = 640;
-var lvl_width = 20;
-var lvl_height = 20;
-var speed = 16;
-
-snakeHeadImage = new Image();
-snakeHeadImage.src = &quot;resources/head.png&quot;;
-snakeBodyImage = new Image();
-snakeBodyImage.src = &quot;resources/body.png&quot;;
-snakeTailImage = new Image();
-snakeTailImage.src = &quot;resources/tail.png&quot;;
-
-//food
-foodImage = new Image();
-foodImage.src = &quot;resources/food.png&quot;;
-
-create_snake();
-create_food();
-
-for(i = 0; i &amp;lt; lvl_width; i++)
-{
-    level[i] = new Array(lvl_height);
-    for(var ii = 0; ii &amp;lt; lvl_height; ii++)
-    {
-        level[i][ii] = -1;
-    }
-}
-
-window.requestAnimFrame = (function(callback)
-{
-    return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame ||
-    function(callback)
-    {
-        window.setTimeout(callback, 1000);
-    };
-})();
-
-
-var the_date = new Date();
-var test1 = the_date.getTime();
-var stamp = the_date.getTime() + 250;
-
-function animate()
-{
-    the_date = new Date();
-    test1 = the_date.getTime();
-    if(stamp &amp;lt;= test1)
-    {
-        move_snake();
-        the_date = new Date();
-        stamp = the_date.getTime() + 250;
-    }
-    if(game_over == false)
-    {
-        // clear
-        context.clearRect(0, 0, canvas.width, canvas.height);
-        displayText(&quot;Score: &quot; + (snakeLen - 4));
-        display();
-    }
-    else
-    {
-        displayText(&quot;You so Sux.. Game Over homie&quot;);
-    }
-    //context.drawImage(aniblock, aniblock_x, aniblock_y);
-
-    // request new frame
-    requestAnimFrame(function()
-    {
-      animate();
-    });
-}
-
-function displayText(what)
-{
-    context.font = &quot;30px Arial&quot;;
-    context.fillText(what, 50, 50);
-}
-
-function checkSnakeCollide()
-{
-    if( snake[0].xx == food.xx &amp;amp;&amp;amp; snake[0].yy == food.yy )
-    {
-        create_food();
-        return true;
-    }
-    else
-    {
-        //if head moving right
-        if(dir == &quot;right&quot;)
-        {
-            if(snake[0].xx &amp;gt; lvl_width - 1)
-            {
-                game_over = true;
-            }
-        }
-        else if(dir == &quot;left&quot;)
-        {
-            if(snake[0].xx &amp;lt; 0)
-            {
-                game_over = true;
-            }
-        }
-        else if(dir == &quot;up&quot;)
-        {
-            if(snake[0].yy &amp;lt;= -1)
-            {
-                game_over = true;
-            }
-        }
-        else if(dir = &quot;down&quot;)
-        {
-            if(snake[0].yy &amp;gt;= lvl_height)
-            {
-                game_over = true;
-            }
-        }
-
-        for(i = 2; i &amp;lt; snakeLen; i++)
-        {
-            if( (snake[0].xx == snake[i].xx) &amp;amp;&amp;amp; (snake[0].yy == snake[i].yy) )
-            {
-                game_over = true;
-                break;
-            }
-        }
-
-        return false;
-    }
-}
-
-setTimeout(function() {
-animate();
-}, 1000);
-
-function moveSnake(e)
-{
-    switch(e.keyCode)
-    {
-        case 37:
-            if(dir != &quot;right&quot;)
-            {
-                dir = &quot;left&quot;;
-            }
-            break;
-        case 38:
-            if(dir != &quot;down&quot;)
-            {
-                dir = &quot;up&quot;;
-            }
-            break;
-        case 39:
-            if(dir != &quot;left&quot;)
-            {
-                dir = &quot;right&quot;;
-            }
-            break;
-        case 40:
-            if(dir != &quot;up&quot;)
-            {
-                dir = &quot;down&quot;;
-            }
-            break;
-    }
-}
-
-function checkAllowMove(x, y)
-{
-    if(x &amp;lt; 32)
-    {
-        var x_index = 0;
-    }
-    else
-    {
-        var x_index = Math.round(x / 32);
-    }
-
-    if(y &amp;lt; 32)
-    {
-        var y_index = 19;
-    }
-    else
-    {
-        var y_index = (total_height / 32) - Math.round(y / 32);
-    }
-
-    if(level[x_index][y_index] == -1)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-}
-
-function create_food()
-{
-    var x = 0;
-    var y = 0;
-    var recreate = false;
-    do
-    {
-        recreate = false;
-        x =  Math.floor((Math.random() * (lvl_width-1)));
-        y =  Math.floor((Math.random() * (lvl_height-1)));
-
-        for(i = 0; i &amp;lt; snakeLen; i++)
-        {
-            if( (snake[i].xx == x) &amp;amp;&amp;amp; (snake[i].yy == y) )
-            {
-                recreate = true;
-                break;
-            }
-        }
-    }while(recreate == true);
-    food = {xx: x, yy: y};
-}
-
-function create_snake()
-{
-    //var x =  Math.floor((Math.random() * (lvl_width-1)));
-    //var y =  Math.floor((Math.random() * (lvl_height-1)));
-    snake[0] = {xx: 4, yy: 1};
-    snake[1] = {xx: 3, yy: 1};
-    snake[2] = {xx: 2, yy: 1};
-    snake[3] = {xx: 1, yy: 1};
-    dir = &quot;right&quot;;
-}
-
-function move_snake()
-{
-    var temp_x = 0;
-    var temp_y = 0;
-    var temp_xx = 0;
-    var temp_yy = 0;
-    var swap = true;
-
-    //move snake forward
-    for(var ii = 0; ii &amp;lt; snakeLen; ii++)
-    {
-        if(ii == 0)
-        {
-            temp_x = snake[ii].xx;
-            temp_y = snake[ii].yy;
-
-            //if head moving right
-            if(dir == &quot;right&quot;)
-            {
-                snake[0] = {xx: (snake[0].xx + 1), yy: snake[0].yy};
-            }
-            else if(dir == &quot;left&quot;)
-            {
-                snake[0] = {xx: (snake[0].xx - 1), yy: snake[0].yy};
-            }
-            else if(dir == &quot;up&quot;)
-            {
-                snake[0] = {xx: snake[0].xx, yy: (snake[0].yy - 1)};
-            }
-            else if(dir = &quot;down&quot;)
-            {
-                snake[0] = {xx: snake[0].xx, yy: (snake[0].yy + 1)};
-            }
-
-            if(checkSnakeCollide())
-            {
-                snake.push({xx: snake[(snake.length-1)].xx, yy: snake[(snake.length-1)].yy});
-                snakeLen++;
-            }
-        }
-        else
-        {
-            if(swap == true)
-            {
-                temp_xx = snake[ii].xx;
-                temp_yy = snake[ii].yy;
-                snake[ii] = {xx: temp_x, yy: temp_y};
-
-                swap = false;
-            }
-            else
-            {
-                temp_x = snake[ii].xx;
-                temp_y = snake[ii].yy;
-                snake[ii] = {xx: temp_xx, yy: temp_yy};
-                swap = true;
-            }
-        }
-    }
-
-}
-
-function display()
-{
-
-    for(var i = 0; i &amp;lt; snakeLen; i++)
-    {
-        if(i == 0)
-        {
-            switch (dir)
-            {
-                case &quot;left&quot;:
-                    context.drawImage(snakeHeadImage, (snake[i].xx * 32), (snake[i].yy * 32) );
-                    break;
-                case &quot;right&quot;:
-                    drawRotatedImage(snakeHeadImage,(snake[i].xx * 32), (snake[i].yy * 32), 180);
-                    break;
-                case &quot;up&quot;:
-                    drawRotatedImage(snakeHeadImage,(snake[i].xx * 32), (snake[i].yy * 32), 90);
-                    break;
-                case &quot;down&quot;:
-                    drawRotatedImage(snakeHeadImage,(snake[i].xx * 32), (snake[i].yy * 32), 270);
-                    break;
-            }
-        }
-        else if(i == (snakeLen - 1) )
-        {
-            //following left
-            if(snake[i].xx &amp;gt; snake[i-1].xx)
-            {
-                context.drawImage(snakeTailImage, (snake[i].xx * 32), (snake[i].yy * 32) );
-            }
-            //following right
-            else if(snake[i].xx &amp;lt; snake[i-1].xx)
-            {
-                drawRotatedImage(snakeTailImage,(snake[i].xx * 32), (snake[i].yy * 32), 180);
-            }
-            //following up
-            else if(snake[i].yy &amp;gt; snake[i-1].yy)
-            {
-                drawRotatedImage(snakeTailImage,(snake[i].xx * 32), (snake[i].yy * 32), 90);
-            }
-            //following down
-            else if(snake[i].yy &amp;lt; snake[i-1].yy)
-            {
-                drawRotatedImage(snakeTailImage,(snake[i].xx * 32), (snake[i].yy * 32), 270);
-            }
-        }
-        else
-        {
-            context.drawImage(snakeBodyImage, (snake[i].xx * 32), (snake[i].yy * 32) );
-        }
-
-    }
-
-    context.drawImage(foodImage, (food.xx * 32), (food.yy * 32) );
-
-}
-
-function drawRotatedImage(image, x, y, angle)
-{
-    var TO_RADIANS = Math.PI/180;
-
-    // save the current co-ordinate system
-    // before we screw with it
-    context.save();
-
-    // move to the middle of where we want to draw our image
-    context.translate(x, y);
-
-    // rotate around that point, converting our
-    // angle from degrees to radians
-    context.rotate(angle * TO_RADIANS);
-
-    // draw it up and to the left by half the width
-    // and height of the image
-    context.drawImage(image, -(image.width/2), -(image.height/2));
-
-    // and restore the co-ords to how they were when we began
-    context.restore();
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
-
-</description>
-        <pubDate>Sat, 14 Mar 2015 21:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/blog-post-1</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/blog-post-1</guid>
-        
-        <category>foo1</category>
-        
-        <category>foo2</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Blog Post 2</title>
+        <title>Circus Test</title>
         <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
@@ -757,21 +302,21 @@ print_hi(&#39;Tom&#39;)
 &lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
 
 </description>
-        <pubDate>Fri, 13 Mar 2015 21:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/blog-post-2</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/blog-post-2</guid>
+        <pubDate>Fri, 13 Feb 2015 21:14:35 +1100</pubDate>
+        <link>http://coopcoding.com/projects/circus</link>
+        <guid isPermaLink="true">http://coopcoding.com/projects/circus</guid>
         
         <category>foo1</category>
         
         <category>foo2</category>
         
         
-        <category>blog</category>
+        <category>projects</category>
         
       </item>
     
       <item>
-        <title>Blog Post 3</title>
+        <title>Game</title>
         <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
@@ -788,21 +333,21 @@ print_hi(&#39;Tom&#39;)
 &lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
 
 </description>
-        <pubDate>Thu, 12 Mar 2015 21:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/blog-post-3</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/blog-post-3</guid>
+        <pubDate>Thu, 12 Feb 2015 21:14:35 +1100</pubDate>
+        <link>http://coopcoding.com/projects/game</link>
+        <guid isPermaLink="true">http://coopcoding.com/projects/game</guid>
         
         <category>foo1</category>
         
         <category>foo2</category>
         
         
-        <category>blog</category>
+        <category>projects</category>
         
       </item>
     
       <item>
-        <title>Blog Post 4</title>
+        <title>Safe</title>
         <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
@@ -819,16 +364,38 @@ print_hi(&#39;Tom&#39;)
 &lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
 
 </description>
-        <pubDate>Wed, 11 Mar 2015 21:14:35 +1100</pubDate>
-        <link>http://coopcoding.com/blog/blog-post-4</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/blog-post-4</guid>
+        <pubDate>Wed, 11 Feb 2015 21:14:35 +1100</pubDate>
+        <link>http://coopcoding.com/projects/safe</link>
+        <guid isPermaLink="true">http://coopcoding.com/projects/safe</guid>
         
         <category>foo1</category>
         
         <category>foo2</category>
         
         
-        <category>blog</category>
+        <category>projects</category>
+        
+      </item>
+    
+      <item>
+        <title>Submarine</title>
+        <description>&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 10 Feb 2015 21:14:35 +1100</pubDate>
+        <link>http://coopcoding.com/projects/submarine</link>
+        <guid isPermaLink="true">http://coopcoding.com/projects/submarine</guid>
+        
+        <category>albert</category>
+        
+        <category>foo2</category>
+        
+        
+        <category>projects</category>
         
       </item>
     
