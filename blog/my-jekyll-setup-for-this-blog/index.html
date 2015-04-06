@@ -279,7 +279,14 @@ title: Coop.Coding Blog
     &lt;/header&gt;
 
     &lt;section class="blog-post-section"&gt;
-      &lt;p&gt;Then in my _config.yml I put the following:&lt;br /&gt;
+      &lt;pre class="line-numbers"&gt;&lt;code class="language-ruby"&gt;def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=&amp;gt; prints 'Hi, Tom' to STDOUT.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then in my _config.yml I put the following:&lt;br /&gt;
 &lt;code&gt;yaml
 permalink: /:categories/:title
 defaults:
