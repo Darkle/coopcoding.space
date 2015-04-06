@@ -82,6 +82,10 @@
       </li>
       
       <li>
+        <a href="/blog/test">Test</a>
+      </li>
+      
+      <li>
         <a href="/blog/blog-test-post">Blog Test Post</a>
       </li>
       
@@ -140,6 +144,51 @@
           <a href="http://coopcoding.com/tag/Alfred">Alfred</a>
           <!-- <span class="tag-description">Find articles tagged &quot;foo1&quot;</span> -->
         </li>
+      
+      </ul>
+    </footer>
+  </article>
+  
+  <article>
+    <header>
+      <h2>
+        <a class="post-link-header" href="/blog/test">Test</a>
+      </h2>
+      <span class="post-date">Apr 6, 2015</span>
+    </header>
+
+    <section class="blog-post-section">
+      <p>Then in my _config.yml I put the following:<br />
+<code>yaml
+permalink: /:categories/:title
+defaults:
+  -
+    scope:
+      path: "blog"
+      type: "posts"
+    values:
+      layout: "post"
+      category: "blog"
+  -
+    scope:
+      path: "projects"
+      type: "posts"
+    values:
+      layout: "project"
+      category: "projects"
+</code></p>
+
+
+      <div class="gradient-hide"></div>
+
+    </section>
+
+    <section class="blog-post-section">
+      <a class="full-article-link" href="/blog/test">Read Full Article</a>
+    </section>
+
+    <footer>
+      <ul class="tags">
       
       </ul>
     </footer>

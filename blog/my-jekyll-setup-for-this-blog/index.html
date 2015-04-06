@@ -86,6 +86,10 @@
       </li>
       
       <li>
+        <a href="/blog/test">Test</a>
+      </li>
+      
+      <li>
         <a href="/blog/blog-test-post">Blog Test Post</a>
       </li>
       
@@ -243,6 +247,51 @@ title: Coop.Coding Blog
           &lt;a href="http://coopcoding.com/tag/Alfred"&gt;Alfred&lt;/a&gt;
           &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
         &lt;/li&gt;
+      
+      &lt;/ul&gt;
+    &lt;/footer&gt;
+  &lt;/article&gt;
+  
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h2&gt;
+        &lt;a class="post-link-header" href="/blog/test"&gt;Test&lt;/a&gt;
+      &lt;/h2&gt;
+      &lt;span class="post-date"&gt;Apr 6, 2015&lt;/span&gt;
+    &lt;/header&gt;
+
+    &lt;section class="blog-post-section"&gt;
+      &lt;p&gt;Then in my _config.yml I put the following:&lt;br /&gt;
+&lt;code&gt;yaml
+permalink: /:categories/:title
+defaults:
+  -
+    scope:
+      path: "blog"
+      type: "posts"
+    values:
+      layout: "post"
+      category: "blog"
+  -
+    scope:
+      path: "projects"
+      type: "posts"
+    values:
+      layout: "project"
+      category: "projects"
+&lt;/code&gt;&lt;/p&gt;
+
+
+      &lt;div class="gradient-hide"&gt;&lt;/div&gt;
+
+    &lt;/section&gt;
+
+    &lt;section class="blog-post-section"&gt;
+      &lt;a class="full-article-link" href="/blog/test"&gt;Read Full Article&lt;/a&gt;
+    &lt;/section&gt;
+
+    &lt;footer&gt;
+      &lt;ul class="tags"&gt;
       
       &lt;/ul&gt;
     &lt;/footer&gt;
