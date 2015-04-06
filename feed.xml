@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Apr 2015 18:22:52 +1000</pubDate>
-    <lastBuildDate>Mon, 06 Apr 2015 18:22:52 +1000</lastBuildDate>
+    <pubDate>Mon, 06 Apr 2015 21:50:09 +1000</pubDate>
+    <lastBuildDate>Mon, 06 Apr 2015 21:50:09 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -17,7 +17,7 @@
 
 &lt;p&gt;For the site structure, I wanted it to be &lt;code&gt;coopcoding.com/projects/projectname/&lt;/code&gt; and &lt;code&gt;coopcoding.com/blog/blog post title/&lt;/code&gt;. This turned out to be a bit more difficult than I first envisioned. The &lt;code&gt;coopcoding.com/blog/blog post title/&lt;/code&gt; was fairly easy to set up, but &lt;code&gt;coopcoding.com/projects/projectname/&lt;/code&gt; took a bit of work.&lt;/p&gt;
 
-&lt;p&gt;At first I thought I would use the &lt;a href=&quot;http://jekyllrb.com/docs/pages/&quot;&gt;default&lt;/a&gt; way of creating pages and just stick them in the &lt;code&gt;coopcoding.com/projects/&lt;/code&gt; folder, but unfortunately there is currently (jekyll 2.5.3) no way to iterate through all the pages in a directory.&lt;/p&gt;
+&lt;p&gt;At first I thought I would use the &lt;a href=&quot;http://jekyllrb.com/docs/pages/&quot;&gt;default&lt;/a&gt; way of creating pages and just stick them in the &lt;code&gt;coopcoding.com/projects/&lt;/code&gt; folder, but unfortunately there is currently (&lt;sub&gt;&lt;sup&gt;jekyll 2.5.3&lt;/sup&gt;&lt;/sub&gt;) no way to iterate through all the pages in a directory. You can use collections or add data to the data directory, but these won’t really work with the default pagination.&lt;/p&gt;
 
 &lt;p&gt;What I ended up doing was creating only blog posts and giving them either a “blog” category or a “projects” category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:&lt;/p&gt;
 
@@ -141,141 +141,6 @@ title: Coop.Coding Blog
           &amp;lt;a href=&quot;http://coopcoding.com/tag/Alfred&quot;&amp;gt;Alfred&amp;lt;/a&amp;gt;
           &amp;lt;!-- &amp;lt;span class=&quot;tag-description&quot;&amp;gt;Find articles tagged &amp;amp;quot;foo1&amp;amp;quot;&amp;lt;/span&amp;gt; --&amp;gt;
         &amp;lt;/li&amp;gt;
-      
-      &amp;lt;/ul&amp;gt;
-    &amp;lt;/footer&amp;gt;
-  &amp;lt;/article&amp;gt;
-  
-  &amp;lt;article&amp;gt;
-    &amp;lt;header&amp;gt;
-      &amp;lt;h2&amp;gt;
-        &amp;lt;a class=&quot;post-link-header&quot; href=&quot;/blog/testerama&quot;&amp;gt;Testerama&amp;lt;/a&amp;gt;
-      &amp;lt;/h2&amp;gt;
-      &amp;lt;span class=&quot;post-date&quot;&amp;gt;Apr 6, 2015&amp;lt;/span&amp;gt;
-    &amp;lt;/header&amp;gt;
-
-    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
-      
-
-
-      &amp;lt;div class=&quot;gradient-hide&quot;&amp;gt;&amp;lt;/div&amp;gt;
-
-    &amp;lt;/section&amp;gt;
-
-    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
-      &amp;lt;a class=&quot;full-article-link&quot; href=&quot;/blog/testerama&quot;&amp;gt;Read Full Article&amp;lt;/a&amp;gt;
-    &amp;lt;/section&amp;gt;
-
-    &amp;lt;footer&amp;gt;
-      &amp;lt;ul class=&quot;tags&quot;&amp;gt;
-      
-      &amp;lt;/ul&amp;gt;
-    &amp;lt;/footer&amp;gt;
-  &amp;lt;/article&amp;gt;
-  
-  &amp;lt;article&amp;gt;
-    &amp;lt;header&amp;gt;
-      &amp;lt;h2&amp;gt;
-        &amp;lt;a class=&quot;post-link-header&quot; href=&quot;/blog/tesrter3443&quot;&amp;gt;Tesrter3443&amp;lt;/a&amp;gt;
-      &amp;lt;/h2&amp;gt;
-      &amp;lt;span class=&quot;post-date&quot;&amp;gt;Apr 6, 2015&amp;lt;/span&amp;gt;
-    &amp;lt;/header&amp;gt;
-
-    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
-      
-
-
-      &amp;lt;div class=&quot;gradient-hide&quot;&amp;gt;&amp;lt;/div&amp;gt;
-
-    &amp;lt;/section&amp;gt;
-
-    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
-      &amp;lt;a class=&quot;full-article-link&quot; href=&quot;/blog/tesrter3443&quot;&amp;gt;Read Full Article&amp;lt;/a&amp;gt;
-    &amp;lt;/section&amp;gt;
-
-    &amp;lt;footer&amp;gt;
-      &amp;lt;ul class=&quot;tags&quot;&amp;gt;
-      
-      &amp;lt;/ul&amp;gt;
-    &amp;lt;/footer&amp;gt;
-  &amp;lt;/article&amp;gt;
-  
-  &amp;lt;article&amp;gt;
-    &amp;lt;header&amp;gt;
-      &amp;lt;h2&amp;gt;
-        &amp;lt;a class=&quot;post-link-header&quot; href=&quot;/blog/sfdij094r3&quot;&amp;gt;Sfdij094r3&amp;lt;/a&amp;gt;
-      &amp;lt;/h2&amp;gt;
-      &amp;lt;span class=&quot;post-date&quot;&amp;gt;Apr 6, 2015&amp;lt;/span&amp;gt;
-    &amp;lt;/header&amp;gt;
-
-    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
-      
-
-
-      &amp;lt;div class=&quot;gradient-hide&quot;&amp;gt;&amp;lt;/div&amp;gt;
-
-    &amp;lt;/section&amp;gt;
-
-    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
-      &amp;lt;a class=&quot;full-article-link&quot; href=&quot;/blog/sfdij094r3&quot;&amp;gt;Read Full Article&amp;lt;/a&amp;gt;
-    &amp;lt;/section&amp;gt;
-
-    &amp;lt;footer&amp;gt;
-      &amp;lt;ul class=&quot;tags&quot;&amp;gt;
-      
-      &amp;lt;/ul&amp;gt;
-    &amp;lt;/footer&amp;gt;
-  &amp;lt;/article&amp;gt;
-  
-  &amp;lt;article&amp;gt;
-    &amp;lt;header&amp;gt;
-      &amp;lt;h2&amp;gt;
-        &amp;lt;a class=&quot;post-link-header&quot; href=&quot;/blog/fae3434g&quot;&amp;gt;Fae3434g&amp;lt;/a&amp;gt;
-      &amp;lt;/h2&amp;gt;
-      &amp;lt;span class=&quot;post-date&quot;&amp;gt;Apr 6, 2015&amp;lt;/span&amp;gt;
-    &amp;lt;/header&amp;gt;
-
-    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
-      
-
-
-      &amp;lt;div class=&quot;gradient-hide&quot;&amp;gt;&amp;lt;/div&amp;gt;
-
-    &amp;lt;/section&amp;gt;
-
-    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
-      &amp;lt;a class=&quot;full-article-link&quot; href=&quot;/blog/fae3434g&quot;&amp;gt;Read Full Article&amp;lt;/a&amp;gt;
-    &amp;lt;/section&amp;gt;
-
-    &amp;lt;footer&amp;gt;
-      &amp;lt;ul class=&quot;tags&quot;&amp;gt;
-      
-      &amp;lt;/ul&amp;gt;
-    &amp;lt;/footer&amp;gt;
-  &amp;lt;/article&amp;gt;
-  
-  &amp;lt;article&amp;gt;
-    &amp;lt;header&amp;gt;
-      &amp;lt;h2&amp;gt;
-        &amp;lt;a class=&quot;post-link-header&quot; href=&quot;/blog/asdsdf32324&quot;&amp;gt;Asdsdf32324&amp;lt;/a&amp;gt;
-      &amp;lt;/h2&amp;gt;
-      &amp;lt;span class=&quot;post-date&quot;&amp;gt;Apr 6, 2015&amp;lt;/span&amp;gt;
-    &amp;lt;/header&amp;gt;
-
-    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
-      
-
-
-      &amp;lt;div class=&quot;gradient-hide&quot;&amp;gt;&amp;lt;/div&amp;gt;
-
-    &amp;lt;/section&amp;gt;
-
-    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
-      &amp;lt;a class=&quot;full-article-link&quot; href=&quot;/blog/asdsdf32324&quot;&amp;gt;Read Full Article&amp;lt;/a&amp;gt;
-    &amp;lt;/section&amp;gt;
-
-    &amp;lt;footer&amp;gt;
-      &amp;lt;ul class=&quot;tags&quot;&amp;gt;
       
       &amp;lt;/ul&amp;gt;
     &amp;lt;/footer&amp;gt;
@@ -474,6 +339,9 @@ JEKYLL_BLOG_DIRECTORY=&quot;/Users/username/Coding/Projects/coopcoding.com/jekyl
 cd $JEKYLL_BLOG_DIRECTORY
 git add .
 git commit -a -m &quot;Post $3-$2&quot;
+#check if there were any new files made on github
+git pull --rebase
+#push to github
 git push origin master
 
 terminal-notifier -title &quot;Git Push for CoopCoding Jekyll Files Done&quot; -message &quot;&quot; -open &quot;https://github.com/Darkle/coopcoding.com_jekyll_version&quot;
@@ -525,7 +393,7 @@ fi
 &lt;p&gt;Originally I was using &lt;a href=&quot;http://www.alfredapp.com/&quot;&gt;this Markdown app called Whiskey&lt;/a&gt;, but it’s still in beta and I had a few issues with it crashing when posting complex code blocks. I had a search around for a replacement Markdown editor and stumbled upon &lt;a href=&quot;https://stackedit.io&quot;&gt;https://stackedit.io&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Stack Edit is able to open, edit and save/sync with dropbox, so since my site repository is already in my dropbox folder, I can just use Stack Edit to edit markdown files.  It’s pretty awesome, here’s a screenshot of me typing this post: &lt;br /&gt;
-&lt;a href=&quot;/assets/images/blogpostimages/StackEdit-editor-ss.png&quot;&gt;&lt;img src=&quot;/assets/images/blogpostimages/StackEdit-editor-ss.png&quot; alt=&quot;Stack Edit Screen Shot&quot; title=&quot;&quot; /&gt;&lt;/a&gt;.(notice the auto code highlighting in the preview 👀)&lt;/p&gt;
+&lt;a href=&quot;/assets/images/blogpostimages/StackEdit-editor-ss.png&quot;&gt;&lt;img src=&quot;/assets/images/blogpostimages/StackEdit-editor-ss.png&quot; alt=&quot;Stack Edit Screen Shot&quot; title=&quot;&quot; /&gt;&lt;/a&gt;(notice the auto code highlighting in the preview 👀)&lt;/p&gt;
 
 &lt;p&gt;So I changed the bash script for both the new blog post and new project post so that instead of opening the Whiskey markdown editor, it opens https://stackedit.io in the default browser.&lt;/p&gt;
 
@@ -547,71 +415,6 @@ open https://stackedit.io/editor
         <category>Jekyll</category>
         
         <category>Alfred</category>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Testerama</title>
-        <description>
-</description>
-        <pubDate>Mon, 06 Apr 2015 00:00:00 +1000</pubDate>
-        <link>http://coopcoding.com/blog/testerama</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/testerama</guid>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Tesrter3443</title>
-        <description>
-</description>
-        <pubDate>Mon, 06 Apr 2015 00:00:00 +1000</pubDate>
-        <link>http://coopcoding.com/blog/tesrter3443</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/tesrter3443</guid>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Sfdij094r3</title>
-        <description>
-</description>
-        <pubDate>Mon, 06 Apr 2015 00:00:00 +1000</pubDate>
-        <link>http://coopcoding.com/blog/sfdij094r3</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/sfdij094r3</guid>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Fae3434g</title>
-        <description>
-</description>
-        <pubDate>Mon, 06 Apr 2015 00:00:00 +1000</pubDate>
-        <link>http://coopcoding.com/blog/fae3434g</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/fae3434g</guid>
-        
-        
-        <category>blog</category>
-        
-      </item>
-    
-      <item>
-        <title>Asdsdf32324</title>
-        <description>
-</description>
-        <pubDate>Mon, 06 Apr 2015 00:00:00 +1000</pubDate>
-        <link>http://coopcoding.com/blog/asdsdf32324</link>
-        <guid isPermaLink="true">http://coopcoding.com/blog/asdsdf32324</guid>
         
         
         <category>blog</category>
