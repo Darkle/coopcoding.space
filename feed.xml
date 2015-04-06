@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Apr 2015 16:17:48 +1000</pubDate>
-    <lastBuildDate>Mon, 06 Apr 2015 16:17:48 +1000</lastBuildDate>
+    <pubDate>Mon, 06 Apr 2015 16:19:13 +1000</pubDate>
+    <lastBuildDate>Mon, 06 Apr 2015 16:19:13 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -265,9 +265,11 @@ print_hi(&#39;Tom&#39;)
 &lt;p&gt;to&lt;/p&gt;
 
 &lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;el.attr[&#39;class&#39;] = &quot;language-#{lang}&quot; unless lang.empty?
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;el.attr[&#39;class&#39;] = &quot;language-#{lang} line-numbers&quot; unless lang.empty?
+
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Now every code block has the class of &lt;code&gt;line-numbers&lt;/code&gt; added to it as well. 😀&lt;/p&gt;
