@@ -123,9 +123,9 @@
 
 <p>At first I thought I would use the <a href="http://jekyllrb.com/docs/pages/">default</a> way of creating pages and just stick them in the <code>coopcoding.com/projects/</code> folder, but unfortunately there is currently (jekyll 2.5.3) no way to iterate through all the pages in a directory.</p>
 
-<p>What I ended up doing was creating only blog posts and giving them either a “blog” category or a “projects” category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:<br />
-<code>yaml
----
+<p>What I ended up doing was creating only blog posts and giving them either a “blog” category or a “projects” category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:</p>
+
+<pre class="line-numbers"><code class="language-yaml">---
 title:  "My Chrome Extension Project"
 date:   2015-02-15 10:14:35
 tags:
@@ -133,8 +133,8 @@ tags:
   -Browser
 summary: "This is the summary for the chrome extension project"
 ---
-</code> <br />
-Then in my _config.yml I put the following:<br />
+</code></pre>
+<p>Then in my _config.yml I put the following:<br />
 <code>yaml
 permalink: /:categories/:title
 defaults:
@@ -162,42 +162,43 @@ The <code>permalink: /:categories/:title</code> tells jekyll to spit out all the
 and a screenshot of Jekyll’s output folder structure:<br />
 <img src="/assets/images/blogpostimages/jek-build-folder-structure.png" alt="Jekyll Output Folder Structure" /></p>
 
-<p>Here is the html for the index.html in the <code>/projects/</code> folder:<br />
-``` html<br />
-—<br />
-layout: default<br />
-cssBodyClass: projects-page<br />
-title: Coop.Coding Projects<br />
-—</p>
+<p>Here is the html for the index.html in the <code>/projects/</code> folder:</p>
 
-<section class="projects">
-
-  
-  <a href="/projects/cabin" class="project-listing">
-      <div class="img-wrapper">
-        <img class="project-screenshot-img" src="http://coopcoding.com/assets/images/projectbranding/cabin.jpg" alt=" branding image" />
-      </div>
-      <svg class="project-screenshot-svg">
-          <image xlink:href="http://coopcoding.com/assets/images/projectbranding/cabin.jpg" x="0" y="-62" width="100%" height="174" />
-      </svg>
-
-      <div class="project-details">
-
-        <h2 class="project-title">Cabin</h2>
-
-        <p class="project-description">This is the summary for the cabin project</p>
-
-      </div>
-
-  </a>
-  
-
-</section>
-<pre><code>You can see I'm looping over the `site.categories.projects` and listing each post in the "projects" category. 
-
-It's pretty much the same for the html in the index.html in the `/blog/` folder:
-``` html
+<pre class="line-numbers"><code class="language-html">---
+layout: default
+cssBodyClass: projects-page
+title: Coop.Coding Projects
 ---
+
+&lt;section class="projects"&gt;
+
+  
+  &lt;a href="/projects/cabin" class="project-listing"&gt;
+      &lt;div class="img-wrapper"&gt;
+        &lt;img class="project-screenshot-img" src="http://coopcoding.com/assets/images/projectbranding/cabin.jpg" alt=" branding image"&gt;
+      &lt;/div&gt;
+      &lt;svg class="project-screenshot-svg"&gt;
+          &lt;image xlink:href="http://coopcoding.com/assets/images/projectbranding/cabin.jpg" x="0" y="-62" width="100%" height="174"/&gt;
+      &lt;/svg&gt;
+
+      &lt;div class="project-details"&gt;
+
+        &lt;h2 class="project-title"&gt;Cabin&lt;/h2&gt;
+
+        &lt;p class="project-description"&gt;This is the summary for the cabin project&lt;/p&gt;
+
+      &lt;/div&gt;
+
+  &lt;/a&gt;
+  
+
+&lt;/section&gt;
+</code></pre>
+<p>You can see I’m looping over the <code>site.categories.projects</code> and listing each post in the “projects” category.</p>
+
+<p>It’s pretty much the same for the html in the index.html in the <code>/blog/</code> folder:</p>
+
+<pre class="line-numbers"><code class="language-html">---
 layout: default
 cssBodyClass: blog-posts
 title: Coop.Coding Blog
@@ -290,9 +291,9 @@ title: Coop.Coding Blog
 <p>For generating “tag” pages, I used the code and process listed <a href="http://charliepark.org/tags-in-jekyll/">here</a>. You can see the tag pages output in the screenshot of Jekyll’s output folder structure above.</p>
 
 <h3 id="blog--project-layouts">Blog &amp; Project Layouts</h3>
-<p>Obviously I wanted to have different layouts for the blog post and project posts, so I used the following in my <code>_config.yml</code>:<br />
-<code>yaml
-defaults:
+<p>Obviously I wanted to have different layouts for the blog post and project posts, so I used the following in my <code>_config.yml</code>:</p>
+
+<pre class="line-numbers"><code class="language-yaml">defaults:
   -
     scope:
       path: "blog"
@@ -307,8 +308,8 @@ defaults:
     values:
       layout: "project"
       category: "projects"
-</code><br />
-This tells Jekyll that for posts in that end up in the path <code>coopcoding.com/blog/</code> and are of the type “posts” that they are all in the category of “blog” and should use the layout “post”. The layout of “post” corresponds to the <code>post.html</code> in the <code>_layouts directory</code>. It then tells Jekyll that for posts in that end up in the path <code>coopcoding.com/projects/</code> and are of the type “posts” that they are all in the category of “projects” and should use the layout “project”. The layout of “post” corresponds to the <code>project.html</code> in the <code>_layouts directory</code>. You can check out the html for those files here: https://github.com/Darkle/coopcoding.com_jekyll_version/tree/master/_layouts</p>
+</code></pre>
+<p>This tells Jekyll that for posts in that end up in the path <code>coopcoding.com/blog/</code> and are of the type “posts” that they are all in the category of “blog” and should use the layout “post”. The layout of “post” corresponds to the <code>post.html</code> in the <code>_layouts directory</code>. It then tells Jekyll that for posts in that end up in the path <code>coopcoding.com/projects/</code> and are of the type “posts” that they are all in the category of “projects” and should use the layout “project”. The layout of “post” corresponds to the <code>project.html</code> in the <code>_layouts directory</code>. You can check out the html for those files here: https://github.com/Darkle/coopcoding.com_jekyll_version/tree/master/_layouts</p>
 
 <p>(you can also see my complete <code>_config.yml</code> here: https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml)</p>
 
