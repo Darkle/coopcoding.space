@@ -117,236 +117,227 @@
     <section class="post-body">
     <p>So I wanted to set up a coding blog I decided on using <a href="http://jekyllrb.com/">Jekyll</a> because it’s relatively easy to set up and there’s tons of good info &amp; tutorials on the web. I briefly played around with <a href="http://gohugo.io/">Hugo</a>, and although the documentation on the site is really good, I didn’t find much in the way of tutorial and articles from 3rd-party sites, so I stuck with Jekyll.</p>
 
-<h3 id="blog-structure">Blog Structure</h3>
+<h3>Blog Structure</h3>
 
 <p>For the site structure, I wanted it to be <code>coopcoding.com/projects/projectname/</code> and <code>coopcoding.com/blog/blog post title/</code>. This turned out to be a bit more difficult than I first envisioned. The <code>coopcoding.com/blog/blog post title/</code> was fairly easy to set up, but <code>coopcoding.com/projects/projectname/</code> took a bit of work.</p>
 
 <p>At first I thought I would use the <a href="http://jekyllrb.com/docs/pages/">default</a> way of creating pages and just stick them in the <code>coopcoding.com/projects/</code> folder, but unfortunately there is currently (jekyll 2.5.3) no way to iterate through all the pages in a directory.</p>
 
-<p>What I ended up doing was creating only blog posts and giving them either a “blog” category or a “projects” category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:</p>
-
-<pre class="line-numbers"><code class="language-yaml">---
-title:  "My Chrome Extension Project"
-date:   2015-02-15 10:14:35
-tags:
-  -Chrome Extension
-  -Browser
-summary: "This is the summary for the chrome extension project"
----
-</code></pre>
+<p>What I ended up doing was creating only blog posts and giving them either a &quot;blog&quot; category or a &quot;projects&quot; category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="nn">---</span>
+<span class="l-Scalar-Plain">title</span><span class="p-Indicator">:</span>  <span class="s">&quot;My</span><span class="nv"> </span><span class="s">Chrome</span><span class="nv"> </span><span class="s">Extension</span><span class="nv"> </span><span class="s">Project&quot;</span>
+<span class="l-Scalar-Plain">date</span><span class="p-Indicator">:</span>   <span class="l-Scalar-Plain">2015-02-15 10:14:35</span>
+<span class="l-Scalar-Plain">tags</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">-Chrome Extension</span>
+  <span class="l-Scalar-Plain">-Browser</span>
+<span class="l-Scalar-Plain">summary</span><span class="p-Indicator">:</span> <span class="s">&quot;This</span><span class="nv"> </span><span class="s">is</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">summary</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">chrome</span><span class="nv"> </span><span class="s">extension</span><span class="nv"> </span><span class="s">project&quot;</span>
+<span class="nn">---</span>
+</code></pre></div>
 <p>Then in my _config.yml I put the following:</p>
-
-<pre class="line-numbers"><code class="language-yaml">permalink: /:categories/:title
-defaults:
-  -
-    scope:
-      path: "blog"
-      type: "posts"
-    values:
-      layout: "post"
-      category: "blog"
-  -
-    scope:
-      path: "projects"
-      type: "posts"
-    values:
-      layout: "project"
-      category: "projects"
-</code></pre>
-
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">permalink</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">/:categories/:title</span>
+<span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span>
+    <span class="l-Scalar-Plain">scope</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;blog&quot;</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="s">&quot;posts&quot;</span>
+    <span class="l-Scalar-Plain">values</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="s">&quot;post&quot;</span>
+      <span class="l-Scalar-Plain">category</span><span class="p-Indicator">:</span> <span class="s">&quot;blog&quot;</span>
+  <span class="p-Indicator">-</span>
+    <span class="l-Scalar-Plain">scope</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;projects&quot;</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="s">&quot;posts&quot;</span>
+    <span class="l-Scalar-Plain">values</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="s">&quot;project&quot;</span>
+      <span class="l-Scalar-Plain">category</span><span class="p-Indicator">:</span> <span class="s">&quot;projects&quot;</span>
+</code></pre></div>
 <p>The <code>permalink: /:categories/:title</code> tells jekyll to spit out all the posts in the <code>_posts</code> folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of <code>coopcoding.com/projects/</code> &amp; <code>coopcoding.com/blog/</code> and generate all the blog posts in those subdirectories for each category.</p>
 
-<p>Then I created an index.html page inside of the <code>/projects/</code> folder and inside of the <code>/blog/</code> folder. These were so that when a user visited <code>coopcoding.com/projects/</code>, they would be shown a list of the latest project pages, and when they visited <code>coopcoding.com/blog/</code>, they would be shown a list of the latest blog posts.</p>
+<p>Then I created an index.html page inside of the <code>/projects/</code> folder and inside of the <code>/blog/</code> folder. These were so that when a user visited <code>coopcoding.com/projects/</code>, they would be shown a list of the latest project pages, and when they visited <code>coopcoding.com/blog/</code>, they would be shown a list of the latest blog posts. </p>
 
-<p>Here are screenshots of my Jekyll folder structure to better explain it:<br />
-<img src="/assets/images/blogpostimages/jek-folder-ss.png" alt="Jekyll Folder Structure" /><br />
-and a screenshot of Jekyll’s output folder structure:<br />
-<img src="/assets/images/blogpostimages/jek-build-folder-structure.png" alt="Jekyll Output Folder Structure" /></p>
+<p>Here are screenshots of my Jekyll folder structure to better explain it:
+<img src="/assets/images/blogpostimages/jek-folder-ss.png" alt="Jekyll Folder Structure">
+and a screenshot of Jekyll&#39;s output folder structure:
+<img src="/assets/images/blogpostimages/jek-build-folder-structure.png" alt="Jekyll Output Folder Structure"></p>
 
 <p>Here is the html for the index.html in the <code>/projects/</code> folder:</p>
-
-<pre class="line-numbers"><code class="language-html">---
+<div class="highlight"><pre><code class="language-html" data-lang="html">---
 layout: default
 cssBodyClass: projects-page
 title: Coop.Coding Projects
 ---
 
-&lt;section class="projects"&gt;
+<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;projects&quot;</span><span class="nt">&gt;</span>
 
-  
-  &lt;a href="/projects/cabin" class="project-listing"&gt;
-      &lt;div class="img-wrapper"&gt;
-        &lt;img class="project-screenshot-img" src="http://coopcoding.com/assets/images/projectbranding/cabin.jpg" alt=" branding image"&gt;
-      &lt;/div&gt;
-      &lt;svg class="project-screenshot-svg"&gt;
-          &lt;image xlink:href="http://coopcoding.com/assets/images/projectbranding/cabin.jpg" x="0" y="-62" width="100%" height="174"/&gt;
-      &lt;/svg&gt;
 
-      &lt;div class="project-details"&gt;
+  <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/projects/cabin&quot;</span> <span class="na">class=</span><span class="s">&quot;project-listing&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;img-wrapper&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">&quot;project-screenshot-img&quot;</span> <span class="na">src=</span><span class="s">&quot;http://coopcoding.com/assets/images/projectbranding/cabin.jpg&quot;</span> <span class="na">alt=</span><span class="s">&quot; branding image&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;svg</span> <span class="na">class=</span><span class="s">&quot;project-screenshot-svg&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;image</span> <span class="na">xlink:href=</span><span class="s">&quot;http://coopcoding.com/assets/images/projectbranding/cabin.jpg&quot;</span> <span class="na">x=</span><span class="s">&quot;0&quot;</span> <span class="na">y=</span><span class="s">&quot;-62&quot;</span> <span class="na">width=</span><span class="s">&quot;100%&quot;</span> <span class="na">height=</span><span class="s">&quot;174&quot;</span><span class="nt">/&gt;</span>
+      <span class="nt">&lt;/svg&gt;</span>
 
-        &lt;h2 class="project-title"&gt;Cabin&lt;/h2&gt;
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;project-details&quot;</span><span class="nt">&gt;</span>
 
-        &lt;p class="project-description"&gt;This is the summary for the cabin project&lt;/p&gt;
+        <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">&quot;project-title&quot;</span><span class="nt">&gt;</span>Cabin<span class="nt">&lt;/h2&gt;</span>
 
-      &lt;/div&gt;
+        <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">&quot;project-description&quot;</span><span class="nt">&gt;</span>This is the summary for the cabin project<span class="nt">&lt;/p&gt;</span>
 
-  &lt;/a&gt;
-  
+      <span class="nt">&lt;/div&gt;</span>
 
-&lt;/section&gt;
-</code></pre>
-<p>You can see I’m looping over the <code>site.categories.projects</code> and listing each post in the “projects” category.</p>
+  <span class="nt">&lt;/a&gt;</span>
 
-<p>It’s pretty much the same for the html in the index.html in the <code>/blog/</code> folder:</p>
 
-<pre class="line-numbers"><code class="language-html">---
+<span class="nt">&lt;/section&gt;</span>
+</code></pre></div>
+<p>You can see I&#39;m looping over the <code>site.categories.projects</code> and listing each post in the &quot;projects&quot; category. </p>
+
+<p>It&#39;s pretty much the same for the html in the index.html in the <code>/blog/</code> folder:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html">---
 layout: default
 cssBodyClass: blog-posts
 title: Coop.Coding Blog
 ---
 
-&lt;section class="recent-blog-posts"&gt;
+<span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;recent-blog-posts&quot;</span><span class="nt">&gt;</span>
 
-  &lt;div class="section-headings"&gt;
-    &lt;a href="http://coopcoding.com/blog/"&gt;
-      &lt;h1&gt;Blog Posts&lt;/h1&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;section-headings&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://coopcoding.com/blog/&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>Blog Posts<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
 
-  
-  &lt;article&gt;
-    &lt;header&gt;
-      &lt;h2&gt;
-        &lt;a class="post-link-header" href="/blog/my-jekyll-setup-for-this-blog"&gt;My Jekyll Setup For This Blog&lt;/a&gt;
-      &lt;/h2&gt;
-      &lt;span class="post-date"&gt;Apr 6, 2015&lt;/span&gt;
-    &lt;/header&gt;
 
-    &lt;section class="blog-post-section"&gt;
-      So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.com/) because it’s relatively easy to set up and there’s tons of good info &amp; tutorials on the web. I briefly played around with [Hugo](http://gohugo.io/), and although the documentation on the site is really good, I didn’t find much in the way of tutorial and articles from 3rd-party sites, so I stuck with Jekyll. ### Blog Structure For the site structure, I...
+  <span class="nt">&lt;article&gt;</span>
+    <span class="nt">&lt;header&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;post-link-header&quot;</span> <span class="na">href=</span><span class="s">&quot;/blog/my-jekyll-setup-for-this-blog&quot;</span><span class="nt">&gt;</span>My Jekyll Setup For This Blog<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;post-date&quot;</span><span class="nt">&gt;</span>Apr 6, 2015<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
 
-      &lt;div class="gradient-hide"&gt;&lt;/div&gt;
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;blog-post-section&quot;</span><span class="nt">&gt;</span>
+      So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.com/) because it’s relatively easy to set up and there’s tons of good info <span class="err">&amp;</span> tutorials on the web. I briefly played around with [Hugo](http://gohugo.io/), and although the documentation on the site is really good, I didn’t find much in the way of tutorial and articles from 3rd-party sites, so I stuck with Jekyll. ### Blog Structure For the site structure, I...
 
-    &lt;/section&gt;
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;gradient-hide&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 
-    &lt;section class="blog-post-section"&gt;
-      &lt;a class="full-article-link" href="/blog/my-jekyll-setup-for-this-blog"&gt;Read Full Article&lt;/a&gt;
-    &lt;/section&gt;
+    <span class="nt">&lt;/section&gt;</span>
 
-    &lt;footer&gt;
-      &lt;ul class="tags"&gt;
-      
-        &lt;li class="tag-item"&gt;
-          &lt;a href="http://coopcoding.com/tag/Jekyll"&gt;Jekyll&lt;/a&gt;
-          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
-        &lt;/li&gt;
-      
-        &lt;li class="tag-item"&gt;
-          &lt;a href="http://coopcoding.com/tag/Alfred"&gt;Alfred&lt;/a&gt;
-          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
-        &lt;/li&gt;
-      
-      &lt;/ul&gt;
-    &lt;/footer&gt;
-  &lt;/article&gt;
-  
-  &lt;article&gt;
-    &lt;header&gt;
-      &lt;h2&gt;
-        &lt;a class="post-link-header" href="/blog/blog-test-post"&gt;Blog Test Post&lt;/a&gt;
-      &lt;/h2&gt;
-      &lt;span class="post-date"&gt;Mar 17, 2015&lt;/span&gt;
-    &lt;/header&gt;
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;blog-post-section&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;full-article-link&quot;</span> <span class="na">href=</span><span class="s">&quot;/blog/my-jekyll-setup-for-this-blog&quot;</span><span class="nt">&gt;</span>Read Full Article<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
 
-    &lt;section class="blog-post-section"&gt;
-      &lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href="http://example.com/" title="dis parturient montes"&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt; &lt;blockquote&gt; &lt;p&gt;Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.&lt;/p&gt; &lt;/blockquote&gt; &lt;p&gt;Etiam porta &lt;em&gt;sem malesuada magna&lt;/em&gt; mollis euismod. Cras mattis...
+    <span class="nt">&lt;footer&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;tags&quot;</span><span class="nt">&gt;</span>
 
-      &lt;div class="gradient-hide"&gt;&lt;/div&gt;
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;tag-item&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://coopcoding.com/tag/Jekyll&quot;</span><span class="nt">&gt;</span>Jekyll<span class="nt">&lt;/a&gt;</span>
+          <span class="c">&lt;!-- &lt;span class=&quot;tag-description&quot;&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
 
-    &lt;/section&gt;
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;tag-item&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://coopcoding.com/tag/Alfred&quot;</span><span class="nt">&gt;</span>Alfred<span class="nt">&lt;/a&gt;</span>
+          <span class="c">&lt;!-- &lt;span class=&quot;tag-description&quot;&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
 
-    &lt;section class="blog-post-section"&gt;
-      &lt;a class="full-article-link" href="/blog/blog-test-post"&gt;Read Full Article&lt;/a&gt;
-    &lt;/section&gt;
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/footer&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
 
-    &lt;footer&gt;
-      &lt;ul class="tags"&gt;
-      
-        &lt;li class="tag-item"&gt;
-          &lt;a href="http://coopcoding.com/tag/foo1"&gt;foo1&lt;/a&gt;
-          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
-        &lt;/li&gt;
-      
-        &lt;li class="tag-item"&gt;
-          &lt;a href="http://coopcoding.com/tag/foo2"&gt;foo2&lt;/a&gt;
-          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
-        &lt;/li&gt;
-      
-      &lt;/ul&gt;
-    &lt;/footer&gt;
-  &lt;/article&gt;
-  
+  <span class="nt">&lt;article&gt;</span>
+    <span class="nt">&lt;header&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;post-link-header&quot;</span> <span class="na">href=</span><span class="s">&quot;/blog/blog-test-post&quot;</span><span class="nt">&gt;</span>Blog Test Post<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">&quot;post-date&quot;</span><span class="nt">&gt;</span>Mar 17, 2015<span class="nt">&lt;/span&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
 
-&lt;/section&gt;
-</code></pre>
-<p>For generating “tag” pages, I used the code and process listed <a href="http://charliepark.org/tags-in-jekyll/">here</a>. You can see the tag pages output in the screenshot of Jekyll’s output folder structure above.</p>
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;blog-post-section&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;p&gt;</span>Cum sociis natoque penatibus et magnis <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://example.com/&quot;</span> <span class="na">title=</span><span class="s">&quot;dis parturient montes&quot;</span><span class="nt">&gt;</span>dis parturient montes<span class="nt">&lt;/a&gt;</span>, nascetur ridiculus mus. <span class="nt">&lt;em&gt;</span>Aenean eu leo quam.<span class="nt">&lt;/em&gt;</span> Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.<span class="nt">&lt;/p&gt;</span> <span class="nt">&lt;blockquote&gt;</span> <span class="nt">&lt;p&gt;</span>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.<span class="nt">&lt;/p&gt;</span> <span class="nt">&lt;/blockquote&gt;</span> <span class="nt">&lt;p&gt;</span>Etiam porta <span class="nt">&lt;em&gt;</span>sem malesuada magna<span class="nt">&lt;/em&gt;</span> mollis euismod. Cras mattis...
 
-<h3 id="blog--project-layouts">Blog &amp; Project Layouts</h3>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;gradient-hide&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+
+    <span class="nt">&lt;/section&gt;</span>
+
+    <span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">&quot;blog-post-section&quot;</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">&quot;full-article-link&quot;</span> <span class="na">href=</span><span class="s">&quot;/blog/blog-test-post&quot;</span><span class="nt">&gt;</span>Read Full Article<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/section&gt;</span>
+
+    <span class="nt">&lt;footer&gt;</span>
+      <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;tags&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;tag-item&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://coopcoding.com/tag/foo1&quot;</span><span class="nt">&gt;</span>foo1<span class="nt">&lt;/a&gt;</span>
+          <span class="c">&lt;!-- &lt;span class=&quot;tag-description&quot;&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+
+        <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;tag-item&quot;</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://coopcoding.com/tag/foo2&quot;</span><span class="nt">&gt;</span>foo2<span class="nt">&lt;/a&gt;</span>
+          <span class="c">&lt;!-- &lt;span class=&quot;tag-description&quot;&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;</span>
+        <span class="nt">&lt;/li&gt;</span>
+
+      <span class="nt">&lt;/ul&gt;</span>
+    <span class="nt">&lt;/footer&gt;</span>
+  <span class="nt">&lt;/article&gt;</span>
+
+
+<span class="nt">&lt;/section&gt;</span>
+</code></pre></div>
+<p>For generating &quot;tag&quot; pages, I used the code and process listed <a href="http://charliepark.org/tags-in-jekyll/">here</a>. You can see the tag pages output in the screenshot of Jekyll&#39;s output folder structure above.</p>
+
+<h3>Blog &amp; Project Layouts</h3>
 
 <p>Obviously I wanted to have different layouts for the blog post and project posts, so I used the following in my <code>_config.yml</code>:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">defaults</span><span class="p-Indicator">:</span>
+  <span class="p-Indicator">-</span>
+    <span class="l-Scalar-Plain">scope</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;blog&quot;</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="s">&quot;posts&quot;</span>
+    <span class="l-Scalar-Plain">values</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="s">&quot;post&quot;</span>
+      <span class="l-Scalar-Plain">category</span><span class="p-Indicator">:</span> <span class="s">&quot;blog&quot;</span>
+  <span class="p-Indicator">-</span>
+    <span class="l-Scalar-Plain">scope</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">path</span><span class="p-Indicator">:</span> <span class="s">&quot;projects&quot;</span>
+      <span class="l-Scalar-Plain">type</span><span class="p-Indicator">:</span> <span class="s">&quot;posts&quot;</span>
+    <span class="l-Scalar-Plain">values</span><span class="p-Indicator">:</span>
+      <span class="l-Scalar-Plain">layout</span><span class="p-Indicator">:</span> <span class="s">&quot;project&quot;</span>
+      <span class="l-Scalar-Plain">category</span><span class="p-Indicator">:</span> <span class="s">&quot;projects&quot;</span>
+</code></pre></div>
+<p>This tells Jekyll that for posts in that end up in the path <code>coopcoding.com/blog/</code> and are of the type &quot;posts&quot; that they are all in the category of &quot;blog&quot; and should use the layout &quot;post&quot;. The layout of &quot;post&quot; corresponds to the <code>post.html</code> in the <code>_layouts directory</code>. It then tells Jekyll that for posts in that end up in the path <code>coopcoding.com/projects/</code> and are of the type &quot;posts&quot; that they are all in the category of &quot;projects&quot; and should use the layout &quot;project&quot;. The layout of &quot;post&quot; corresponds to the <code>project.html</code> in the <code>_layouts directory</code>. You can check out the html for those files here: https://github.com/Darkle/coopcoding.com<em>jekyll</em>version/tree/master/_layouts</p>
 
-<pre class="line-numbers"><code class="language-yaml">defaults:
-  -
-    scope:
-      path: "blog"
-      type: "posts"
-    values:
-      layout: "post"
-      category: "blog"
-  -
-    scope:
-      path: "projects"
-      type: "posts"
-    values:
-      layout: "project"
-      category: "projects"
-</code></pre>
-<p>This tells Jekyll that for posts in that end up in the path <code>coopcoding.com/blog/</code> and are of the type “posts” that they are all in the category of “blog” and should use the layout “post”. The layout of “post” corresponds to the <code>post.html</code> in the <code>_layouts directory</code>. It then tells Jekyll that for posts in that end up in the path <code>coopcoding.com/projects/</code> and are of the type “posts” that they are all in the category of “projects” and should use the layout “project”. The layout of “post” corresponds to the <code>project.html</code> in the <code>_layouts directory</code>. You can check out the html for those files here: https://github.com/Darkle/coopcoding.com_jekyll_version/tree/master/_layouts</p>
+<p>(you can also see my complete <code>_config.yml</code> here: https://github.com/Darkle/coopcoding.com<em>jekyll</em>version/blob/master/_config.yml)</p>
 
-<p>(you can also see my complete <code>_config.yml</code> here: https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml)</p>
+<h3>Syntax Highlighting</h3>
 
-<h3 id="syntax-highlighting">Syntax Highlighting</h3>
-
-<p><a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">Pygments</a> is the default syntax highlighter for Jekyll. It’s pretty good, but I didn’t really like the syntax that you have to use for code blocks:</p>
-
-<pre><code>
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby" data-lang="ruby"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;foo&lt;/span&gt;
-  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
-&lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-</code></pre>
+<p><a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">Pygments</a> is the default syntax highlighter for Jekyll. It&#39;s pretty good, but I didn&#39;t really like the syntax that you have to use for code blocks:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+</code></pre></div>
 <p>Luckily, the Kramdown <a href="http://jekyllrb.com/docs/configuration/#kramdown">markdown interpreter in Jekyll supports</a> Github Flavoured Markdown, specifically the <a href="https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting">code blocks</a>. With this enabled, a code block like this:</p>
-
-<pre><code>``` ruby
+<div class="highlight"><pre><code class="language-text" data-lang="text">``` ruby
 def print_hi(name)
-  puts "Hi, #{name}"
+  puts &quot;Hi, #{name}&quot;
 end
-print_hi('Tom')
-#=&gt; prints 'Hi, Tom' to STDOUT.
-</code></pre>
-<pre><code>will be render into this HTML:
-
-</code></pre>
-<pre><code class="language-ruby">
+print_hi(&#39;Tom&#39;)
+#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.
+```
+</code></pre></div>
+<p>will be render into this HTML:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;
 def print_hi(name)
-  puts "Hi, #{name}"
+  puts &quot;Hi, #{name}&quot;
 end
-print_hi('Tom')
-#=&gt; prints 'Hi, Tom' to STDOUT.
-</code></pre>
-<p>```</p>
+print_hi(&#39;Tom&#39;)
+#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre></div>
+<p>Which is great!</p>
 
-<p>I has some trouble getting the Jekyll built in syntax highlighters to work properly with line numbering, so I ended up using <a href="http://prismjs.com/">prism.js</a>. It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the <a href="http://prismjs.com/download.html">prism.js download page</a> you can pick and choose what languages to support, which is pretty neat.</p>
+<p>Unfortunately, I couldn&#39;t get 
+I has some trouble getting the Jekyll built in syntax highlighters to work properly with line numbering, so I ended up using <a href="http://prismjs.com/">prism.js</a>. It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the <a href="http://prismjs.com/download.html">prism.js download page</a> you can pick and choose what languages to support, which is pretty neat. </p>
 
 <p>I wanted</p>
 
