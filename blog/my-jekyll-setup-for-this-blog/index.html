@@ -319,9 +319,12 @@ title: Coop.Coding Blog
 
 <p><a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">Pygments</a> is the default syntax highlighter for Jekyll. It’s pretty good, but I didn’t really like the syntax that you have to use for code blocks:</p>
 
-<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">foo</span>
-	  <span class="nb">puts</span> <span class="s1">&#39;foo&#39;</span>
-	<span class="k">end</span></code></pre></div>
+<pre><code>{% highlight ruby %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+</code></pre>
 
 <p>Luckily, the Kramdown <a href="http://jekyllrb.com/docs/configuration/#kramdown">markdown interpreter in Jekyll supports</a> Github Flavoured Markdown, specifically the <a href="https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting">code blocks</a>. With this enabled, a code block like this:</p>
 
