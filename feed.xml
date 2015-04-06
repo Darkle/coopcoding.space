@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Apr 2015 16:20:05 +1000</pubDate>
-    <lastBuildDate>Mon, 06 Apr 2015 16:20:05 +1000</lastBuildDate>
+    <pubDate>Mon, 06 Apr 2015 16:49:39 +1000</pubDate>
+    <lastBuildDate>Mon, 06 Apr 2015 16:49:39 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -262,17 +262,23 @@ print_hi(&#39;Tom&#39;)
 
 &lt;p&gt;But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I’m on a mac, so the kramdown folder was in &lt;code&gt;/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/&lt;/code&gt;. From that folder, I went to the &lt;code&gt;parser/kramdown/codeblock.rb&lt;/code&gt; file, then opened it and changed line 44 from&lt;/p&gt;
 
-&lt;p&gt;to&lt;/p&gt;
-
 &lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;el.attr[&#39;class&#39;] = &quot;language-#{lang}&quot; unless lang.empty?
  
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;to&lt;/p&gt;
 
 &lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;el.attr[&#39;class&#39;] = &quot;language-#{lang} line-numbers&quot; unless lang.empty?
  
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Now every code block has the class of &lt;code&gt;line-numbers&lt;/code&gt; added to it as well. 😀&lt;/p&gt;
+
+&lt;h3 id=&quot;plugins--building-locally&quot;&gt;Plugins &amp;amp; Building Locally&lt;/h3&gt;
+
+&lt;p&gt;Because Github pages only supports a &lt;a href=&quot;https://help.github.com/articles/using-jekyll-plugins-with-github-pages/&quot;&gt;few plugins&lt;/a&gt; and I wanted to use &lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;this&lt;/a&gt; tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my &lt;a href=&quot;https://github.com/Darkle/darkle.github.io&quot;&gt;darkle.github.io repository&lt;/a&gt;. Doing this manually is a bit of a pain, but I stumbled on to &lt;a href=&quot;http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/&quot;&gt;this neat article&lt;/a&gt; about using an &lt;a href=&quot;http://www.alfredapp.com/&quot;&gt;Alfred&lt;/a&gt; workflow to make things faster and easier.&lt;/p&gt;
+
+&lt;p&gt;Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. Originally I was going to use &lt;a href=&quot;http://www.alfredapp.com/&quot;&gt;this Markdown app called Whiskey&lt;/a&gt;, but it’s still in beta and I had a few issues with it crashing when posting complex code blocks, so after searching around for a while I stumbled upon https://stackedit.io. It’s pretty awesome, here’s a screenshot of me typing this post: &lt;br /&gt;
+&lt;img src=&quot;/assets/images/blogpostimages/StackEdit-editor-ss.png&quot; alt=&quot;enter image description here&quot; /&gt;&lt;/p&gt;
 </description>
         <pubDate>Mon, 06 Apr 2015 22:46:26 +1000</pubDate>
         <link>http://coopcoding.com/blog/my-jekyll-setup-for-this-blog</link>

@@ -366,17 +366,23 @@ print_hi('Tom')
 
 <p>But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I’m on a mac, so the kramdown folder was in <code>/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/</code>. From that folder, I went to the <code>parser/kramdown/codeblock.rb</code> file, then opened it and changed line 44 from</p>
 
-<p>to</p>
-
 <pre class="line-numbers"><code class="language-ruby">el.attr['class'] = "language-#{lang}" unless lang.empty?
  
 </code></pre>
+<p>to</p>
 
 <pre class="line-numbers"><code class="language-ruby">el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?
  
 </code></pre>
 
 <p>Now every code block has the class of <code>line-numbers</code> added to it as well. 😀</p>
+
+<h3 id="plugins--building-locally">Plugins &amp; Building Locally</h3>
+
+<p>Because Github pages only supports a <a href="https://help.github.com/articles/using-jekyll-plugins-with-github-pages/">few plugins</a> and I wanted to use <a href="http://charliepark.org/tags-in-jekyll/">this</a> tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my <a href="https://github.com/Darkle/darkle.github.io">darkle.github.io repository</a>. Doing this manually is a bit of a pain, but I stumbled on to <a href="http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/">this neat article</a> about using an <a href="http://www.alfredapp.com/">Alfred</a> workflow to make things faster and easier.</p>
+
+<p>Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred. Originally I was going to use <a href="http://www.alfredapp.com/">this Markdown app called Whiskey</a>, but it’s still in beta and I had a few issues with it crashing when posting complex code blocks, so after searching around for a while I stumbled upon https://stackedit.io. It’s pretty awesome, here’s a screenshot of me typing this post: <br />
+<img src="/assets/images/blogpostimages/StackEdit-editor-ss.png" alt="enter image description here" /></p>
 
 
     </section>
