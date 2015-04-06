@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Apr 2015 14:55:45 +1000</pubDate>
-    <lastBuildDate>Mon, 06 Apr 2015 14:55:45 +1000</lastBuildDate>
+    <pubDate>Mon, 06 Apr 2015 14:57:12 +1000</pubDate>
+    <lastBuildDate>Mon, 06 Apr 2015 14:57:12 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -30,9 +30,9 @@ tags:
 summary: &quot;This is the summary for the chrome extension project&quot;
 ---
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Then in my _config.yml I put the following:&lt;br /&gt;
-&lt;code&gt;yaml
-permalink: /:categories/:title
+&lt;p&gt;Then in my _config.yml I put the following:&lt;/p&gt;
+
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;permalink: /:categories/:title
 defaults:
   -
     scope:
@@ -48,8 +48,9 @@ defaults:
     values:
       layout: &quot;project&quot;
       category: &quot;projects&quot;
-&lt;/code&gt;&lt;br /&gt;
-The &lt;code&gt;permalink: /:categories/:title&lt;/code&gt; tells jekyll to spit out all the posts in the &lt;code&gt;_posts&lt;/code&gt; folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of &lt;code&gt;coopcoding.com/projects/&lt;/code&gt; &amp;amp; &lt;code&gt;coopcoding.com/blog/&lt;/code&gt; and generate all the blog posts in those subdirectories for each category.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;permalink: /:categories/:title&lt;/code&gt; tells jekyll to spit out all the posts in the &lt;code&gt;_posts&lt;/code&gt; folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of &lt;code&gt;coopcoding.com/projects/&lt;/code&gt; &amp;amp; &lt;code&gt;coopcoding.com/blog/&lt;/code&gt; and generate all the blog posts in those subdirectories for each category.&lt;/p&gt;
 
 &lt;p&gt;Then I created an index.html page inside of the &lt;code&gt;/projects/&lt;/code&gt; folder and inside of the &lt;code&gt;/blog/&lt;/code&gt; folder. These were so that when a user visited &lt;code&gt;coopcoding.com/projects/&lt;/code&gt;, they would be shown a list of the latest project pages, and when they visited &lt;code&gt;coopcoding.com/blog/&lt;/code&gt;, they would be shown a list of the latest blog posts.&lt;/p&gt;
 

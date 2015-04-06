@@ -134,9 +134,9 @@ tags:
 summary: "This is the summary for the chrome extension project"
 ---
 </code></pre>
-<p>Then in my _config.yml I put the following:<br />
-<code>yaml
-permalink: /:categories/:title
+<p>Then in my _config.yml I put the following:</p>
+
+<pre class="line-numbers"><code class="language-yaml">permalink: /:categories/:title
 defaults:
   -
     scope:
@@ -152,8 +152,9 @@ defaults:
     values:
       layout: "project"
       category: "projects"
-</code><br />
-The <code>permalink: /:categories/:title</code> tells jekyll to spit out all the posts in the <code>_posts</code> folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of <code>coopcoding.com/projects/</code> &amp; <code>coopcoding.com/blog/</code> and generate all the blog posts in those subdirectories for each category.</p>
+</code></pre>
+
+<p>The <code>permalink: /:categories/:title</code> tells jekyll to spit out all the posts in the <code>_posts</code> folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of <code>coopcoding.com/projects/</code> &amp; <code>coopcoding.com/blog/</code> and generate all the blog posts in those subdirectories for each category.</p>
 
 <p>Then I created an index.html page inside of the <code>/projects/</code> folder and inside of the <code>/blog/</code> folder. These were so that when a user visited <code>coopcoding.com/projects/</code>, they would be shown a list of the latest project pages, and when they visited <code>coopcoding.com/blog/</code>, they would be shown a list of the latest blog posts.</p>
 
