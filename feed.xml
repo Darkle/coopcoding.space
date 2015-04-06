@@ -5,237 +5,247 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Apr 2015 15:24:33 +1000</pubDate>
-    <lastBuildDate>Mon, 06 Apr 2015 15:24:33 +1000</lastBuildDate>
+    <pubDate>Mon, 06 Apr 2015 15:32:10 +1000</pubDate>
+    <lastBuildDate>Mon, 06 Apr 2015 15:32:10 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>My Jekyll Setup For This Blog</title>
         <description>&lt;p&gt;So I wanted to set up a coding blog I decided on using &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; because it’s relatively easy to set up and there’s tons of good info &amp;amp; tutorials on the web. I briefly played around with &lt;a href=&quot;http://gohugo.io/&quot;&gt;Hugo&lt;/a&gt;, and although the documentation on the site is really good, I didn’t find much in the way of tutorial and articles from 3rd-party sites, so I stuck with Jekyll.&lt;/p&gt;
 
-&lt;h3&gt;Blog Structure&lt;/h3&gt;
+&lt;h3 id=&quot;blog-structure&quot;&gt;Blog Structure&lt;/h3&gt;
 
 &lt;p&gt;For the site structure, I wanted it to be &lt;code&gt;coopcoding.com/projects/projectname/&lt;/code&gt; and &lt;code&gt;coopcoding.com/blog/blog post title/&lt;/code&gt;. This turned out to be a bit more difficult than I first envisioned. The &lt;code&gt;coopcoding.com/blog/blog post title/&lt;/code&gt; was fairly easy to set up, but &lt;code&gt;coopcoding.com/projects/projectname/&lt;/code&gt; took a bit of work.&lt;/p&gt;
 
 &lt;p&gt;At first I thought I would use the &lt;a href=&quot;http://jekyllrb.com/docs/pages/&quot;&gt;default&lt;/a&gt; way of creating pages and just stick them in the &lt;code&gt;coopcoding.com/projects/&lt;/code&gt; folder, but unfortunately there is currently (jekyll 2.5.3) no way to iterate through all the pages in a directory.&lt;/p&gt;
 
-&lt;p&gt;What I ended up doing was creating only blog posts and giving them either a &amp;quot;blog&amp;quot; category or a &amp;quot;projects&amp;quot; category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
-&lt;span class=&quot;l-Scalar-Plain&quot;&gt;title&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;  &lt;span class=&quot;s&quot;&gt;&amp;quot;My&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Chrome&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Extension&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;Project&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;l-Scalar-Plain&quot;&gt;date&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;   &lt;span class=&quot;l-Scalar-Plain&quot;&gt;2015-02-15 10:14:35&lt;/span&gt;
-&lt;span class=&quot;l-Scalar-Plain&quot;&gt;tags&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;-Chrome Extension&lt;/span&gt;
-  &lt;span class=&quot;l-Scalar-Plain&quot;&gt;-Browser&lt;/span&gt;
-&lt;span class=&quot;l-Scalar-Plain&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;This&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;is&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;summary&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;the&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;chrome&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;extension&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt; &lt;/span&gt;&lt;span class=&quot;s&quot;&gt;project&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;nn&quot;&gt;---&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;What I ended up doing was creating only blog posts and giving them either a “blog” category or a “projects” category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:&lt;/p&gt;
+
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;---
+title:  &quot;My Chrome Extension Project&quot;
+date:   2015-02-15 10:14:35
+tags:
+  -Chrome Extension
+  -Browser
+summary: &quot;This is the summary for the chrome extension project&quot;
+---
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Then in my _config.yml I put the following:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;permalink&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;l-Scalar-Plain&quot;&gt;/:categories/:title&lt;/span&gt;
-&lt;span class=&quot;l-Scalar-Plain&quot;&gt;defaults&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt;
-    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;blog&amp;quot;&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;posts&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;post&amp;quot;&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;category&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;blog&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt;
-    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;projects&amp;quot;&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;posts&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;project&amp;quot;&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;category&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;projects&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;permalink: /:categories/:title
+defaults:
+  -
+    scope:
+      path: &quot;blog&quot;
+      type: &quot;posts&quot;
+    values:
+      layout: &quot;post&quot;
+      category: &quot;blog&quot;
+  -
+    scope:
+      path: &quot;projects&quot;
+      type: &quot;posts&quot;
+    values:
+      layout: &quot;project&quot;
+      category: &quot;projects&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;The &lt;code&gt;permalink: /:categories/:title&lt;/code&gt; tells jekyll to spit out all the posts in the &lt;code&gt;_posts&lt;/code&gt; folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of &lt;code&gt;coopcoding.com/projects/&lt;/code&gt; &amp;amp; &lt;code&gt;coopcoding.com/blog/&lt;/code&gt; and generate all the blog posts in those subdirectories for each category.&lt;/p&gt;
 
-&lt;p&gt;Then I created an index.html page inside of the &lt;code&gt;/projects/&lt;/code&gt; folder and inside of the &lt;code&gt;/blog/&lt;/code&gt; folder. These were so that when a user visited &lt;code&gt;coopcoding.com/projects/&lt;/code&gt;, they would be shown a list of the latest project pages, and when they visited &lt;code&gt;coopcoding.com/blog/&lt;/code&gt;, they would be shown a list of the latest blog posts. &lt;/p&gt;
+&lt;p&gt;Then I created an index.html page inside of the &lt;code&gt;/projects/&lt;/code&gt; folder and inside of the &lt;code&gt;/blog/&lt;/code&gt; folder. These were so that when a user visited &lt;code&gt;coopcoding.com/projects/&lt;/code&gt;, they would be shown a list of the latest project pages, and when they visited &lt;code&gt;coopcoding.com/blog/&lt;/code&gt;, they would be shown a list of the latest blog posts.&lt;/p&gt;
 
-&lt;p&gt;Here are screenshots of my Jekyll folder structure to better explain it:
-&lt;img src=&quot;/assets/images/blogpostimages/jek-folder-ss.png&quot; alt=&quot;Jekyll Folder Structure&quot;&gt;
-and a screenshot of Jekyll&amp;#39;s output folder structure:
-&lt;img src=&quot;/assets/images/blogpostimages/jek-build-folder-structure.png&quot; alt=&quot;Jekyll Output Folder Structure&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Here are screenshots of my Jekyll folder structure to better explain it:&lt;br /&gt;
+&lt;img src=&quot;/assets/images/blogpostimages/jek-folder-ss.png&quot; alt=&quot;Jekyll Folder Structure&quot; /&gt;&lt;br /&gt;
+and a screenshot of Jekyll’s output folder structure:&lt;br /&gt;
+&lt;img src=&quot;/assets/images/blogpostimages/jek-build-folder-structure.png&quot; alt=&quot;Jekyll Output Folder Structure&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Here is the html for the index.html in the &lt;code&gt;/projects/&lt;/code&gt; folder:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;---
+
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;---
 layout: default
 cssBodyClass: projects-page
 title: Coop.Coding Projects
 ---
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;section&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;projects&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&amp;lt;section class=&quot;projects&quot;&amp;gt;
 
+  
+  &amp;lt;a href=&quot;/projects/cabin&quot; class=&quot;project-listing&quot;&amp;gt;
+      &amp;lt;div class=&quot;img-wrapper&quot;&amp;gt;
+        &amp;lt;img class=&quot;project-screenshot-img&quot; src=&quot;http://coopcoding.com/assets/images/projectbranding/cabin.jpg&quot; alt=&quot; branding image&quot;&amp;gt;
+      &amp;lt;/div&amp;gt;
+      &amp;lt;svg class=&quot;project-screenshot-svg&quot;&amp;gt;
+          &amp;lt;image xlink:href=&quot;http://coopcoding.com/assets/images/projectbranding/cabin.jpg&quot; x=&quot;0&quot; y=&quot;-62&quot; width=&quot;100%&quot; height=&quot;174&quot;/&amp;gt;
+      &amp;lt;/svg&amp;gt;
 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/projects/cabin&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;project-listing&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;img-wrapper&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;project-screenshot-img&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;src=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://coopcoding.com/assets/images/projectbranding/cabin.jpg&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;alt=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot; branding image&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;svg&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;project-screenshot-svg&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;image&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;xlink:href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://coopcoding.com/assets/images/projectbranding/cabin.jpg&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;x=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;0&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;y=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;-62&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;width=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;100%&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;height=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;174&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;/&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/svg&amp;gt;&lt;/span&gt;
+      &amp;lt;div class=&quot;project-details&quot;&amp;gt;
 
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;project-details&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+        &amp;lt;h2 class=&quot;project-title&quot;&amp;gt;Cabin&amp;lt;/h2&amp;gt;
 
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;project-title&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Cabin&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
+        &amp;lt;p class=&quot;project-description&quot;&amp;gt;This is the summary for the cabin project&amp;lt;/p&amp;gt;
 
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;project-description&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;This is the summary for the cabin project&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt;
+      &amp;lt;/div&amp;gt;
 
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &amp;lt;/a&amp;gt;
+  
 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
+&amp;lt;/section&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;You can see I’m looping over the &lt;code&gt;site.categories.projects&lt;/code&gt; and listing each post in the “projects” category.&lt;/p&gt;
 
+&lt;p&gt;It’s pretty much the same for the html in the index.html in the &lt;code&gt;/blog/&lt;/code&gt; folder:&lt;/p&gt;
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/section&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;You can see I&amp;#39;m looping over the &lt;code&gt;site.categories.projects&lt;/code&gt; and listing each post in the &amp;quot;projects&amp;quot; category. &lt;/p&gt;
-
-&lt;p&gt;It&amp;#39;s pretty much the same for the html in the index.html in the &lt;code&gt;/blog/&lt;/code&gt; folder:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-html&quot; data-lang=&quot;html&quot;&gt;---
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;---
 layout: default
 cssBodyClass: blog-posts
 title: Coop.Coding Blog
 ---
 
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;section&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;recent-blog-posts&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+&amp;lt;section class=&quot;recent-blog-posts&quot;&amp;gt;
 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;section-headings&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://coopcoding.com/blog/&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h1&amp;gt;&lt;/span&gt;Blog Posts&lt;span class=&quot;nt&quot;&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+  &amp;lt;div class=&quot;section-headings&quot;&amp;gt;
+    &amp;lt;a href=&quot;http://coopcoding.com/blog/&quot;&amp;gt;
+      &amp;lt;h1&amp;gt;Blog Posts&amp;lt;/h1&amp;gt;
+    &amp;lt;/a&amp;gt;
+  &amp;lt;/div&amp;gt;
 
+  
+  &amp;lt;article&amp;gt;
+    &amp;lt;header&amp;gt;
+      &amp;lt;h2&amp;gt;
+        &amp;lt;a class=&quot;post-link-header&quot; href=&quot;/blog/my-jekyll-setup-for-this-blog&quot;&amp;gt;My Jekyll Setup For This Blog&amp;lt;/a&amp;gt;
+      &amp;lt;/h2&amp;gt;
+      &amp;lt;span class=&quot;post-date&quot;&amp;gt;Apr 6, 2015&amp;lt;/span&amp;gt;
+    &amp;lt;/header&amp;gt;
 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;article&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;header&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;post-link-header&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/blog/my-jekyll-setup-for-this-blog&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;My Jekyll Setup For This Blog&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;post-date&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Apr 6, 2015&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
+      So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.com/) because it’s relatively easy to set up and there’s tons of good info &amp;amp; tutorials on the web. I briefly played around with [Hugo](http://gohugo.io/), and although the documentation on the site is really good, I didn’t find much in the way of tutorial and articles from 3rd-party sites, so I stuck with Jekyll. ### Blog Structure For the site structure, I...
 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;section&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;blog-post-section&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.com/) because it’s relatively easy to set up and there’s tons of good info &lt;span class=&quot;err&quot;&gt;&amp;amp;&lt;/span&gt; tutorials on the web. I briefly played around with [Hugo](http://gohugo.io/), and although the documentation on the site is really good, I didn’t find much in the way of tutorial and articles from 3rd-party sites, so I stuck with Jekyll. ### Blog Structure For the site structure, I...
+      &amp;lt;div class=&quot;gradient-hide&quot;&amp;gt;&amp;lt;/div&amp;gt;
 
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;gradient-hide&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+    &amp;lt;/section&amp;gt;
 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/section&amp;gt;&lt;/span&gt;
+    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
+      &amp;lt;a class=&quot;full-article-link&quot; href=&quot;/blog/my-jekyll-setup-for-this-blog&quot;&amp;gt;Read Full Article&amp;lt;/a&amp;gt;
+    &amp;lt;/section&amp;gt;
 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;section&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;blog-post-section&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;full-article-link&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/blog/my-jekyll-setup-for-this-blog&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Read Full Article&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/section&amp;gt;&lt;/span&gt;
+    &amp;lt;footer&amp;gt;
+      &amp;lt;ul class=&quot;tags&quot;&amp;gt;
+      
+        &amp;lt;li class=&quot;tag-item&quot;&amp;gt;
+          &amp;lt;a href=&quot;http://coopcoding.com/tag/Jekyll&quot;&amp;gt;Jekyll&amp;lt;/a&amp;gt;
+          &amp;lt;!-- &amp;lt;span class=&quot;tag-description&quot;&amp;gt;Find articles tagged &amp;amp;quot;foo1&amp;amp;quot;&amp;lt;/span&amp;gt; --&amp;gt;
+        &amp;lt;/li&amp;gt;
+      
+        &amp;lt;li class=&quot;tag-item&quot;&amp;gt;
+          &amp;lt;a href=&quot;http://coopcoding.com/tag/Alfred&quot;&amp;gt;Alfred&amp;lt;/a&amp;gt;
+          &amp;lt;!-- &amp;lt;span class=&quot;tag-description&quot;&amp;gt;Find articles tagged &amp;amp;quot;foo1&amp;amp;quot;&amp;lt;/span&amp;gt; --&amp;gt;
+        &amp;lt;/li&amp;gt;
+      
+      &amp;lt;/ul&amp;gt;
+    &amp;lt;/footer&amp;gt;
+  &amp;lt;/article&amp;gt;
+  
+  &amp;lt;article&amp;gt;
+    &amp;lt;header&amp;gt;
+      &amp;lt;h2&amp;gt;
+        &amp;lt;a class=&quot;post-link-header&quot; href=&quot;/blog/blog-test-post&quot;&amp;gt;Blog Test Post&amp;lt;/a&amp;gt;
+      &amp;lt;/h2&amp;gt;
+      &amp;lt;span class=&quot;post-date&quot;&amp;gt;Mar 17, 2015&amp;lt;/span&amp;gt;
+    &amp;lt;/header&amp;gt;
 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;footer&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
+      &amp;lt;p&amp;gt;Cum sociis natoque penatibus et magnis &amp;lt;a href=&quot;http://example.com/&quot; title=&quot;dis parturient montes&quot;&amp;gt;dis parturient montes&amp;lt;/a&amp;gt;, nascetur ridiculus mus. &amp;lt;em&amp;gt;Aenean eu leo quam.&amp;lt;/em&amp;gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&amp;lt;/p&amp;gt; &amp;lt;blockquote&amp;gt; &amp;lt;p&amp;gt;Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.&amp;lt;/p&amp;gt; &amp;lt;/blockquote&amp;gt; &amp;lt;p&amp;gt;Etiam porta &amp;lt;em&amp;gt;sem malesuada magna&amp;lt;/em&amp;gt; mollis euismod. Cras mattis...
 
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tag-item&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://coopcoding.com/tag/Jekyll&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Jekyll&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- &amp;lt;span class=&amp;quot;tag-description&amp;quot;&amp;gt;Find articles tagged &amp;amp;quot;foo1&amp;amp;quot;&amp;lt;/span&amp;gt; --&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+      &amp;lt;div class=&quot;gradient-hide&quot;&amp;gt;&amp;lt;/div&amp;gt;
 
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tag-item&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://coopcoding.com/tag/Alfred&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Alfred&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- &amp;lt;span class=&amp;quot;tag-description&amp;quot;&amp;gt;Find articles tagged &amp;amp;quot;foo1&amp;amp;quot;&amp;lt;/span&amp;gt; --&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
+    &amp;lt;/section&amp;gt;
 
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
+    &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
+      &amp;lt;a class=&quot;full-article-link&quot; href=&quot;/blog/blog-test-post&quot;&amp;gt;Read Full Article&amp;lt;/a&amp;gt;
+    &amp;lt;/section&amp;gt;
 
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;article&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;header&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;h2&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;post-link-header&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/blog/blog-test-post&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Blog Test Post&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/h2&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;span&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;post-date&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Mar 17, 2015&lt;span class=&quot;nt&quot;&gt;&amp;lt;/span&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/header&amp;gt;&lt;/span&gt;
+    &amp;lt;footer&amp;gt;
+      &amp;lt;ul class=&quot;tags&quot;&amp;gt;
+      
+        &amp;lt;li class=&quot;tag-item&quot;&amp;gt;
+          &amp;lt;a href=&quot;http://coopcoding.com/tag/foo1&quot;&amp;gt;foo1&amp;lt;/a&amp;gt;
+          &amp;lt;!-- &amp;lt;span class=&quot;tag-description&quot;&amp;gt;Find articles tagged &amp;amp;quot;foo1&amp;amp;quot;&amp;lt;/span&amp;gt; --&amp;gt;
+        &amp;lt;/li&amp;gt;
+      
+        &amp;lt;li class=&quot;tag-item&quot;&amp;gt;
+          &amp;lt;a href=&quot;http://coopcoding.com/tag/foo2&quot;&amp;gt;foo2&amp;lt;/a&amp;gt;
+          &amp;lt;!-- &amp;lt;span class=&quot;tag-description&quot;&amp;gt;Find articles tagged &amp;amp;quot;foo1&amp;amp;quot;&amp;lt;/span&amp;gt; --&amp;gt;
+        &amp;lt;/li&amp;gt;
+      
+      &amp;lt;/ul&amp;gt;
+    &amp;lt;/footer&amp;gt;
+  &amp;lt;/article&amp;gt;
+  
 
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;section&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;blog-post-section&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Cum sociis natoque penatibus et magnis &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://example.com/&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;title=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;dis parturient montes&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;dis parturient montes&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;, nascetur ridiculus mus. &lt;span class=&quot;nt&quot;&gt;&amp;lt;em&amp;gt;&lt;/span&gt;Aenean eu leo quam.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/em&amp;gt;&lt;/span&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;blockquote&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.&lt;span class=&quot;nt&quot;&gt;&amp;lt;/p&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;/blockquote&amp;gt;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;p&amp;gt;&lt;/span&gt;Etiam porta &lt;span class=&quot;nt&quot;&gt;&amp;lt;em&amp;gt;&lt;/span&gt;sem malesuada magna&lt;span class=&quot;nt&quot;&gt;&amp;lt;/em&amp;gt;&lt;/span&gt; mollis euismod. Cras mattis...
+&amp;lt;/section&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;For generating “tag” pages, I used the code and process listed &lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;here&lt;/a&gt;. You can see the tag pages output in the screenshot of Jekyll’s output folder structure above.&lt;/p&gt;
 
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;div&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;gradient-hide&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/section&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;section&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;blog-post-section&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;full-article-link&amp;quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;/blog/blog-test-post&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;Read Full Article&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/section&amp;gt;&lt;/span&gt;
-
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;footer&amp;gt;&lt;/span&gt;
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;ul&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tags&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tag-item&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://coopcoding.com/tag/foo1&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;foo1&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- &amp;lt;span class=&amp;quot;tag-description&amp;quot;&amp;gt;Find articles tagged &amp;amp;quot;foo1&amp;amp;quot;&amp;lt;/span&amp;gt; --&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;li&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;class=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;tag-item&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;nt&quot;&gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;http://coopcoding.com/tag/foo2&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;foo2&lt;span class=&quot;nt&quot;&gt;&amp;lt;/a&amp;gt;&lt;/span&gt;
-          &lt;span class=&quot;c&quot;&gt;&amp;lt;!-- &amp;lt;span class=&amp;quot;tag-description&amp;quot;&amp;gt;Find articles tagged &amp;amp;quot;foo1&amp;amp;quot;&amp;lt;/span&amp;gt; --&amp;gt;&lt;/span&gt;
-        &lt;span class=&quot;nt&quot;&gt;&amp;lt;/li&amp;gt;&lt;/span&gt;
-
-      &lt;span class=&quot;nt&quot;&gt;&amp;lt;/ul&amp;gt;&lt;/span&gt;
-    &lt;span class=&quot;nt&quot;&gt;&amp;lt;/footer&amp;gt;&lt;/span&gt;
-  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/article&amp;gt;&lt;/span&gt;
-
-
-&lt;span class=&quot;nt&quot;&gt;&amp;lt;/section&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;For generating &amp;quot;tag&amp;quot; pages, I used the code and process listed &lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;here&lt;/a&gt;. You can see the tag pages output in the screenshot of Jekyll&amp;#39;s output folder structure above.&lt;/p&gt;
-
-&lt;h3&gt;Blog &amp;amp; Project Layouts&lt;/h3&gt;
+&lt;h3 id=&quot;blog--project-layouts&quot;&gt;Blog &amp;amp; Project Layouts&lt;/h3&gt;
 
 &lt;p&gt;Obviously I wanted to have different layouts for the blog post and project posts, so I used the following in my &lt;code&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span class=&quot;l-Scalar-Plain&quot;&gt;defaults&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt;
-    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;blog&amp;quot;&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;posts&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;post&amp;quot;&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;category&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;blog&amp;quot;&lt;/span&gt;
-  &lt;span class=&quot;p-Indicator&quot;&gt;-&lt;/span&gt;
-    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;scope&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;projects&amp;quot;&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;posts&amp;quot;&lt;/span&gt;
-    &lt;span class=&quot;l-Scalar-Plain&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;layout&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;project&amp;quot;&lt;/span&gt;
-      &lt;span class=&quot;l-Scalar-Plain&quot;&gt;category&lt;/span&gt;&lt;span class=&quot;p-Indicator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&amp;quot;projects&amp;quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;This tells Jekyll that for posts in that end up in the path &lt;code&gt;coopcoding.com/blog/&lt;/code&gt; and are of the type &amp;quot;posts&amp;quot; that they are all in the category of &amp;quot;blog&amp;quot; and should use the layout &amp;quot;post&amp;quot;. The layout of &amp;quot;post&amp;quot; corresponds to the &lt;code&gt;post.html&lt;/code&gt; in the &lt;code&gt;_layouts directory&lt;/code&gt;. It then tells Jekyll that for posts in that end up in the path &lt;code&gt;coopcoding.com/projects/&lt;/code&gt; and are of the type &amp;quot;posts&amp;quot; that they are all in the category of &amp;quot;projects&amp;quot; and should use the layout &amp;quot;project&amp;quot;. The layout of &amp;quot;post&amp;quot; corresponds to the &lt;code&gt;project.html&lt;/code&gt; in the &lt;code&gt;_layouts directory&lt;/code&gt;. You can check out the html for those files here: https://github.com/Darkle/coopcoding.com&lt;em&gt;jekyll&lt;/em&gt;version/tree/master/_layouts&lt;/p&gt;
 
-&lt;p&gt;(you can also see my complete &lt;code&gt;_config.yml&lt;/code&gt; here: https://github.com/Darkle/coopcoding.com&lt;em&gt;jekyll&lt;/em&gt;version/blob/master/_config.yml)&lt;/p&gt;
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-yaml&quot;&gt;defaults:
+  -
+    scope:
+      path: &quot;blog&quot;
+      type: &quot;posts&quot;
+    values:
+      layout: &quot;post&quot;
+      category: &quot;blog&quot;
+  -
+    scope:
+      path: &quot;projects&quot;
+      type: &quot;posts&quot;
+    values:
+      layout: &quot;project&quot;
+      category: &quot;projects&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;This tells Jekyll that for posts in that end up in the path &lt;code&gt;coopcoding.com/blog/&lt;/code&gt; and are of the type “posts” that they are all in the category of “blog” and should use the layout “post”. The layout of “post” corresponds to the &lt;code&gt;post.html&lt;/code&gt; in the &lt;code&gt;_layouts directory&lt;/code&gt;. It then tells Jekyll that for posts in that end up in the path &lt;code&gt;coopcoding.com/projects/&lt;/code&gt; and are of the type “posts” that they are all in the category of “projects” and should use the layout “project”. The layout of “post” corresponds to the &lt;code&gt;project.html&lt;/code&gt; in the &lt;code&gt;_layouts directory&lt;/code&gt;. You can check out the html for those files here: https://github.com/Darkle/coopcoding.com_jekyll_version/tree/master/_layouts&lt;/p&gt;
 
-&lt;h3&gt;Syntax Highlighting&lt;/h3&gt;
+&lt;p&gt;(you can also see my complete &lt;code&gt;_config.yml&lt;/code&gt; here: https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml)&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com/docs/templates/#code-snippet-highlighting&quot;&gt;Pygments&lt;/a&gt; is the default syntax highlighter for Jekyll. It&amp;#39;s pretty good, but I didn&amp;#39;t really like the syntax that you have to use for code blocks:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&amp;lt;div class=&amp;quot;highlight&amp;quot;&amp;gt;&amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;language-ruby&amp;quot; data-lang=&amp;quot;ruby&amp;quot;&amp;gt;&amp;lt;span class=&amp;quot;k&amp;quot;&amp;gt;def&amp;lt;/span&amp;gt; &amp;lt;span class=&amp;quot;nf&amp;quot;&amp;gt;foo&amp;lt;/span&amp;gt;
-  &amp;lt;span class=&amp;quot;nb&amp;quot;&amp;gt;puts&amp;lt;/span&amp;gt; &amp;lt;span class=&amp;quot;s1&amp;quot;&amp;gt;&amp;amp;#39;foo&amp;amp;#39;&amp;lt;/span&amp;gt;
-&amp;lt;span class=&amp;quot;k&amp;quot;&amp;gt;end&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;syntax-highlighting&quot;&gt;Syntax Highlighting&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com/docs/templates/#code-snippet-highlighting&quot;&gt;Pygments&lt;/a&gt; is the default syntax highlighter for Jekyll. It’s pretty good, but I didn’t really like the syntax that you have to use for code blocks:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;
+&amp;lt;div class=&quot;highlight&quot;&amp;gt;&amp;lt;pre&amp;gt;&amp;lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&amp;gt;&amp;lt;span class=&quot;k&quot;&amp;gt;def&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;nf&quot;&amp;gt;foo&amp;lt;/span&amp;gt;
+  &amp;lt;span class=&quot;nb&quot;&amp;gt;puts&amp;lt;/span&amp;gt; &amp;lt;span class=&quot;s1&quot;&amp;gt;&amp;amp;#39;foo&amp;amp;#39;&amp;lt;/span&amp;gt;
+&amp;lt;span class=&quot;k&quot;&amp;gt;end&amp;lt;/span&amp;gt;&amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;&amp;lt;/div&amp;gt;
+
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;Luckily, the Kramdown &lt;a href=&quot;http://jekyllrb.com/docs/configuration/#kramdown&quot;&gt;markdown interpreter in Jekyll supports&lt;/a&gt; Github Flavoured Markdown, specifically the &lt;a href=&quot;https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting&quot;&gt;code blocks&lt;/a&gt;. With this enabled, a code block like this:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;``` ruby
+
+&lt;pre&gt;&lt;code&gt;``` ruby
 def print_hi(name)
-  puts &amp;quot;Hi, #{name}&amp;quot;
+  puts &quot;Hi, #{name}&quot;
 end
-print_hi(&amp;#39;Tom&amp;#39;)
-#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.
+print_hi(&#39;Tom&#39;)
+#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.
 ```
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;will be render into this HTML:&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;&amp;lt;pre&amp;gt;&amp;lt;code class=&amp;quot;language-ruby&amp;quot;&amp;gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;pre&amp;gt;&amp;lt;code class=&quot;language-ruby&quot;&amp;gt;
 def print_hi(name)
-  puts &amp;quot;Hi, #{name}&amp;quot;
+  puts &quot;Hi, #{name}&quot;
 end
-print_hi(&amp;#39;Tom&amp;#39;)
-#=&amp;amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.
+print_hi(&#39;Tom&#39;)
+#=&amp;amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.
 &amp;lt;/code&amp;gt;&amp;lt;/pre&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;Which is great!&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Unfortunately, I couldn&amp;#39;t get 
-I has some trouble getting the Jekyll built in syntax highlighters to work properly with line numbering, so I ended up using &lt;a href=&quot;http://prismjs.com/&quot;&gt;prism.js&lt;/a&gt;. It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the &lt;a href=&quot;http://prismjs.com/download.html&quot;&gt;prism.js download page&lt;/a&gt; you can pick and choose what languages to support, which is pretty neat. &lt;/p&gt;
+&lt;p&gt;For the actual syntax highlighting, I couldn’t seem to get rouge to generate line numbers, so I used &lt;a href=&quot;http://prismjs.com/&quot;&gt;prism.js&lt;/a&gt;. The prism.js output It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the &lt;a href=&quot;http://prismjs.com/download.html&quot;&gt;prism.js download page&lt;/a&gt; you can pick and choose what languages to support, which is pretty neat.&lt;/p&gt;
 
-&lt;p&gt;I wanted&lt;/p&gt;
+&lt;p&gt;Prism checks the any &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; elements for&lt;/p&gt;
 </description>
         <pubDate>Mon, 06 Apr 2015 22:46:26 +1000</pubDate>
         <link>http://coopcoding.com/blog/my-jekyll-setup-for-this-blog</link>
@@ -255,12 +265,12 @@ I has some trouble getting the Jekyll built in syntax highlighters to work prope
         <description>&lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href=&quot;http://example.com/&quot; title=&quot;dis parturient montes&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.&lt;/p&gt;
+  &lt;p&gt;Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;Etiam porta &lt;em&gt;sem malesuada magna&lt;/em&gt; mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.&lt;/p&gt;
 
-&lt;h3&gt;Inline HTML elements&lt;/h3&gt;
+&lt;h3 id=&quot;inline-html-elements&quot;&gt;Inline HTML elements&lt;/h3&gt;
 
 &lt;p&gt;HTML defines a long list of available inline tags, a complete list of which can be found on the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element&quot; title=&quot;Mozilla Developer Network&quot;&gt;Mozilla Developer Network&lt;/a&gt;.&lt;/p&gt;
 
@@ -274,12 +284,12 @@ I has some trouble getting the Jekyll built in syntax highlighters to work prope
 &lt;/ul&gt;
 
 &lt;ul&gt;
-&lt;li&gt; &lt;em&gt;To bold text&lt;/em&gt;, use &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt; &lt;em&gt;To italicize text&lt;/em&gt;, use &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Abbreviations, like &lt;abbr title=&quot;HyperText Markup Langage&quot;&gt;HTML&lt;/abbr&gt; should use &lt;code&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt;, with an optional &lt;code&gt;title&lt;/code&gt; attribute for the full phrase.&lt;/li&gt;
-&lt;li&gt;Citations, like &lt;cite&gt;— Mark otto&lt;/cite&gt;, should use &lt;code&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;del&gt;Deleted&lt;/del&gt; text should use &lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt; and &lt;ins&gt;inserted&lt;/ins&gt; text should use &lt;code&gt;&amp;lt;ins&amp;gt;&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Superscript &lt;sup&gt;text&lt;/sup&gt; uses &lt;code&gt;&amp;lt;sup&amp;gt;&lt;/code&gt; and subscript &lt;sub&gt;text&lt;/sub&gt; uses &lt;code&gt;&amp;lt;sub&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;To bold text&lt;/em&gt;, use &lt;code&gt;&amp;lt;strong&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;em&gt;To italicize text&lt;/em&gt;, use &lt;code&gt;&amp;lt;em&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Abbreviations, like &lt;abbr title=&quot;HyperText Markup Langage&quot;&gt;HTML&lt;/abbr&gt; should use &lt;code&gt;&amp;lt;abbr&amp;gt;&lt;/code&gt;, with an optional &lt;code&gt;title&lt;/code&gt; attribute for the full phrase.&lt;/li&gt;
+  &lt;li&gt;Citations, like &lt;cite&gt;— Mark otto&lt;/cite&gt;, should use &lt;code&gt;&amp;lt;cite&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;del&gt;Deleted&lt;/del&gt; text should use &lt;code&gt;&amp;lt;del&amp;gt;&lt;/code&gt; and &lt;ins&gt;inserted&lt;/ins&gt; text should use &lt;code&gt;&amp;lt;ins&amp;gt;&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;Superscript &lt;sup&gt;text&lt;/sup&gt; uses &lt;code&gt;&amp;lt;sup&amp;gt;&lt;/code&gt; and subscript &lt;sub&gt;text&lt;/sub&gt; uses &lt;code&gt;&amp;lt;sub&amp;gt;&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Most of these elements are styled by browsers with few modifications on our part.&lt;/p&gt;
@@ -291,15 +301,16 @@ I has some trouble getting the Jekyll built in syntax highlighters to work prope
 &lt;h3&gt;Code&lt;/h3&gt;
 
 &lt;p&gt;Cum sociis natoque penatibus et magnis dis &lt;code&gt;code element&lt;/code&gt; montes, nascetur ridiculus mus.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// Example can be run directly in your JavaScript console&lt;/span&gt;
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;// Example can be run directly in your JavaScript console
 
-&lt;span class=&quot;c1&quot;&gt;// Create a function that takes two arguments and returns the sum of those arguments&lt;/span&gt;
-&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;a&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;return a + b&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+// Create a function that takes two arguments and returns the sum of those arguments
+var adder = new Function(&quot;a&quot;, &quot;b&quot;, &quot;return a + b&quot;);
 
-&lt;span class=&quot;c1&quot;&gt;// Call the function&lt;/span&gt;
-&lt;span class=&quot;nx&quot;&gt;adder&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;// &amp;gt; 8&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+// Call the function
+adder(2, 6);
+// &amp;gt; 8
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.&lt;/p&gt;
 
 &lt;h3&gt;Gists via GitHub Pages&lt;/h3&gt;
@@ -345,9 +356,9 @@ I has some trouble getting the Jekyll built in syntax highlighters to work prope
 
 &lt;p&gt;Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliquam aliquam metus erat, a pulvinar turpis suscipit at.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://placehold.it/800x400&quot; alt=&quot;placeholder&quot; title=&quot;Large example image&quot;&gt;
-&lt;img src=&quot;http://placehold.it/400x200&quot; alt=&quot;placeholder&quot; title=&quot;Medium example image&quot;&gt;
-&lt;img src=&quot;http://placehold.it/200x200&quot; alt=&quot;placeholder&quot; title=&quot;Small example image&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://placehold.it/800x400&quot; alt=&quot;placeholder&quot; title=&quot;Large example image&quot; /&gt;
+&lt;img src=&quot;http://placehold.it/400x200&quot; alt=&quot;placeholder&quot; title=&quot;Medium example image&quot; /&gt;
+&lt;img src=&quot;http://placehold.it/200x200&quot; alt=&quot;placeholder&quot; title=&quot;Small example image&quot; /&gt;&lt;/p&gt;
 
 &lt;h3&gt;Tables&lt;/h3&gt;
 
@@ -389,15 +400,18 @@ I has some trouble getting the Jekyll built in syntax highlighters to work prope
 
 &lt;p&gt;Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.&lt;/p&gt;
 
-&lt;p&gt;&lt;hr&gt;
-&lt;video controls&gt;
-  &lt;source src=&quot;http://www.w3schools.com/html/mov_bbb.mp4&quot; type=&quot;video/mp4&quot;&gt;
-  &lt;source src=&quot;http://www.w3schools.com/html/mov_bbb.ogg&quot; type=&quot;video/ogg&quot;&gt;
+&lt;hr /&gt;
+
+&lt;video controls=&quot;&quot;&gt;
+  &lt;source src=&quot;http://www.w3schools.com/html/mov_bbb.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;source src=&quot;http://www.w3schools.com/html/mov_bbb.ogg&quot; type=&quot;video/ogg&quot; /&gt;
   Your browser does not support HTML5 video.
 &lt;/video&gt;
-&lt;hr&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/OsV5RQtmBVw&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;hr&gt;&lt;/p&gt;
+&lt;hr /&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/OsV5RQtmBVw&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;hr /&gt;
+
 </description>
         <pubDate>Tue, 17 Mar 2015 16:20:35 +1100</pubDate>
         <link>http://coopcoding.com/blog/blog-test-post</link>
@@ -414,28 +428,30 @@ I has some trouble getting the Jekyll built in syntax highlighters to work prope
     
       <item>
         <title>Cabin</title>
-        <description>&lt;h3&gt;Description:&lt;/h3&gt;
+        <description>&lt;h3 id=&quot;description&quot;&gt;Description:&lt;/h3&gt;
 
 &lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href=&quot;#&quot;&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt;
 
 &lt;blockquote&gt;
-&lt;p&gt;This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,
-consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.
+  &lt;p&gt;This is a blockquote with two paragraphs. Lorem ipsum dolor sit amet,&lt;br /&gt;
+consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus.&lt;br /&gt;
 Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;Tom&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;def print_hi(name)
+  puts &quot;Hi, #{name}&quot;
+end
+print_hi(&#39;Tom&#39;)
+#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;lineno&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;2&lt;/span&gt;   &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
 &lt;span class=&quot;lineno&quot;&gt;3&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;h3&gt;Version History:&lt;/h3&gt;
+&lt;h3 id=&quot;version-history&quot;&gt;Version History:&lt;/h3&gt;
 
 &lt;ul class=&quot;version-history&quot;&gt;
   &lt;li&gt;0.5 Added feature y&lt;/li&gt;
@@ -444,22 +460,21 @@ Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.&lt;/p&gt;
   &lt;li&gt;0.2 Fixed the thing&lt;/li&gt;
   &lt;li&gt;0.1 Initial Commit&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;div class=&quot;gradient-more&quot;&gt;&lt;/div&gt;
-
 &lt;p&gt;&lt;a class=&quot;link-more&quot; href=&quot;#&quot;&gt;Show more&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3&gt;Support:&lt;/h3&gt;
+&lt;h3 id=&quot;support&quot;&gt;Support:&lt;/h3&gt;
 
-&lt;video controls&gt;
-  &lt;source src=&quot;http://www.w3schools.com/html/mov_bbb.mp4&quot; type=&quot;video/mp4&quot;&gt;
-  &lt;source src=&quot;http://www.w3schools.com/html/mov_bbb.ogg&quot; type=&quot;video/ogg&quot;&gt;
+&lt;video controls=&quot;&quot;&gt;
+  &lt;source src=&quot;http://www.w3schools.com/html/mov_bbb.mp4&quot; type=&quot;video/mp4&quot; /&gt;
+  &lt;source src=&quot;http://www.w3schools.com/html/mov_bbb.ogg&quot; type=&quot;video/ogg&quot; /&gt;
   Your browser does not support HTML5 video.
 &lt;/video&gt;
+&lt;hr /&gt;
 
-&lt;p&gt;&lt;hr&gt;
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/OsV5RQtmBVw&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
-&lt;hr&gt;&lt;/p&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/OsV5RQtmBVw&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;hr /&gt;
+
 </description>
         <pubDate>Sun, 15 Feb 2015 21:14:35 +1100</pubDate>
         <link>http://coopcoding.com/projects/cabin</link>
