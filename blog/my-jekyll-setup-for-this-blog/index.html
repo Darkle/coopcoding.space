@@ -292,6 +292,7 @@ title: Coop.Coding Blog
 <p>For generating “tag” pages, I used the code and process listed <a href="http://charliepark.org/tags-in-jekyll/">here</a>. You can see the tag pages output in the screenshot of Jekyll’s output folder structure above.</p>
 
 <h3 id="blog--project-layouts">Blog &amp; Project Layouts</h3>
+
 <p>Obviously I wanted to have different layouts for the blog post and project posts, so I used the following in my <code>_config.yml</code>:</p>
 
 <pre class="line-numbers"><code class="language-yaml">defaults:
@@ -314,6 +315,24 @@ title: Coop.Coding Blog
 
 <p>(you can also see my complete <code>_config.yml</code> here: https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml)</p>
 
+<h3 id="syntax-highlighting">Syntax Highlighting</h3>
+
+<p><a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">Pygments</a> is the default syntax highlighter for Jekyll. It’s pretty good, but I didn’t really like the syntax that you have to use for code blocks:</p>
+
+<pre><code>
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-ruby" data-lang="ruby"&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;foo&lt;/span&gt;
+  &lt;span class="nb"&gt;puts&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</code></pre>
+<p>Luckily, the Kramdown <a href="http://jekyllrb.com/docs/configuration/#kramdown">markdown interpreter in Jekyll supports</a> Github Flavoured Markdown, specifically the <a href="https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting">code blocks</a>. With this enabled, a code block like this:<br />
+```</p>
+
+<p>```</p>
+
+<p>I has some trouble getting the Jekyll built in syntax highlighters to work properly with line numbering, so I ended up using <a href="http://prismjs.com/">prism.js</a>. It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the <a href="http://prismjs.com/download.html">prism.js download page</a> you can pick and choose what languages to support, which is pretty neat.</p>
+
+<p>I wanted</p>
 
 
     </section>
@@ -370,7 +389,7 @@ title: Coop.Coding Blog
       <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script src="http://coopcoding.com/js/min/jquery.fitvids-min.js"></script>
       <script src="http://coopcoding.com/js/min/main-min.js"></script>
-      <script src="http://coopcoding.com/js/min/prism-min.js"></script>
+      <!-- <script src="http://coopcoding.com/js/min/prism-min.js"></script> -->
     
 
   </body>
