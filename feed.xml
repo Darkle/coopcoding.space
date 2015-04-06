@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Apr 2015 15:32:10 +1000</pubDate>
-    <lastBuildDate>Mon, 06 Apr 2015 15:32:10 +1000</lastBuildDate>
+    <pubDate>Mon, 06 Apr 2015 15:43:51 +1000</pubDate>
+    <lastBuildDate>Mon, 06 Apr 2015 15:43:51 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -245,7 +245,30 @@ print_hi(&#39;Tom&#39;)
 
 &lt;p&gt;For the actual syntax highlighting, I couldn’t seem to get rouge to generate line numbers, so I used &lt;a href=&quot;http://prismjs.com/&quot;&gt;prism.js&lt;/a&gt;. The prism.js output It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the &lt;a href=&quot;http://prismjs.com/download.html&quot;&gt;prism.js download page&lt;/a&gt; you can pick and choose what languages to support, which is pretty neat.&lt;/p&gt;
 
-&lt;p&gt;Prism checks the any &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; elements for&lt;/p&gt;
+&lt;p&gt;Prism checks any &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; elements on the page for the class &lt;code&gt;&quot;language-foo&quot;&lt;/code&gt;, where “foo” is the name of the language that’s in the code block.&lt;/p&gt;
+
+&lt;p&gt;One thing that did trip me up a bit with prism.js was that in order to use the line number feature, you need to give the code block a class of &lt;code&gt;line-numbers&lt;/code&gt;, which isn’t too big of a deal as I could just add the element attribute to the end of each code block like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;``` ruby
+def print_hi(name)
+  puts &quot;Hi, #{name}&quot;
+end
+print_hi(&#39;Tom&#39;)
+#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.
+```
+{: .line-numbers}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I’m on a mac, so the kramdown folder was in &lt;code&gt;/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/&lt;/code&gt;. From that folder, I went to the &lt;code&gt;parser/kramdown/codeblock.rb&lt;/code&gt; file, then opened it and changed line 44 from&lt;/p&gt;
+
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;el.attr[&#39;class&#39;] = &quot;language-#{lang}&quot; unless lang.empty?`
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;to&lt;/p&gt;
+
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-ruby&quot;&gt;el.attr[&#39;class&#39;] = &quot;language-#{lang} line-numbers&quot; unless lang.empty?
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Now every code block has the class of &lt;code&gt;line-numbers&lt;/code&gt; added to it as well. 😀&lt;/p&gt;
 </description>
         <pubDate>Mon, 06 Apr 2015 22:46:26 +1000</pubDate>
         <link>http://coopcoding.com/blog/my-jekyll-setup-for-this-blog</link>
