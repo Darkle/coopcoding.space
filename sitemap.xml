@@ -1,40 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://coopcoding.com/projects/submarine</loc>
-        <lastmod>2015-03-28T13:37:41+11:00</lastmod>
-    </url>
-    <url>
-        <loc>http://coopcoding.com/projects/safe</loc>
-        <lastmod>2015-04-04T14:55:34+11:00</lastmod>
-    </url>
-    <url>
-        <loc>http://coopcoding.com/projects/game</loc>
-        <lastmod>2015-04-04T14:55:25+11:00</lastmod>
-    </url>
-    <url>
-        <loc>http://coopcoding.com/projects/circus</loc>
-        <lastmod>2015-04-04T14:54:34+11:00</lastmod>
-    </url>
-    <url>
-        <loc>http://coopcoding.com/projects/cake</loc>
-        <lastmod>2015-04-04T14:57:27+11:00</lastmod>
-    </url>
-    <url>
         <loc>http://coopcoding.com/projects/cabin</loc>
-        <lastmod>2015-03-26T13:46:13+11:00</lastmod>
+        <lastmod>2015-04-06T11:45:56+10:00</lastmod>
     </url>
     <url>
         <loc>http://coopcoding.com/blog/blog-test-post</loc>
         <lastmod>2015-04-06T11:34:20+10:00</lastmod>
-    </url>
-    <url>
-        <loc>http://coopcoding.com/projects/test-project-5</loc>
-        <lastmod>2015-04-02T16:54:42+11:00</lastmod>
-    </url>
-    <url>
-        <loc>http://coopcoding.com/projects/project-27</loc>
-        <lastmod>2015-04-02T17:04:20+11:00</lastmod>
     </url>
     <url>
         <loc>http://coopcoding.com/blog/</loc>
@@ -46,7 +18,7 @@
     </url>
     <url>
         <loc>http://coopcoding.com/</loc>
-        <lastmod>2015-04-06T11:34:20+10:00</lastmod>
+        <lastmod>2015-04-06T11:45:56+10:00</lastmod>
     </url>
     <url>
         <loc>http://coopcoding.com/contact/</loc>
