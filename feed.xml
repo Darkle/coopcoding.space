@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Mon, 06 Apr 2015 21:54:44 +1000</pubDate>
-    <lastBuildDate>Mon, 06 Apr 2015 21:54:44 +1000</lastBuildDate>
+    <pubDate>Wed, 08 Apr 2015 10:21:49 +1000</pubDate>
+    <lastBuildDate>Wed, 08 Apr 2015 10:21:49 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -273,6 +273,8 @@ print_hi(&#39;Tom&#39;)
 
 &lt;p&gt;Now every code block has the class of &lt;code&gt;line-numbers&lt;/code&gt; added to it as well. 😀&lt;/p&gt;
 
+&lt;p&gt;After implementing prism.js, I noticed that there seemed to be an extra blank line added to the code blocks. This seems to be a &lt;a href=&quot;https://github.com/PrismJS/prism/issues/403&quot;&gt;known bug&lt;/a&gt;, so I just downloaded the development version of prism.js (aka the unminified source) and changed the code to what is listing in the change &lt;a href=&quot;https://github.com/haarg/prism/commit/2e7409189114e14b940fc80fe8d22c0072114f48&quot;&gt;here&lt;/a&gt; as it has not yet been merged into the official prism.js code yet.&lt;/p&gt;
+
 &lt;h3 id=&quot;plugins--building-locally&quot;&gt;Plugins &amp;amp; Building Locally&lt;/h3&gt;
 
 &lt;p&gt;Because Github pages only supports a &lt;a href=&quot;https://help.github.com/articles/using-jekyll-plugins-with-github-pages/&quot;&gt;few plugins&lt;/a&gt; and I wanted to use &lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;this&lt;/a&gt; tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my &lt;a href=&quot;https://github.com/Darkle/darkle.github.io&quot;&gt;darkle.github.io repository&lt;/a&gt;. Doing this manually is a bit of a pain, but I stumbled on to &lt;a href=&quot;http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/&quot;&gt;this neat article&lt;/a&gt; about using an &lt;a href=&quot;http://www.alfredapp.com/&quot;&gt;Alfred&lt;/a&gt; workflow to make things faster and easier.&lt;/p&gt;
@@ -288,7 +290,7 @@ print_hi(&#39;Tom&#39;)
 &lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;# Adjust these variables to your installation:
 
 sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
-editor=&quot;Whiskey.app&quot;
+editor=&quot;MacDown.app&quot;
 extension=markdown
 
 filename=$(echo $sitedir/_posts/blog/$(date +&#39;%Y-%m-%d&#39;)-{query}.$extension | sed -e &#39;s, ,-,g&#39; | tr &#39;[:upper:]&#39; &#39;[:lower:]&#39;)
@@ -303,7 +305,7 @@ tags:[]
 EOT
 open -a &quot;$editor&quot; $filename
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the &lt;code&gt;_posts/blog/&lt;/code&gt; directory and that title and date as the file name (Jekyll needs a &lt;code&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt; format for post file names), then add the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in Whiskey.app.&lt;/p&gt;
+&lt;p&gt;What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the &lt;code&gt;_posts/blog/&lt;/code&gt; directory and that title and date as the file name (Jekyll needs a &lt;code&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt; format for post file names), then add the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor &lt;a href=&quot;http://macdown.uranusjr.com/&quot;&gt;Macdown.app&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;When I select a new project post it runs the following bash commands:&lt;/p&gt;
 
@@ -359,7 +361,7 @@ git push origin master
 
 terminal-notifier -title &quot;Git Push for CoopCoding Static Files Done&quot; -message &quot;&quot; -open &quot;https://github.com/Darkle/darkle.github.io&quot;
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;Originally I was going to use the default notifier for OSX in the bash script but it wasn’t working for me, so I used this library insted: &lt;a href=&quot;https://github.com/alloy/terminal-notifier&quot;&gt;https://github.com/alloy/terminal-notifier&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Originally I was going to use the default notifier for OSX in the bash script but it wasn’t working for me, so I used this library insted: &lt;a href=&quot;https://github.com/alloy/terminal-notifier&quot;&gt;https://github.com/alloy/terminal-notifier&lt;/a&gt;. Note: the bash shell jekyll uses didn’t seem to load my default &lt;code&gt;.bash_profile&lt;/code&gt; file automatically, so I had to manually put in &lt;code&gt;export PATH=/usr/local/bin:$PATH&lt;/code&gt; so that it could see the terminal-notifier library I had installed via homebrew.&lt;/p&gt;
 
 &lt;p&gt;The “Open Blog Post” runs the following bash commands:&lt;/p&gt;
 
@@ -386,26 +388,7 @@ fi
 
 &lt;p&gt;What this does is iterate through all of the files in the &lt;code&gt;_posts/blog&lt;/code&gt; directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in Whiskey.app.&lt;/p&gt;
 
-&lt;p&gt;You can grab my Alfred workflow &lt;a href=&quot;https://drive.google.com/file/d/0B2rOnFGX-QzGTHpQbksyRUExd1k/view?usp=sharing&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3 id=&quot;editing-the-markdown&quot;&gt;Editing The Markdown&lt;/h3&gt;
-
-&lt;p&gt;Originally I was using &lt;a href=&quot;http://www.alfredapp.com/&quot;&gt;this Markdown app called Whiskey&lt;/a&gt;, but it’s still in beta and I had a few issues with it crashing when posting complex code blocks. I had a search around for a replacement Markdown editor and stumbled upon &lt;a href=&quot;https://stackedit.io&quot;&gt;https://stackedit.io&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Stack Edit is able to open, edit and save/sync with dropbox, so since my site repository is already in my dropbox folder, I can just use Stack Edit to edit markdown files.  It’s pretty awesome, here’s a screenshot of me typing this post: &lt;br /&gt;
-&lt;a href=&quot;/assets/images/blogpostimages/StackEdit-editor-ss.png&quot;&gt;&lt;img src=&quot;/assets/images/blogpostimages/StackEdit-editor-ss.png&quot; alt=&quot;Stack Edit Screen Shot&quot; title=&quot;&quot; /&gt;&lt;/a&gt;(notice the auto code highlighting in the preview 👀)&lt;/p&gt;
-
-&lt;p&gt;So I changed the bash script for both the new blog post and new project post so that instead of opening the Whiskey markdown editor, it opens https://stackedit.io in the default browser.&lt;/p&gt;
-
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;tags:[]
----
-
-EOT
-#open -a &quot;$editor&quot; $filename
-open https://stackedit.io/editor
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;One of the neat things about Stack Edit is that if you open a second tab in your browser with Stack Edit open in it, it will detect a second tab open and close the other tab. 👍&lt;/p&gt;
+&lt;p&gt;You can grab my Alfred workflow &lt;a href=&quot;https://drive.google.com/file/d/0B2rOnFGX-QzGSGpVcTBhdFN5TDg/view?usp=sharing&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 06 Apr 2015 22:46:26 +1000</pubDate>

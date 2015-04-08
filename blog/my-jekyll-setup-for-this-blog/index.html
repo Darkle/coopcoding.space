@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+
+  <title>My Jekyll Setup For This Blog</title>
+
+  <meta name="description" content="So I wanted to set up a coding blog I decided on using Jekyll because it’s relatively easy to set up and there’s tons of good info &amp; tutorials on the web...">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="http://coopcoding.com/assets/images/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="http://coopcoding.com/assets/images/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="http://coopcoding.com/assets/images/favicon/favicon-32x32.png">
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro&text=COP.DING' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+  <link href="http://coopcoding.com/css/styles.css" rel="stylesheet" media="all">
+  <link rel="canonical" href="http://coopcoding.com/blog/my-jekyll-setup-for-this-blog">
+  <link rel="alternate" type="application/rss+xml" title="Coop...Coding" href="http://coopcoding.com/feed.xml" />
+
+  
+  <meta name="keywords" content="Jekyll and Alfred" />
+  
+
+
+</head>
+
+  <body class="single-blog-post">
+
+    <aside class="sidebar">
+
+  <a class="site-logo" href="http://coopcoding.com" title="Coop.Coding Home Page" rel="home">
+    <img src="http://coopcoding.com/assets/images/sitebranding/cooper-small-avatar.jpg" alt="avatar image" class="avatar-image">
+  </a>
+
+  <div class="site-branding">
+
+    <h1 class="site-title">Coop...Coding</h1>
+
+  </div>
+
+  <nav class="main-navigation" role="navigation">
+
+    <!-- http://pixelcog.com/blog/2013/jekyll-from-scratch-core-architecture/ -->
+    
+
+    <a href="http://coopcoding.com"   title="Coop.Coding Home Page">Home</a>
+
+    <a href="http://coopcoding.com/projects/"  title="Coop.Coding Projects Page">Projects</a>
+
+    
+
+    <a href="http://coopcoding.com/blog/" class="nav-active"  title="Coop.Coding Blog">Blog</a>
+
+    
+    <a href="/blog/my-jekyll-setup-for-this-blog" class="nav-active sub-link" title="My Jekyll Setup For This Blog blog post link">
+      <div>My Jekyll Setup For This Blog</div>
+    </a>
+    
+
+    <a href="https://www.google.com/cse/publicurl?cx=017656873701660410302:dlj9xkst79m" id="navSearchLink" title="Search">Search</a>
+    <form class="nav-search hiddenSearch" action="http://www.google.com/cse" method="get">
+      <input name="cx" type="hidden" value="017656873701660410302:dlj9xkst79m" />
+      <input name="ie" type="hidden" value="UTF-8" />
+      <label class="searchbox-label" for="searchbox">Search Box</label>
+      <input class="searchInput" id="searchbox" type="search" placeholder="Search" name="q">
+      <button type="submit" name="sa">Search</button>
+    </form>
+
+    <a href="http://coopcoding.com/contact/"  title="Contact">Contact</a>
+    <a title="Rss Feed Link" href="http://coopcoding.com/feed.xml">RSS Feed</a>
+
+  </nav>
+
+  <!-- don't show recent posts on the homepage -->
+  
+  <div class="sidebar-recent-posts">
+    <h3>Recent Blog Posts:</h3>
+    <ul>
+      
+      <li>
+        <a href="/blog/my-jekyll-setup-for-this-blog">My Jekyll Setup For This Blog</a>
+      </li>
+      
+      <li>
+        <a href="/blog/blog-test-post">Blog Test Post</a>
+      </li>
+      
+    </ul>
+  </div>
+  
+
+</aside>
+
+
+
+    <header role="banner" class="mobile-header">
+    <h1>Coop...Coding</h1>
+    <a href="#" id="mobileMenButton"></a>
+</header>
+
+    <main class="main-content" role="main">
+
+      <section class="post-container">
+
+  <article>
+     <header class="post-header">
+      <h1 class="post-title">
+        <a href="/blog/my-jekyll-setup-for-this-blog">My Jekyll Setup For This Blog</a>
+      </h1>
+      <span class="post-date">Apr 6, 2015</span>
+    </header>
+
+    <section class="post-body">
+    <p>So I wanted to set up a coding blog I decided on using <a href="http://jekyllrb.com/">Jekyll</a> because it’s relatively easy to set up and there’s tons of good info &amp; tutorials on the web. I briefly played around with <a href="http://gohugo.io/">Hugo</a>, and although the documentation on the site is really good, I didn’t find much in the way of tutorial and articles from 3rd-party sites, so I stuck with Jekyll.</p>
+
+<h3 id="blog-structure">Blog Structure</h3>
+
+<p>For the site structure, I wanted it to be <code>coopcoding.com/projects/projectname/</code> and <code>coopcoding.com/blog/blog post title/</code>. This turned out to be a bit more difficult than I first envisioned. The <code>coopcoding.com/blog/blog post title/</code> was fairly easy to set up, but <code>coopcoding.com/projects/projectname/</code> took a bit of work.</p>
+
+<p>At first I thought I would use the <a href="http://jekyllrb.com/docs/pages/">default</a> way of creating pages and just stick them in the <code>coopcoding.com/projects/</code> folder, but unfortunately there is currently (<sub><sup>jekyll 2.5.3</sup></sub>) no way to iterate through all the pages in a directory. You can use collections or add data to the data directory, but these won’t really work with the default pagination.</p>
+
+<p>What I ended up doing was creating only blog posts and giving them either a “blog” category or a “projects” category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:</p>
+
+<pre class="line-numbers"><code class="language-yaml">---
+title:  "My Chrome Extension Project"
+date:   2015-02-15 10:14:35
+tags:
+  -Chrome Extension
+  -Browser
+summary: "This is the summary for the chrome extension project"
+---
+</code></pre>
+<p>Then in my _config.yml I put the following:</p>
+
+<pre class="line-numbers"><code class="language-yaml">permalink: /:categories/:title
+defaults:
+  -
+    scope:
+      path: "blog"
+      type: "posts"
+    values:
+      layout: "post"
+      category: "blog"
+  -
+    scope:
+      path: "projects"
+      type: "posts"
+    values:
+      layout: "project"
+      category: "projects"
+</code></pre>
+
+<p>The <code>permalink: /:categories/:title</code> tells jekyll to spit out all the posts in the <code>_posts</code> folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of <code>coopcoding.com/projects/</code> &amp; <code>coopcoding.com/blog/</code> and generate all the blog posts in those subdirectories for each category.</p>
+
+<p>Then I created an index.html page inside of the <code>/projects/</code> folder and inside of the <code>/blog/</code> folder. These were so that when a user visited <code>coopcoding.com/projects/</code>, they would be shown a list of the latest project pages, and when they visited <code>coopcoding.com/blog/</code>, they would be shown a list of the latest blog posts.</p>
+
+<p>Here are screenshots of my Jekyll folder structure to better explain it:<br />
+<img src="/assets/images/blogpostimages/jek-folder-ss.png" alt="Jekyll Folder Structure" /><br />
+and a screenshot of Jekyll’s output folder structure:<br />
+<img src="/assets/images/blogpostimages/jek-build-folder-structure.png" alt="Jekyll Output Folder Structure" /></p>
+
+<p>Here is the html for the index.html in the <code>/projects/</code> folder:</p>
+
+<pre class="line-numbers"><code class="language-markup">---
+layout: default
+cssBodyClass: projects-page
+title: Coop.Coding Projects
+---
+
+&lt;section class="projects"&gt;
+
+  
+  &lt;a href="/projects/cabin" class="project-listing"&gt;
+      &lt;div class="img-wrapper"&gt;
+        &lt;img class="project-screenshot-img" src="http://coopcoding.com/assets/images/projectbranding/cabin.jpg" alt=" branding image"&gt;
+      &lt;/div&gt;
+      &lt;svg class="project-screenshot-svg"&gt;
+          &lt;image xlink:href="http://coopcoding.com/assets/images/projectbranding/cabin.jpg" x="0" y="-62" width="100%" height="174"/&gt;
+      &lt;/svg&gt;
+
+      &lt;div class="project-details"&gt;
+
+        &lt;h2 class="project-title"&gt;Cabin&lt;/h2&gt;
+
+        &lt;p class="project-description"&gt;This is the summary for the cabin project&lt;/p&gt;
+
+      &lt;/div&gt;
+
+  &lt;/a&gt;
+  
+
+&lt;/section&gt;
+</code></pre>
+<p>You can see I’m looping over the <code>site.categories.projects</code> and listing each post in the “projects” category.</p>
+
+<p>It’s pretty much the same for the html in the index.html in the <code>/blog/</code> folder:</p>
+
+<pre class="line-numbers"><code class="language-markup">---
+layout: default
+cssBodyClass: blog-posts
+title: Coop.Coding Blog
+---
+
+&lt;section class="recent-blog-posts"&gt;
+
+  &lt;div class="section-headings"&gt;
+    &lt;a href="http://coopcoding.com/blog/"&gt;
+      &lt;h1&gt;Blog Posts&lt;/h1&gt;
+    &lt;/a&gt;
+  &lt;/div&gt;
+
+  
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h2&gt;
+        &lt;a class="post-link-header" href="/blog/my-jekyll-setup-for-this-blog"&gt;My Jekyll Setup For This Blog&lt;/a&gt;
+      &lt;/h2&gt;
+      &lt;span class="post-date"&gt;Apr 6, 2015&lt;/span&gt;
+    &lt;/header&gt;
+
+    &lt;section class="blog-post-section"&gt;
+      So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.com/) because it’s relatively easy to set up and there’s tons of good info &amp; tutorials on the web. I briefly played around with [Hugo](http://gohugo.io/), and although the documentation on the site is really good, I didn’t find much in the way of tutorial and articles from 3rd-party sites, so I stuck with Jekyll. ### Blog Structure For the site structure, I...
+
+      &lt;div class="gradient-hide"&gt;&lt;/div&gt;
+
+    &lt;/section&gt;
+
+    &lt;section class="blog-post-section"&gt;
+      &lt;a class="full-article-link" href="/blog/my-jekyll-setup-for-this-blog"&gt;Read Full Article&lt;/a&gt;
+    &lt;/section&gt;
+
+    &lt;footer&gt;
+      &lt;ul class="tags"&gt;
+      
+        &lt;li class="tag-item"&gt;
+          &lt;a href="http://coopcoding.com/tag/Jekyll"&gt;Jekyll&lt;/a&gt;
+          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
+        &lt;/li&gt;
+      
+        &lt;li class="tag-item"&gt;
+          &lt;a href="http://coopcoding.com/tag/Alfred"&gt;Alfred&lt;/a&gt;
+          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
+        &lt;/li&gt;
+      
+      &lt;/ul&gt;
+    &lt;/footer&gt;
+  &lt;/article&gt;
+  
+  &lt;article&gt;
+    &lt;header&gt;
+      &lt;h2&gt;
+        &lt;a class="post-link-header" href="/blog/blog-test-post"&gt;Blog Test Post&lt;/a&gt;
+      &lt;/h2&gt;
+      &lt;span class="post-date"&gt;Mar 17, 2015&lt;/span&gt;
+    &lt;/header&gt;
+
+    &lt;section class="blog-post-section"&gt;
+      &lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href="http://example.com/" title="dis parturient montes"&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt; &lt;blockquote&gt; &lt;p&gt;Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.&lt;/p&gt; &lt;/blockquote&gt; &lt;p&gt;Etiam porta &lt;em&gt;sem malesuada magna&lt;/em&gt; mollis euismod. Cras mattis...
+
+      &lt;div class="gradient-hide"&gt;&lt;/div&gt;
+
+    &lt;/section&gt;
+
+    &lt;section class="blog-post-section"&gt;
+      &lt;a class="full-article-link" href="/blog/blog-test-post"&gt;Read Full Article&lt;/a&gt;
+    &lt;/section&gt;
+
+    &lt;footer&gt;
+      &lt;ul class="tags"&gt;
+      
+        &lt;li class="tag-item"&gt;
+          &lt;a href="http://coopcoding.com/tag/foo1"&gt;foo1&lt;/a&gt;
+          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
+        &lt;/li&gt;
+      
+        &lt;li class="tag-item"&gt;
+          &lt;a href="http://coopcoding.com/tag/foo2"&gt;foo2&lt;/a&gt;
+          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
+        &lt;/li&gt;
+      
+      &lt;/ul&gt;
+    &lt;/footer&gt;
+  &lt;/article&gt;
+  
+
+&lt;/section&gt;
+</code></pre>
+<p>For generating “tag” pages, I used the code and process listed <a href="http://charliepark.org/tags-in-jekyll/">here</a>. You can see the tag pages output in the screenshot of Jekyll’s output folder structure above.</p>
+
+<h3 id="blog--project-layouts">Blog &amp; Project Layouts</h3>
+
+<p>Obviously I wanted to have different layouts for the blog post and project posts, so I used the following in my <code>_config.yml</code>:</p>
+
+<pre class="line-numbers"><code class="language-yaml">defaults:
+  -
+    scope:
+      path: "blog"
+      type: "posts"
+    values:
+      layout: "post"
+      category: "blog"
+  -
+    scope:
+      path: "projects"
+      type: "posts"
+    values:
+      layout: "project"
+      category: "projects"
+</code></pre>
+<p>This tells Jekyll that for posts in that end up in the path <code>coopcoding.com/blog/</code> and are of the type “posts” that they are all in the category of “blog” and should use the layout “post”. The layout of “post” corresponds to the <code>post.html</code> in the <code>_layouts directory</code>. It then tells Jekyll that for posts in that end up in the path <code>coopcoding.com/projects/</code> and are of the type “posts” that they are all in the category of “projects” and should use the layout “project”. The layout of “post” corresponds to the <code>project.html</code> in the <code>_layouts directory</code>. You can check out the html for those files here: https://github.com/Darkle/coopcoding.com_jekyll_version/tree/master/_layouts</p>
+
+<p>(you can also see my complete <code>_config.yml</code> here: https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml)</p>
+
+<h3 id="syntax-highlighting">Syntax Highlighting</h3>
+
+<p><a href="http://jekyllrb.com/docs/templates/#code-snippet-highlighting">Pygments</a> is the default syntax highlighter for Jekyll. It’s pretty good, but I didn’t really like the syntax that you have to use for code blocks:</p>
+
+<pre><code>{% highlight ruby %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
+</code></pre>
+
+<p>Luckily, the Kramdown <a href="http://jekyllrb.com/docs/configuration/#kramdown">markdown interpreter in Jekyll supports</a> Github Flavoured Markdown, specifically the <a href="https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting">code blocks</a>. With this enabled, a code block like this:</p>
+
+<pre><code>``` ruby
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=&gt; prints 'Hi, Tom' to STDOUT.
+```
+</code></pre>
+
+<p>will be render into this HTML:</p>
+
+<pre class="line-numbers"><code class="language-markup">&lt;pre&gt;&lt;code class="language-ruby"&gt;
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=&gt; prints 'Hi, Tom' to STDOUT.
+&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+
+<p>For the actual syntax highlighting, I couldn’t seem to get rouge to generate line numbers, so I used <a href="http://prismjs.com/">prism.js</a>. The prism.js output It looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the <a href="http://prismjs.com/download.html">prism.js download page</a> you can pick and choose what languages to support, which is pretty neat.</p>
+
+<p>Prism checks any <code>&lt;code&gt;</code> elements on the page for the class <code>"language-foo"</code>, where “foo” is the name of the language that’s in the code block.</p>
+
+<p>One thing that did trip me up a bit with prism.js was that in order to use the line number feature, you need to give the code block a class of <code>line-numbers</code>, which isn’t too big of a deal as I could just add the element attribute to the end of each code block like this:</p>
+
+<pre><code>``` ruby
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=&gt; prints 'Hi, Tom' to STDOUT.
+```
+{: .line-numbers}
+</code></pre>
+
+<p>But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I’m on a mac, so the kramdown folder was in <code>/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/</code>. From that folder, I went to the <code>parser/kramdown/codeblock.rb</code> file, then opened it and changed line 44 from</p>
+
+<pre class="line-numbers"><code class="language-ruby">el.attr['class'] = "language-#{lang}" unless lang.empty?
+ 
+</code></pre>
+<p>to</p>
+
+<pre class="line-numbers"><code class="language-ruby">el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?
+ 
+</code></pre>
+
+<p>Now every code block has the class of <code>line-numbers</code> added to it as well. 😀</p>
+
+<p>After implementing prism.js, I noticed that there seemed to be an extra blank line added to the code blocks. This seems to be a <a href="https://github.com/PrismJS/prism/issues/403">known bug</a>, so I just downloaded the development version of prism.js (aka the unminified source) and changed the code to what is listing in the change <a href="https://github.com/haarg/prism/commit/2e7409189114e14b940fc80fe8d22c0072114f48">here</a> as it has not yet been merged into the official prism.js code yet.</p>
+
+<h3 id="plugins--building-locally">Plugins &amp; Building Locally</h3>
+
+<p>Because Github pages only supports a <a href="https://help.github.com/articles/using-jekyll-plugins-with-github-pages/">few plugins</a> and I wanted to use <a href="http://charliepark.org/tags-in-jekyll/">this</a> tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my <a href="https://github.com/Darkle/darkle.github.io">darkle.github.io repository</a>. Doing this manually is a bit of a pain, but I stumbled on to <a href="http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/">this neat article</a> about using an <a href="http://www.alfredapp.com/">Alfred</a> workflow to make things faster and easier.</p>
+
+<p>Basically it allows you to create a new Jekyll post (including front-matter) with a shortcut in Alfred.</p>
+
+<p>My Alfred workflow shortcuts look like this:</p>
+
+<p><img src="/assets/images/blogpostimages/Jek-Alfred-ss.png" alt="Jekyll Alfred Screenshot" /></p>
+
+<p>When I select a new blog post it runs the following bash commands:</p>
+
+<pre class="line-numbers"><code class="language-bash"># Adjust these variables to your installation:
+
+sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
+editor="MacDown.app"
+extension=markdown
+
+filename=$(echo $sitedir/_posts/blog/$(date +'%Y-%m-%d')-{query}.$extension | sed -e 's, ,-,g' | tr '[:upper:]' '[:lower:]')
+
+cat &lt;&lt;EOT &gt;&gt; $filename
+---
+title: {query}
+date: $(date +'%Y-%m-%d %H:%M:%S')
+tags:[]
+---
+
+EOT
+open -a "$editor" $filename
+</code></pre>
+<p>What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the <code>_posts/blog/</code> directory and that title and date as the file name (Jekyll needs a <code>YEAR-MONTH-DAY-title.MARKUP</code> format for post file names), then add the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor <a href="http://macdown.uranusjr.com/">Macdown.app</a>.</p>
+
+<p>When I select a new project post it runs the following bash commands:</p>
+
+<pre class="line-numbers"><code class="language-bash"># Adjust these variables to your installation:
+
+sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
+editor="Whiskey.app"
+extension=markdown
+
+filename=$(echo $sitedir/_posts/projects/$(date +'%Y-%m-%d')-{query}.$extension | sed -e 's, ,-,g' | tr '[:upper:]' '[:lower:]')
+
+cat &lt;&lt;EOT &gt;&gt; $filename
+---
+title: {query}
+date: $(date +'%Y-%m-%d %H:%M:%S')
+tags: []
+summary: 
+---
+
+EOT
+open -a "$editor" $filename
+</code></pre>
+<p>which is pretty much the same except it creates the post in the <code>_posts/projects/</code> folder and it has a slightly different front-matter.</p>
+
+<p>The “Build And Push To Github” runs the following bash commands:</p>
+
+<pre class="line-numbers"><code class="language-bash"># Adjust these variables to your installation:
+
+export PATH=/usr/local/bin:$PATH
+
+JEKYLL_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/jekyll_files/"
+
+cd $JEKYLL_BLOG_DIRECTORY
+git add .
+git commit -a -m "Post $3-$2"
+#check if there were any new files made on github
+git pull --rebase
+#push to github
+git push origin master
+
+terminal-notifier -title "Git Push for CoopCoding Jekyll Files Done" -message "" -open "https://github.com/Darkle/coopcoding.com_jekyll_version"
+
+jekyll build
+
+terminal-notifier -title "Jekyll Built Static Files" -message ""
+
+STATIC_BLOG_DIRECTORY="/Users/username/Coding/Projects/coopcoding.com/darkle.github.io/"
+
+cd $STATIC_BLOG_DIRECTORY
+git add .
+git commit -a -m "Post $3-$2"
+git push origin master
+
+terminal-notifier -title "Git Push for CoopCoding Static Files Done" -message "" -open "https://github.com/Darkle/darkle.github.io"
+</code></pre>
+<p>Originally I was going to use the default notifier for OSX in the bash script but it wasn’t working for me, so I used this library insted: <a href="https://github.com/alloy/terminal-notifier">https://github.com/alloy/terminal-notifier</a>. Note: the bash shell jekyll uses didn’t seem to load my default <code>.bash_profile</code> file automatically, so I had to manually put in <code>export PATH=/usr/local/bin:$PATH</code> so that it could see the terminal-notifier library I had installed via homebrew.</p>
+
+<p>The “Open Blog Post” runs the following bash commands:</p>
+
+<pre class="line-numbers"><code class="language-bash"># Adjust these variables to your installation:
+
+sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
+extension=markdown
+
+IFS=$'\n'
+
+files=$(find $sitedir/_posts/blog -iname "*.$extension" | xargs ls -r |perl -MHTML::Entities -CS -pe'$_ = encode_entities($_, q{&amp;&lt;&gt;"'\''})')
+
+echo "&lt;?xml version='1.0'?&gt;&lt;items&gt;"
+for file in ${files}; do
+	echo "&lt;item uuid='file' arg='${file}' type='file'&gt;"
+	echo "&lt;title&gt;$(basename ${file})&lt;/title&gt;"
+	echo "&lt;subtitle&gt;${file}&lt;/subtitle&gt;"
+	echo "&lt;icon type='fileicon'&gt;${file}&lt;/icon&gt;"
+	echo "&lt;/item&gt;"
+done
+echo "&lt;/items&gt;"
+fi
+</code></pre>
+
+<p>What this does is iterate through all of the files in the <code>_posts/blog</code> directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in Whiskey.app.</p>
+
+<p>You can grab my Alfred workflow <a href="https://drive.google.com/file/d/0B2rOnFGX-QzGSGpVcTBhdFN5TDg/view?usp=sharing">here</a>.</p>
+
+
+
+    </section>
+
+    <footer>
+      <ul class="tags">
+      
+        <li class="tag-item">
+          <a href="http://coopcoding.com/tag/Jekyll">Jekyll</a>
+          <!-- <span class="tag-description">Find articles tagged &quot;foo1&quot;</span> -->
+        </li>
+      
+        <li class="tag-item">
+          <a href="http://coopcoding.com/tag/Alfred">Alfred</a>
+          <!-- <span class="tag-description">Find articles tagged &quot;foo1&quot;</span> -->
+        </li>
+      
+      </ul>
+    </footer>
+
+    <hr>
+
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES * * */
+        var disqus_shortname = 'coopcoding';
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+    <div class="cc-license">
+      This post is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+
+    </div>
+
+
+    <div class="rssfeed">
+      <a title="Rss Feed Link" href="http://coopcoding.com/feed.xml">RSS Feed</a>
+    </div>
+
+  </article>
+
+</section>
+
+    
+    </main>
+    
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+      <script src="http://coopcoding.com/js/min/jquery.fitvids-min.js"></script>
+      <script src="http://coopcoding.com/js/min/main-min.js"></script>
+      <script src="http://coopcoding.com/js/min/prism-min.js"></script>
+    
+
+  </body>
+
+</html>
+
