@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Apr 2015 10:38:22 +1000</pubDate>
-    <lastBuildDate>Wed, 08 Apr 2015 10:38:22 +1000</lastBuildDate>
+    <pubDate>Wed, 08 Apr 2015 10:39:13 +1000</pubDate>
+    <lastBuildDate>Wed, 08 Apr 2015 10:39:13 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -187,7 +187,7 @@ tags:[]
 EOT
 open -a &quot;$editor&quot; $filename
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the &lt;code&gt;_posts/blog/&lt;/code&gt; directory and that title and date as the file name (Jekyll needs a &lt;code&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt; format for post file names), then add the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor &lt;a href=&quot;http://macdown.uranusjr.com/&quot;&gt;Macdown.app&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the &lt;code&gt;_posts/blog/&lt;/code&gt; directory and uses that title and date as the file name (Jekyll needs a &lt;code&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt; format for post file names), then add the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor &lt;a href=&quot;http://macdown.uranusjr.com/&quot;&gt;Macdown.app&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;When I select a new project post it runs the following bash commands:&lt;/p&gt;
 
