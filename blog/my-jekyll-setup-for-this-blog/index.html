@@ -163,132 +163,14 @@ defaults:
 and a screenshot of Jekyll’s output folder structure:<br />
 <img src="/assets/images/blogpostimages/jek-build-folder-structure.png" alt="Jekyll Output Folder Structure" /></p>
 
-<p>Here is the html for the index.html in the <code>/projects/</code> folder:</p>
+<p>Here is the html for the index.html in the <code>/projects/</code> folder: <a href="https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html">https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html</a></p>
 
-<pre class="line-numbers"><code class="language-markup">---
-layout: default
-cssBodyClass: projects-page
-title: Coop.Coding Projects
----
-
-&lt;section class="projects"&gt;
-
-  
-  &lt;a href="/projects/cabin" class="project-listing"&gt;
-      &lt;div class="img-wrapper"&gt;
-        &lt;img class="project-screenshot-img" src="http://coopcoding.com/assets/images/projectbranding/cabin.jpg" alt=" branding image"&gt;
-      &lt;/div&gt;
-      &lt;svg class="project-screenshot-svg"&gt;
-          &lt;image xlink:href="http://coopcoding.com/assets/images/projectbranding/cabin.jpg" x="0" y="-62" width="100%" height="174"/&gt;
-      &lt;/svg&gt;
-
-      &lt;div class="project-details"&gt;
-
-        &lt;h2 class="project-title"&gt;Cabin&lt;/h2&gt;
-
-        &lt;p class="project-description"&gt;This is the summary for the cabin project&lt;/p&gt;
-
-      &lt;/div&gt;
-
-  &lt;/a&gt;
-  
-
-&lt;/section&gt;
-</code></pre>
 <p>You can see I’m looping over the <code>site.categories.projects</code> and listing each post in the “projects” category.</p>
 
-<p>It’s pretty much the same for the html in the index.html in the <code>/blog/</code> folder:</p>
+<p>It’s pretty much the same for the html in the index.html in the <code>/blog/</code> folder: <a href="https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html">https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html</a></p>
 
-<pre class="line-numbers"><code class="language-markup">---
-layout: default
-cssBodyClass: blog-posts
-title: Coop.Coding Blog
----
+<h3 id="tags">Tags</h3>
 
-&lt;section class="recent-blog-posts"&gt;
-
-  &lt;div class="section-headings"&gt;
-    &lt;a href="http://coopcoding.com/blog/"&gt;
-      &lt;h1&gt;Blog Posts&lt;/h1&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-
-  
-  &lt;article&gt;
-    &lt;header&gt;
-      &lt;h2&gt;
-        &lt;a class="post-link-header" href="/blog/my-jekyll-setup-for-this-blog"&gt;My Jekyll Setup For This Blog&lt;/a&gt;
-      &lt;/h2&gt;
-      &lt;span class="post-date"&gt;Apr 6, 2015&lt;/span&gt;
-    &lt;/header&gt;
-
-    &lt;section class="blog-post-section"&gt;
-      So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.com/) because it’s relatively easy to set up and there’s tons of good info &amp; tutorials on the web. I briefly played around with [Hugo](http://gohugo.io/), and although the documentation on the site is really good, I didn’t find much in the way of tutorials and articles from 3rd-party sites, so I stuck with Jekyll. ### Blog Structure For the site structure, I...
-
-      &lt;div class="gradient-hide"&gt;&lt;/div&gt;
-
-    &lt;/section&gt;
-
-    &lt;section class="blog-post-section"&gt;
-      &lt;a class="full-article-link" href="/blog/my-jekyll-setup-for-this-blog"&gt;Read Full Article&lt;/a&gt;
-    &lt;/section&gt;
-
-    &lt;footer&gt;
-      &lt;ul class="tags"&gt;
-      
-        &lt;li class="tag-item"&gt;
-          &lt;a href="http://coopcoding.com/tag/Jekyll"&gt;Jekyll&lt;/a&gt;
-          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
-        &lt;/li&gt;
-      
-        &lt;li class="tag-item"&gt;
-          &lt;a href="http://coopcoding.com/tag/Alfred"&gt;Alfred&lt;/a&gt;
-          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
-        &lt;/li&gt;
-      
-      &lt;/ul&gt;
-    &lt;/footer&gt;
-  &lt;/article&gt;
-  
-  &lt;article&gt;
-    &lt;header&gt;
-      &lt;h2&gt;
-        &lt;a class="post-link-header" href="/blog/blog-test-post"&gt;Blog Test Post&lt;/a&gt;
-      &lt;/h2&gt;
-      &lt;span class="post-date"&gt;Mar 17, 2015&lt;/span&gt;
-    &lt;/header&gt;
-
-    &lt;section class="blog-post-section"&gt;
-      &lt;p&gt;Cum sociis natoque penatibus et magnis &lt;a href="http://example.com/" title="dis parturient montes"&gt;dis parturient montes&lt;/a&gt;, nascetur ridiculus mus. &lt;em&gt;Aenean eu leo quam.&lt;/em&gt; Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.&lt;/p&gt; &lt;blockquote&gt; &lt;p&gt;Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.&lt;/p&gt; &lt;/blockquote&gt; &lt;p&gt;Etiam porta &lt;em&gt;sem malesuada magna&lt;/em&gt; mollis euismod. Cras mattis...
-
-      &lt;div class="gradient-hide"&gt;&lt;/div&gt;
-
-    &lt;/section&gt;
-
-    &lt;section class="blog-post-section"&gt;
-      &lt;a class="full-article-link" href="/blog/blog-test-post"&gt;Read Full Article&lt;/a&gt;
-    &lt;/section&gt;
-
-    &lt;footer&gt;
-      &lt;ul class="tags"&gt;
-      
-        &lt;li class="tag-item"&gt;
-          &lt;a href="http://coopcoding.com/tag/foo1"&gt;foo1&lt;/a&gt;
-          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
-        &lt;/li&gt;
-      
-        &lt;li class="tag-item"&gt;
-          &lt;a href="http://coopcoding.com/tag/foo2"&gt;foo2&lt;/a&gt;
-          &lt;!-- &lt;span class="tag-description"&gt;Find articles tagged &amp;quot;foo1&amp;quot;&lt;/span&gt; --&gt;
-        &lt;/li&gt;
-      
-      &lt;/ul&gt;
-    &lt;/footer&gt;
-  &lt;/article&gt;
-  
-
-&lt;/section&gt;
-</code></pre>
 <p>For generating “tag” pages, I used the code and process listed <a href="http://charliepark.org/tags-in-jekyll/">here</a>. You can see the tag pages output in the screenshot of Jekyll’s output folder structure above.</p>
 
 <h3 id="blog--project-layouts">Blog &amp; Project Layouts</h3>
