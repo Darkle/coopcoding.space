@@ -5,13 +5,13 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 08 Apr 2015 10:21:49 +1000</pubDate>
-    <lastBuildDate>Wed, 08 Apr 2015 10:21:49 +1000</lastBuildDate>
+    <pubDate>Wed, 08 Apr 2015 10:23:11 +1000</pubDate>
+    <lastBuildDate>Wed, 08 Apr 2015 10:23:11 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
         <title>My Jekyll Setup For This Blog</title>
-        <description>&lt;p&gt;So I wanted to set up a coding blog I decided on using &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; because it’s relatively easy to set up and there’s tons of good info &amp;amp; tutorials on the web. I briefly played around with &lt;a href=&quot;http://gohugo.io/&quot;&gt;Hugo&lt;/a&gt;, and although the documentation on the site is really good, I didn’t find much in the way of tutorial and articles from 3rd-party sites, so I stuck with Jekyll.&lt;/p&gt;
+        <description>&lt;p&gt;So I wanted to set up a coding blog I decided on using &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; because it’s relatively easy to set up and there’s tons of good info &amp;amp; tutorials on the web. I briefly played around with &lt;a href=&quot;http://gohugo.io/&quot;&gt;Hugo&lt;/a&gt;, and although the documentation on the site is really good, I didn’t find much in the way of tutorials and articles from 3rd-party sites, so I stuck with Jekyll.&lt;/p&gt;
 
 &lt;h3 id=&quot;blog-structure&quot;&gt;Blog Structure&lt;/h3&gt;
 
@@ -119,7 +119,7 @@ title: Coop.Coding Blog
     &amp;lt;/header&amp;gt;
 
     &amp;lt;section class=&quot;blog-post-section&quot;&amp;gt;
-      So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.com/) because it’s relatively easy to set up and there’s tons of good info &amp;amp; tutorials on the web. I briefly played around with [Hugo](http://gohugo.io/), and although the documentation on the site is really good, I didn’t find much in the way of tutorial and articles from 3rd-party sites, so I stuck with Jekyll. ### Blog Structure For the site structure, I...
+      So I wanted to set up a coding blog I decided on using [Jekyll](http://jekyllrb.com/) because it’s relatively easy to set up and there’s tons of good info &amp;amp; tutorials on the web. I briefly played around with [Hugo](http://gohugo.io/), and although the documentation on the site is really good, I didn’t find much in the way of tutorials and articles from 3rd-party sites, so I stuck with Jekyll. ### Blog Structure For the site structure, I...
 
       &amp;lt;div class=&quot;gradient-hide&quot;&amp;gt;&amp;lt;/div&amp;gt;
 
