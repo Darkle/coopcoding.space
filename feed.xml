@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 18 Apr 2015 17:41:53 +1000</pubDate>
-    <lastBuildDate>Sat, 18 Apr 2015 17:41:53 +1000</lastBuildDate>
+    <pubDate>Sat, 18 Apr 2015 17:44:12 +1000</pubDate>
+    <lastBuildDate>Sat, 18 Apr 2015 17:44:12 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -23,7 +23,7 @@
 
 &lt;p&gt;One thing that could mess up this system though is accidentally emptying the trash. I have it pretty set in my brain that whenever I see the full trash icon in the dock I should right-click it and empty it, so I figured I’d better remove the trash icon in order to remove the temptation.&lt;/p&gt;
 
-&lt;p&gt;After google-ing for a bit, I found &lt;a href=&quot;http://apple.stackexchange.com/questions/30415/how-can-i-remove-the-finder-icon-from-my-dock&quot;&gt;this post&lt;/a&gt; about removing the Finder icon from the dock, and then &lt;a href=&quot;https://discussions.apple.com/thread/6638249&quot;&gt;this post&lt;/a&gt; specifically about removing the Trash icon. Basically you need to alter the &lt;code&gt;/System/Library/CoreServices/Dock.app/Contents/Resources/DockMenus.plist&lt;/code&gt; file by inserting some XML do add a “Remove From Dock” option to the right-click menu for the Dock.&lt;/p&gt;
+&lt;p&gt;After google-ing for a bit, I found &lt;a href=&quot;http://apple.stackexchange.com/questions/30415/how-can-i-remove-the-finder-icon-from-my-dock&quot;&gt;this post&lt;/a&gt; about removing the Finder icon from the dock, and then &lt;a href=&quot;https://discussions.apple.com/thread/6638249&quot;&gt;this post&lt;/a&gt; specifically about removing the Trash icon. Basically you need to alter the &lt;code&gt;/System/Library/CoreServices/Dock.app/Contents/Resources/DockMenus.plist&lt;/code&gt; file by inserting some XML to add a “Remove From Dock” option to the right-click menu for the Dock.&lt;/p&gt;
 
 &lt;p&gt;In &lt;a href=&quot;http://apple.stackexchange.com/questions/30415/how-can-i-remove-the-finder-icon-from-my-dock#comment34912_30429&quot;&gt;the comments&lt;/a&gt; on the first post, it’s mentioned that you could automate this from the command line by using &lt;code&gt;defaults write&lt;/code&gt;, but in practice I found that this converts the &lt;code&gt;DocMenus.plist&lt;/code&gt; file from a text XML file to a binary XML file. The new binary XML file didn’t seem to work for me; no menu showed up on right click even after restarting the dock by running &lt;code&gt;killall Dock&lt;/code&gt; from the Terminal, so I had a quick hunt around for XML parsers/editors that work from the command line on OSX.&lt;/p&gt;
 
