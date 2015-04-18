@@ -129,7 +129,7 @@
 
 <p>After google-ing for a bit, I found <a href="http://apple.stackexchange.com/questions/30415/how-can-i-remove-the-finder-icon-from-my-dock">this post</a> about removing the Finder icon from the dock, and then <a href="https://discussions.apple.com/thread/6638249">this post</a> specifically about removing the Trash icon. Basically you need to alter the <code>/System/Library/CoreServices/Dock.app/Contents/Resources/DockMenus.plist</code> file by inserting some XML to add a “Remove From Dock” option to the right-click menu for the Dock.</p>
 
-<p>In <a href="http://apple.stackexchange.com/questions/30415/how-can-i-remove-the-finder-icon-from-my-dock#comment34912_30429">the comments</a> on the first post, it’s mentioned that you could automate this from the command line by using <code>defaults write</code>, but in practice I found that this converts the <code>DocMenus.plist</code> file from a text XML file to a binary XML file. The new binary XML file didn’t seem to work for me; no menu showed up on right click even after restarting the dock by running <code>killall Dock</code> from the Terminal, so I had a quick hunt around for XML parsers/editors that work from the command line on OSX.</p>
+<p>In <a href="http://apple.stackexchange.com/questions/30415/how-can-i-remove-the-finder-icon-from-my-dock#comment34912_30429">the comments</a> on the first post, it’s mentioned that you could automate this from the command line by using <code>defaults write</code>, but in practice I found that this converts <code>DocMenus.plist</code> from a text XML file to a binary XML file. The new binary XML file didn’t seem to work for me; no menu showed up on right click even after restarting the dock by running <code>killall Dock</code> from the Terminal, so I had a quick hunt around for XML parsers/editors that work from the command line on OSX.</p>
 
 <p><a href="http://xmlstar.sourceforge.net/">XMLStarlet</a> seemed to be fairly popular so I installed it using the always helpful <a href="http://brew.sh/">Homebrew</a>. (after Homebrew is installed, you just need to run <code>brew install xmlstarlet</code>).</p>
 
@@ -343,7 +343,6 @@ end tell
 <p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/osx/privacy_prefs.png" alt="Security &amp; Privacy Preferences" /></p>
 
 <p>sadf</p>
-
 
 
     </section>
