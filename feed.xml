@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 18 Apr 2015 19:12:34 +1000</pubDate>
-    <lastBuildDate>Sat, 18 Apr 2015 19:12:34 +1000</lastBuildDate>
+    <pubDate>Sat, 18 Apr 2015 19:18:24 +1000</pubDate>
+    <lastBuildDate>Sat, 18 Apr 2015 19:18:24 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -79,7 +79,6 @@
 &lt;p&gt;After reading through the &lt;a href=&quot;http://xmlstar.sourceforge.net/doc/UG/xmlstarlet-ug.html#idm47077139594320&quot;&gt;documentation for editing XML files&lt;/a&gt; in XMLStarlet, it seemed like the natural thing to use would be the &lt;code&gt;-a&lt;/code&gt; option to append new XML elements like so:&lt;/p&gt;
 
 &lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;xml ed -a &quot;/foo/bar&quot; -t elem -n dict
-
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;(&lt;code&gt;ed&lt;/code&gt; command is for editing, &lt;code&gt;-a&lt;/code&gt; option is for “append”, &lt;code&gt;-t&lt;/code&gt; is for the type of element you are appending, in this case an “elem” or element and &lt;code&gt;-n&lt;/code&gt; for the name of the element).&lt;/p&gt;
@@ -265,6 +264,288 @@ end tell
         <category>hazel</category>
         
         <category>launchd</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>An Alternative To Undelete In Osx (and Hiding The Trash Icon In The Dock)</title>
+        <description>&lt;hr /&gt;
+
+&lt;p&gt;date: 2015-04-18 15:43:40
+tags: [osx,dock,hazel,launchd]&lt;/p&gt;
+
+&lt;h2&gt;title: An alternative to undelete in osx (and hiding the trash icon in the dock)&lt;/h2&gt;
+
+&lt;h3&gt;Hazel Trash Preference&lt;/h3&gt;
+
+&lt;p&gt;I’ve been thinking about getting an undelete program for OSX for a while, but I hadn’t really found one that I liked. A few weeks ago I purchased &lt;a href=&quot;http://www.noodlesoft.com/hazel.php&quot;&gt;Hazel&lt;/a&gt; (for an unrelated thing), and found that it had a really neat feature where it can delete files in your Trash folder if the file os older than X number of days:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://coopcoding.com/assets/images/blogpostimages/HazelSystemPreferences.png&quot; alt=&quot;Hazel System Preferences&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I realised this could be used as a poor-mans alternative to undelete&lt;/p&gt;
+
+&lt;h3&gt;Removing the trash icon from the dock&lt;/h3&gt;
+
+&lt;p&gt;One thing that could mess up this system though is accidentally emptying the trash. I have it pretty set in my brain that whenever I see the full trash icon in the dock I should right-click it and empty it, so I figured I’d better remove the trash icon in order to remove the temptation.&lt;/p&gt;
+
+&lt;p&gt;After google-ing for a bit, I found &lt;a href=&quot;http://apple.stackexchange.com/questions/30415/how-can-i-remove-the-finder-icon-from-my-dock&quot;&gt;this post&lt;/a&gt; about removing the Finder icon from the dock, and then &lt;a href=&quot;https://discussions.apple.com/thread/6638249&quot;&gt;this post&lt;/a&gt; specifically about removing the Trash icon. Basically you need to alter the &lt;code&gt;/System/Library/CoreServices/Dock.app/Contents/Resources/DockMenus.plist&lt;/code&gt; file by inserting some XML to add a “Remove From Dock” option to the right-click menu for the Dock.&lt;/p&gt;
+
+&lt;p&gt;In &lt;a href=&quot;http://apple.stackexchange.com/questions/30415/how-can-i-remove-the-finder-icon-from-my-dock#comment34912_30429&quot;&gt;the comments&lt;/a&gt; on the first post, it’s mentioned that you could automate this from the command line by using &lt;code&gt;defaults write&lt;/code&gt;, but in practice I found that this converts &lt;code&gt;DocMenus.plist&lt;/code&gt; from an XML text file to an XML binary file. The new binary XML file didn’t seem to work for me; no menu showed up on right click even after restarting the dock by running &lt;code&gt;killall Dock&lt;/code&gt; from the Terminal, so I had a quick hunt around for XML parsers/editors that work from the command line on OSX.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://xmlstar.sourceforge.net/&quot;&gt;XMLStarlet&lt;/a&gt; seemed to be fairly popular so I installed it using the always helpful &lt;a href=&quot;http://brew.sh/&quot;&gt;Homebrew&lt;/a&gt;. (after Homebrew is installed, you just need to run &lt;code&gt;brew install xmlstarlet&lt;/code&gt;).&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;DockMenus.plist&lt;/code&gt; XML looks like this: &lt;a href=&quot;https://gist.github.com/Darkle/2ca4152ec3cbc90b8aa9&quot;&gt;https://gist.github.com/Darkle/2ca4152ec3cbc90b8aa9&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Specifically, we are after the array after the &lt;code&gt;&amp;lt;key&amp;gt;trash&amp;lt;/key&amp;gt;&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;markup
+    &amp;lt;key&amp;gt;trash&amp;lt;/key&amp;gt;
+    &amp;lt;array&amp;gt;
+      &amp;lt;dict&amp;gt;
+        &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;1000&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
+        &amp;lt;string&amp;gt;OPEN&amp;lt;/string&amp;gt;
+      &amp;lt;/dict&amp;gt;
+      &amp;lt;dict&amp;gt;
+        &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;2000&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;separator&amp;lt;/key&amp;gt;
+        &amp;lt;true/&amp;gt;
+      &amp;lt;/dict&amp;gt;
+      &amp;lt;dict&amp;gt;
+        &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;1001&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;dynamic&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;0&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
+        &amp;lt;string&amp;gt;EMPTY_TRASH&amp;lt;/string&amp;gt;
+      &amp;lt;/dict&amp;gt;
+      &amp;lt;dict&amp;gt;
+        &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;1040&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;dynamic&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;2&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
+        &amp;lt;string&amp;gt;SECURE_EMPTY_TRASH&amp;lt;/string&amp;gt;
+      &amp;lt;/dict&amp;gt;
+    &amp;lt;/array&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;What we want to do is insert the following XML into the array element immediately after the &lt;code&gt;&amp;lt;key&amp;gt;trash&amp;lt;/key&amp;gt;&lt;/code&gt; element:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;markup
+&amp;lt;dict&amp;gt;
+  &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+  &amp;lt;integer&amp;gt;1004&amp;lt;/integer&amp;gt;
+  &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
+  &amp;lt;string&amp;gt;REMOVE_FROM_DOCK&amp;lt;/string&amp;gt;
+&amp;lt;/dict&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;After reading through the &lt;a href=&quot;http://xmlstar.sourceforge.net/doc/UG/xmlstarlet-ug.html#idm47077139594320&quot;&gt;documentation for editing XML files&lt;/a&gt; in XMLStarlet, it seemed like the natural thing to use would be the &lt;code&gt;-a&lt;/code&gt; option to append new XML elements like so:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bash
+xml ed -a &quot;/foo/bar&quot; -t elem -n dict
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;(&lt;code&gt;ed&lt;/code&gt; command is for editing, &lt;code&gt;-a&lt;/code&gt; option is for “append”, &lt;code&gt;-t&lt;/code&gt; is for the type of element you are appending, in this case an “elem” or element and &lt;code&gt;-n&lt;/code&gt; for the name of the element).&lt;/p&gt;
+
+&lt;p&gt;but for some reason append in XMLStarlet inserts the new element you are creating as a sibling to the element you selected in the xpath. So you seem to need to use the &lt;code&gt;-s&lt;/code&gt; subnode command to insert elements as childnodes of the element the xpath selects.&lt;/p&gt;
+
+&lt;p&gt;To get the trash key via xpath, we can use&lt;/p&gt;
+
+&lt;p&gt;``` bash
+&amp;ldquo;/plist/dict/key[.=&amp;lsquo;trash&amp;rsquo;]&amp;rdquo; &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;then we grab the first sibling and make sure it’s an array&lt;/p&gt;
+
+&lt;p&gt;``` bash
+&amp;ldquo;/following-sibling::*[1][self::array]&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;so all up its&lt;/p&gt;
+
+&lt;p&gt;``` bash
+&amp;ldquo;/plist/dict/key[.=&amp;lsquo;trash&amp;rsquo;]/following-sibling::*[1][self::array]&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;Then as the XMLStarlet command&lt;/p&gt;
+
+&lt;p&gt;``` bash
+xml ed -L -s &amp;ldquo;/plist/dict/key[.=&amp;lsquo;trash&amp;rsquo;]/following-sibling::*[1][self::array]&amp;rdquo; -t elem -n dict&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;(&lt;code&gt;-L&lt;/code&gt; option means to &lt;a href=&quot;http://stackoverflow.com/questions/5954168/how-to-insert-a-new-element-under-another-with-xmlstarlet/9172796#9172796&quot;&gt;edit the file in place&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;This should result in the following XML inside the trash array&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;markup
+    &amp;lt;array&amp;gt;
+      &amp;lt;dict&amp;gt;
+        &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;1000&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
+        &amp;lt;string&amp;gt;OPEN&amp;lt;/string&amp;gt;
+      &amp;lt;/dict&amp;gt;
+      &amp;lt;dict&amp;gt;
+        &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;2000&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;separator&amp;lt;/key&amp;gt;
+        &amp;lt;true/&amp;gt;
+      &amp;lt;/dict&amp;gt;
+      &amp;lt;dict&amp;gt;
+        &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;1001&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;dynamic&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;0&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
+        &amp;lt;string&amp;gt;EMPTY_TRASH&amp;lt;/string&amp;gt;
+      &amp;lt;/dict&amp;gt;
+      &amp;lt;dict&amp;gt;
+        &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;1040&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;dynamic&amp;lt;/key&amp;gt;
+        &amp;lt;integer&amp;gt;2&amp;lt;/integer&amp;gt;
+        &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
+        &amp;lt;string&amp;gt;SECURE_EMPTY_TRASH&amp;lt;/string&amp;gt;
+      &amp;lt;/dict&amp;gt;
+      &amp;lt;dict&amp;gt;
+      &amp;lt;/dict&amp;gt;
+    &amp;lt;/array&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;The lack of attributes (classes or id’s) or text in the dict elements makes it tough to be sure we are getting the right one to next insert the&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;markup
+  &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+  &amp;lt;integer&amp;gt;1004&amp;lt;/integer&amp;gt;
+  &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
+  &amp;lt;string&amp;gt;REMOVE_FROM_DOCK&amp;lt;/string&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;so I used the xpath option of checking for a dict element that had no child nodes, and then giving it a unique id to make the rest of the XML editing easier&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;bash
+xml ed -L -s &quot;/plist/dict/key[.=&#39;trash&#39;]/following-sibling::*[1][self::array]&quot; -t elem -n dict \
+-i &quot;/plist/dict/key[.=&#39;trash&#39;]/following-sibling::*[1][self::array]/dict[not(*)]&quot; -t &quot;attr&quot; -n &quot;id&quot; -v &quot;removeFromDockDictionaryInsert&quot;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;With XMLStarlet you can chain commands, so this is just the first subnode command with the new commands added at the end. You see we’re using the &lt;code&gt;-i&lt;/code&gt; option to insert something and that something’s type is an attribute (“attr”) with a name of “id” and a value of ”removeFromDockDictionaryInsert”.&lt;/p&gt;
+
+&lt;p&gt;Now it’s easier to add more elements by just querying&lt;/p&gt;
+
+&lt;p&gt;``` bash
+&amp;ldquo;//dict[@id=&amp;lsquo;removeFromDockDictionaryInsert&amp;rsquo;]&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;Here is the final complete command&lt;/p&gt;
+
+&lt;p&gt;``` bash
+xml ed -L -s &amp;ldquo;/plist/dict/key[.=&amp;lsquo;trash&amp;rsquo;]/following-sibling::&lt;em&gt;[1][self::array]&amp;rdquo; -t elem -n dict \
+-i &amp;ldquo;/plist/dict/key[.=&amp;lsquo;trash&amp;rsquo;]/following-sibling::&lt;/em&gt;[1][self::array]/dict[not(*)]&amp;rdquo; -t &amp;ldquo;attr&amp;rdquo; -n &amp;ldquo;id&amp;rdquo; -v &amp;ldquo;removeFromDockDictionaryInsert&amp;rdquo; \
+-s &amp;ldquo;//dict[@id=&amp;lsquo;removeFromDockDictionaryInsert&amp;rsquo;]&amp;rdquo; -t elem -n key -v &amp;ldquo;command&amp;rdquo; \
+-s &amp;ldquo;//dict[@id=&amp;lsquo;removeFromDockDictionaryInsert&amp;rsquo;]&amp;rdquo; -t elem -n integer -v 1004 \
+-s &amp;ldquo;//dict[@id=&amp;lsquo;removeFromDockDictionaryInsert&amp;rsquo;]&amp;rdquo; -t elem -n key -v &amp;ldquo;name&amp;rdquo; \
+-s &amp;ldquo;//dict[@id=&amp;lsquo;removeFromDockDictionaryInsert&amp;rsquo;]&amp;rdquo; -t elem -n string -v &amp;ldquo;REMOVE_FROM_DOCK&amp;rdquo; DocMenus.plist&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;After this is run on the &lt;code&gt;DocMenus.plist&lt;/code&gt; file, your right-click menu for the Trash icon in the dock should look like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://coopcoding.com/assets/images/blogpostimages/RemoveFromDockMenu.jpg&quot; alt=&quot;Remove From Dock Menu&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Removing on startup via launchd&lt;/h3&gt;
+
+&lt;p&gt;I decided on using a bash script to backup the default &lt;code&gt;DockMenus.plist&lt;/code&gt;file, run the XMLStarlet commands and then hide the Trash icon via an applescript.&lt;/p&gt;
+
+&lt;p&gt;The bash script looks as follows&lt;/p&gt;
+
+&lt;p&gt;``` bash&lt;/p&gt;
+
+&lt;h1&gt;!/bin/sh&lt;/h1&gt;
+
+&lt;p&gt;export PATH=/usr/local/bin:$PATH&lt;/p&gt;
+
+&lt;h3&gt;Back up the DockMenus.plist file&lt;/h3&gt;
+
+&lt;p&gt;origPlist=/System/Library/CoreServices/Dock.app/Contents/Resources/DockMenus;
+backupFolder=/Users/coop/Dropbox/OSXStuff/DockTrashScripts
+cp $origPlist.plist $backupFolder/DockMenus-BAK.plist;&lt;/p&gt;
+
+&lt;h3&gt;Edit the DockMenus.plist file with XMLStarlet&lt;/h3&gt;
+
+&lt;p&gt;xml ed -L -s &amp;ldquo;/plist/dict/key[.=&amp;lsquo;trash&amp;rsquo;]/following-sibling::&lt;em&gt;[1][self::array]&amp;rdquo; -t elem -n dict -i &amp;ldquo;/plist/dict/key[.=&amp;lsquo;trash&amp;rsquo;]/following-sibling::&lt;/em&gt;[1][self::array]/dict[not(*)]&amp;rdquo; -t &amp;ldquo;attr&amp;rdquo; -n &amp;ldquo;id&amp;rdquo; -v &amp;ldquo;removeFromDockDictionaryInsert&amp;rdquo; -s &amp;ldquo;//dict[@id=&amp;lsquo;removeFromDockDictionaryInsert&amp;rsquo;]&amp;rdquo; -t elem -n key -v &amp;ldquo;command&amp;rdquo; -s &amp;ldquo;//dict[@id=&amp;lsquo;removeFromDockDictionaryInsert&amp;rsquo;]&amp;rdquo; -t elem -n integer -v 1004 -s &amp;ldquo;//dict[@id=&amp;lsquo;removeFromDockDictionaryInsert&amp;rsquo;]&amp;rdquo; -t elem -n key -v &amp;ldquo;name&amp;rdquo; -s &amp;ldquo;//dict[@id=&amp;lsquo;removeFromDockDictionaryInsert&amp;rsquo;]&amp;rdquo; -t elem -n string -v &amp;ldquo;REMOVE_FROM_DOCK&amp;rdquo; $origPlist.plist&lt;/p&gt;
+
+&lt;h3&gt;Run the applescript that select the right-click menu to hide the Trash icon&lt;/h3&gt;
+
+&lt;p&gt;osascript $backupFolder/HideTrashIconInDock.scpt
+```&lt;/p&gt;
+
+&lt;p&gt;and then make it executable by running &lt;code&gt;chmod +x&lt;/code&gt; on the bash script file.&lt;/p&gt;
+
+&lt;p&gt;In the &lt;code&gt;HideTrashIconInDock.scpt&lt;/code&gt; script is the following Applescript&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;applescript
+tell application &quot;System Events&quot; to tell process &quot;Dock&quot;
+    tell UI element &quot;Trash&quot; of list 1
+        perform action &quot;AXShowMenu&quot;
+        click menu item &quot;Remove from Dock&quot; of menu 1
+    end tell
+end tell
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Then I created a file called &lt;code&gt;com.coop.removeTrashIconFromDock.plist&lt;/code&gt; in the &lt;code&gt;/Users/coop/Library/LaunchAgents/&lt;/code&gt;folder conatining the following XML&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;markup
+&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&amp;lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&amp;gt;
+&amp;lt;plist version=&quot;1.0&quot;&amp;gt;
+    &amp;lt;dict&amp;gt;
+        &amp;lt;key&amp;gt;Label&amp;lt;/key&amp;gt;
+        &amp;lt;string&amp;gt;com.coop.removeTrashIconFromDock&amp;lt;/string&amp;gt;
+        &amp;lt;key&amp;gt;Program&amp;lt;/key&amp;gt;
+        &amp;lt;string&amp;gt;/Users/coop/Dropbox/OSXStuff/DockTrashScripts/bakupAndAlterPlist.sh&amp;lt;/string&amp;gt;
+        &amp;lt;key&amp;gt;RunAtLoad&amp;lt;/key&amp;gt;
+        &amp;lt;true/&amp;gt;
+    &amp;lt;/dict&amp;gt;
+&amp;lt;/plist&amp;gt;
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This file will be run by &lt;a href=&quot;http://launchd.info/&quot;&gt;launchd&lt;/a&gt; on startup. When this runs the first time, you will probably be asked to give &lt;code&gt;bakupAndAlterPlist.sh&lt;/code&gt; Accessibility access in the OSX preferences.&lt;/p&gt;
+
+&lt;p&gt;If you don’t want to wait for a restart to load the Launch Agent, you can use the following command:&lt;/p&gt;
+
+&lt;p&gt;``` bash
+launchctl load ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;and to unload&lt;/p&gt;
+
+&lt;p&gt;``` bash
+launchctl unload  ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist&lt;/p&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;More info here: &lt;a href=&quot;http://launchd.info/&quot;&gt;http://launchd.info/)&lt;/a&gt; (click on the “Operation” tab&lt;/p&gt;
+
+&lt;p&gt;Side note: For messing around with applescript in the terminal or in the applescript script editor with scripts that need to accesses accessibility features, you might want to add Terminal.app, &lt;a href=&quot;http://jacobsalmela.com/os-x-yosemite-osascript-enabling-access-assistive-devices/&quot;&gt;osascript&lt;/a&gt; and Script Editor.app to the Security and Privacy Accessibility&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;https://support.apple.com/library/content/dam/edam/applecare/images/en_US/osx/privacy_prefs.png&quot; alt=&quot;Security &amp;amp; Privacy Preferences&quot; /&gt;&lt;/p&gt;
+</description>
+        <pubDate>Sat, 18 Apr 2015 00:00:00 +1000</pubDate>
+        <link>http://coopcoding.com/blog/an-alternative-to-undelete-in-osx-(and-hiding-the-trash-icon-in-the-dock)</link>
+        <guid isPermaLink="true">http://coopcoding.com/blog/an-alternative-to-undelete-in-osx-(and-hiding-the-trash-icon-in-the-dock)</guid>
         
         
         <category>blog</category>
