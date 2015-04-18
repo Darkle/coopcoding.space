@@ -21,9 +21,9 @@
   <link rel="canonical" href="http://coopcoding.com/blog/an-alternative-to-undelete-in-osx-(and-hiding-the-trash-icon-in-the-dock)">
   <link rel="alternate" type="application/rss+xml" title="Coop...Coding" href="http://coopcoding.com/feed.xml" />
 
-
+  
   <meta name="keywords" content="osx, dock, hazel, and launchd" />
-
+  
 
 
 </head>
@@ -45,21 +45,21 @@
   <nav class="main-navigation" role="navigation">
 
     <!-- http://pixelcog.com/blog/2013/jekyll-from-scratch-core-architecture/ -->
-
+    
 
     <a href="http://coopcoding.com"   title="Coop.Coding Home Page">Home</a>
 
     <a href="http://coopcoding.com/projects/"  title="Coop.Coding Projects Page">Projects</a>
 
-
+    
 
     <a href="http://coopcoding.com/blog/" class="nav-active"  title="Coop.Coding Blog">Blog</a>
 
-
+    
     <a href="/blog/an-alternative-to-undelete-in-osx-(and-hiding-the-trash-icon-in-the-dock)" class="nav-active sub-link" title="An alternative to undelete in osx (and hiding the trash icon in the dock) blog post link">
       <div>An alternative to undelete in osx (and hiding the trash icon in the dock)</div>
     </a>
-
+    
 
     <a href="https://www.google.com/cse/publicurl?cx=017656873701660410302:dlj9xkst79m" id="navSearchLink" title="Search">Search</a>
     <form class="nav-search hiddenSearch" action="http://www.google.com/cse" method="get">
@@ -76,26 +76,26 @@
   </nav>
 
   <!-- don't show recent posts on the homepage -->
-
+  
   <div class="sidebar-recent-posts">
     <h3>Recent Blog Posts:</h3>
     <ul>
-
+      
       <li>
         <a href="/blog/an-alternative-to-undelete-in-osx-(and-hiding-the-trash-icon-in-the-dock)">An alternative to undelete in osx (and hiding the trash icon in the dock)</a>
       </li>
-
+      
       <li>
         <a href="/blog/an-alternative-to-undelete-in-osx-(and-hiding-the-trash-icon-in-the-dock)">An Alternative To Undelete In Osx (and Hiding The Trash Icon In The Dock)</a>
       </li>
-
+      
       <li>
         <a href="/blog/my-jekyll-setup-for-this-blog">My Jekyll Setup For This Blog</a>
       </li>
-
+      
     </ul>
   </div>
-
+  
 
 </aside>
 
@@ -141,7 +141,7 @@
 
 <p>Specifically, we are after the array after the <code>&lt;key&gt;trash&lt;/key&gt;</code>:</p>
 
-<pre class="line-numbers"><code class="language-markup">    &lt;key&gt;trash&lt;/key&gt;
+<pre><code class="language-markup">    &lt;key&gt;trash&lt;/key&gt;
     &lt;array&gt;
       &lt;dict&gt;
         &lt;key&gt;command&lt;/key&gt;
@@ -176,7 +176,7 @@
 
 <p>What we want to do is insert the following XML into the array element immediately after the <code>&lt;key&gt;trash&lt;/key&gt;</code> element:</p>
 
-<pre class="line-numbers"><code class="language-markup">&lt;dict&gt;
+<pre><code class="language-markup">&lt;dict&gt;
   &lt;key&gt;command&lt;/key&gt;
   &lt;integer&gt;1004&lt;/integer&gt;
   &lt;key&gt;name&lt;/key&gt;
@@ -195,29 +195,29 @@
 
 <p>To get the trash key via xpath, we can use</p>
 
-<pre class="line-numbers"><code class="language-bash">"/plist/dict/key[.='trash']" ...
+<pre><code class="language-bash">"/plist/dict/key[.='trash']" ...
 </code></pre>
 
 <p>then we grab the first sibling and make sure it’s an array</p>
 
-<pre class="line-numbers"><code class="language-bash">"/following-sibling::*[1][self::array]"
+<pre><code class="language-bash">"/following-sibling::*[1][self::array]"
 </code></pre>
 
 <p>so all up its</p>
 
-<pre class="line-numbers"><code class="language-bash">"/plist/dict/key[.='trash']/following-sibling::*[1][self::array]"
+<pre><code class="language-bash">"/plist/dict/key[.='trash']/following-sibling::*[1][self::array]"
 </code></pre>
 
 <p>Then as the XMLStarlet command</p>
 
-<pre class="line-numbers"><code class="language-bash">xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict
+<pre><code class="language-bash">xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict
 </code></pre>
 
 <p>(<code>-L</code> option means to <a href="http://stackoverflow.com/questions/5954168/how-to-insert-a-new-element-under-another-with-xmlstarlet/9172796#9172796">edit the file in place</a>)</p>
 
 <p>This should result in the following XML inside the trash array</p>
 
-<pre class="line-numbers"><code class="language-markup">    &lt;array&gt;
+<pre><code class="language-markup">    &lt;array&gt;
       &lt;dict&gt;
         &lt;key&gt;command&lt;/key&gt;
         &lt;integer&gt;1000&lt;/integer&gt;
@@ -253,7 +253,7 @@
 
 <p>The lack of attributes (classes or id’s) or text in the dict elements makes it tough to be sure we are getting the right one to next insert the</p>
 
-<pre class="line-numbers"><code class="language-markup">  &lt;key&gt;command&lt;/key&gt;
+<pre><code class="language-markup">  &lt;key&gt;command&lt;/key&gt;
   &lt;integer&gt;1004&lt;/integer&gt;
   &lt;key&gt;name&lt;/key&gt;
   &lt;string&gt;REMOVE_FROM_DOCK&lt;/string&gt;
@@ -261,7 +261,7 @@
 
 <p>so I used the xpath option of checking for a dict element that had no child nodes, and then giving it a unique id to make the rest of the XML editing easier</p>
 
-<pre class="line-numbers"><code class="language-bash">xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict \
+<pre><code class="language-bash">xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict \
 -i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert"
 </code></pre>
 
@@ -269,12 +269,12 @@
 
 <p>Now it’s easier to add more elements by just querying</p>
 
-<pre class="line-numbers"><code class="language-bash">"//dict[@id='removeFromDockDictionaryInsert']"
+<pre><code class="language-bash">"//dict[@id='removeFromDockDictionaryInsert']"
 </code></pre>
 
 <p>Here is the final complete command</p>
 
-<pre class="line-numbers"><code class="language-bash">xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict \
+<pre><code class="language-bash">xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict \
 -i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert" \
 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "command" \
 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n integer -v 1004 \
@@ -292,7 +292,7 @@
 
 <p>The bash script looks as follows</p>
 
-<pre class="line-numbers"><code class="language-bash">#!/bin/sh
+<pre><code class="language-bash">#!/bin/sh
 export PATH=/usr/local/bin:$PATH
 
 ### Back up the DockMenus.plist file
@@ -311,7 +311,7 @@ osascript $backupFolder/HideTrashIconInDock.scpt
 
 <p>In the <code>HideTrashIconInDock.scpt</code> script is the following Applescript</p>
 
-<pre class="line-numbers"><code class="language-applescript">tell application "System Events" to tell process "Dock"
+<pre><code class="language-applescript">tell application "System Events" to tell process "Dock"
 	tell UI element "Trash" of list 1
 		perform action "AXShowMenu"
 		click menu item "Remove from Dock" of menu 1
@@ -321,7 +321,7 @@ end tell
 
 <p>Then I created a file called <code>com.coop.removeTrashIconFromDock.plist</code> in the <code>/Users/coop/Library/LaunchAgents/</code>folder conatining the following XML</p>
 
-<pre class="line-numbers"><code class="language-markup">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+<pre><code class="language-markup">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
 &lt;plist version="1.0"&gt;
 	&lt;dict&gt;
@@ -339,12 +339,12 @@ end tell
 
 <p>If you don’t want to wait for a restart to load the Launch Agent, you can use the following command:</p>
 
-<pre class="line-numbers"><code class="language-bash">launchctl load ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
+<pre><code class="language-bash">launchctl load ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
 </code></pre>
 
 <p>and to unload</p>
 
-<pre class="line-numbers"><code class="language-bash">launchctl unload  ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
+<pre><code class="language-bash">launchctl unload  ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
 </code></pre>
 
 <p>More info here: <a href="http://launchd.info/">http://launchd.info/)</a> (click on the “Operation” tab</p>
@@ -358,27 +358,27 @@ end tell
 
     <footer>
       <ul class="tags">
-
+      
         <li class="tag-item">
           <a href="http://coopcoding.com/tag/osx">osx</a>
           <!-- <span class="tag-description">Find articles tagged &quot;foo1&quot;</span> -->
         </li>
-
+      
         <li class="tag-item">
           <a href="http://coopcoding.com/tag/dock">dock</a>
           <!-- <span class="tag-description">Find articles tagged &quot;foo1&quot;</span> -->
         </li>
-
+      
         <li class="tag-item">
           <a href="http://coopcoding.com/tag/hazel">hazel</a>
           <!-- <span class="tag-description">Find articles tagged &quot;foo1&quot;</span> -->
         </li>
-
+      
         <li class="tag-item">
           <a href="http://coopcoding.com/tag/launchd">launchd</a>
           <!-- <span class="tag-description">Find articles tagged &quot;foo1&quot;</span> -->
         </li>
-
+      
       </ul>
     </footer>
 
@@ -412,14 +412,14 @@ end tell
 
 </section>
 
-
+    
     </main>
-
+    
       <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
       <script src="http://coopcoding.com/js/min/jquery.fitvids-min.js"></script>
       <script src="http://coopcoding.com/js/min/main-min.js"></script>
       <script src="http://coopcoding.com/js/min/prism-min.js"></script>
-
+    
 
   </body>
 

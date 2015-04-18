@@ -129,7 +129,7 @@
 
 <p>What I ended up doing was creating only blog posts and giving them either a “blog” category or a “projects” category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:</p>
 
-<pre class="line-numbers"><code class="language-yaml">---
+<pre><code class="language-yaml">---
 title:  "My Chrome Extension Project"
 date:   2015-02-15 10:14:35
 tags:
@@ -141,7 +141,7 @@ summary: "This is the summary for the chrome extension project"
 
 <p>Then in my _config.yml I put the following:</p>
 
-<pre class="line-numbers"><code class="language-yaml">permalink: /:categories/:title
+<pre><code class="language-yaml">permalink: /:categories/:title
 defaults:
   -
     scope:
@@ -185,7 +185,7 @@ defaults:
 
 <p>Obviously I wanted to have different layouts for the blog post and project posts, so I used the following in my <code>_config.yml</code>:</p>
 
-<pre class="line-numbers"><code class="language-yaml">defaults:
+<pre><code class="language-yaml">defaults:
   -
     scope:
       path: "blog"
@@ -240,7 +240,7 @@ print_hi('Tom')
 
 <p>will be render into this HTML:</p>
 
-<pre class="line-numbers"><code class="language-markup">&lt;pre&gt;&lt;code class="language-ruby"&gt;
+<pre><code class="language-markup">&lt;pre&gt;&lt;code class="language-ruby"&gt;
 def print_hi(name)
   puts "Hi, #{name}"
 end
@@ -274,13 +274,13 @@ print_hi('Tom')
 
 <p>But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I’m on a mac, so the kramdown folder was in <code>/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/</code>. From that folder, I went to the <code>parser/kramdown/codeblock.rb</code> file, then opened it and changed line 44 from</p>
 
-<pre class="line-numbers"><code class="language-ruby">el.attr['class'] = "language-#{lang}" unless lang.empty?
+<pre><code class="language-ruby">el.attr['class'] = "language-#{lang}" unless lang.empty?
 
 </code></pre>
 
 <p>to</p>
 
-<pre class="line-numbers"><code class="language-ruby">el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?
+<pre><code class="language-ruby">el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?
 
 </code></pre>
 
@@ -300,7 +300,7 @@ print_hi('Tom')
 
 <p>When I select a new blog post it runs the following bash commands:</p>
 
-<pre class="line-numbers"><code class="language-bash"># Adjust these variables to your installation:
+<pre><code class="language-bash"># Adjust these variables to your installation:
 
 sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
 editor="MacDown.app"
@@ -323,7 +323,7 @@ open -a "$editor" $filename
 
 <p>When I select a new project post it runs the following bash commands:</p>
 
-<pre class="line-numbers"><code class="language-bash"># Adjust these variables to your installation:
+<pre><code class="language-bash"># Adjust these variables to your installation:
 
 sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
 editor="Whiskey.app"
@@ -347,7 +347,7 @@ open -a "$editor" $filename
 
 <p>The “Build And Push To Github” runs the following bash commands:</p>
 
-<pre class="line-numbers"><code class="language-bash"># Adjust these variables to your installation:
+<pre><code class="language-bash"># Adjust these variables to your installation:
 
 export PATH=/usr/local/bin:$PATH
 
@@ -387,7 +387,7 @@ terminal-notifier -title "Git Push for CoopCoding Static Files Done" -message ""
 
 <p>The “Open Blog Post” runs the following bash commands:</p>
 
-<pre class="line-numbers"><code class="language-bash"># Adjust these variables to your installation:
+<pre><code class="language-bash"># Adjust these variables to your installation:
 
 sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
 extension=markdown
