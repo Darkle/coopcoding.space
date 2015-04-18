@@ -133,7 +133,7 @@
 
 <p><a href="http://xmlstar.sourceforge.net/">XMLStarlet</a> seemed to be fairly popular so I installed it using the always helpful <a href="http://brew.sh/">Homebrew</a>. (after Homebrew is installed, you just need to run <code>brew install xmlstarlet</code>).</p>
 
-<p>The <code>DockMenus.plist</code> XML looks like this: https://gist.github.com/Darkle/2ca4152ec3cbc90b8aa9</p>
+<p>The <code>DockMenus.plist</code> XML looks like this: <a href="https://gist.github.com/Darkle/2ca4152ec3cbc90b8aa9">https://gist.github.com/Darkle/2ca4152ec3cbc90b8aa9</a></p>
 
 <p>Specifically, we are after the array after the <code>&lt;key&gt;trash&lt;/key&gt;</code>:</p>
 
@@ -277,6 +277,7 @@
 <p>Here is the final complete command</p>
 
 <pre class="line-numbers"><code class="language-bash">xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict -i "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]/dict[not(*)]" -t "attr" -n "id" -v "removeFromDockDictionaryInsert" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "command" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n integer -v 1004 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "name" -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n string -v "REMOVE_FROM_DOCK" DocMenus.plist
+
 
 </code></pre>
 
