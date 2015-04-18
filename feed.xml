@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Apr 2015 09:13:52 +1000</pubDate>
-    <lastBuildDate>Sun, 19 Apr 2015 09:13:52 +1000</lastBuildDate>
+    <pubDate>Sun, 19 Apr 2015 09:57:47 +1000</pubDate>
+    <lastBuildDate>Sun, 19 Apr 2015 09:57:47 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -286,7 +286,7 @@ summary: &quot;This is the summary for the chrome extension project&quot;
 ---
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Then in my _config.yml I put the following:&lt;/p&gt;
+&lt;p&gt;Then, in my _config.yml for the site I put the following:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-yaml&quot;&gt;permalink: /:categories/:title
 defaults:
@@ -419,19 +419,73 @@ print_hi(&#39;Tom&#39;)
 {: .line-numbers}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I’m on a mac, so the kramdown folder was in &lt;code&gt;/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/&lt;/code&gt;. From that folder, I went to the &lt;code&gt;parser/kramdown/codeblock.rb&lt;/code&gt; file, then opened it and changed line 44 from&lt;/p&gt;
+&lt;p&gt;But that seemed like a bit of a hassle. What I really wanted was for the line numbers to show up if the code was more than one line. Unfortunately there is no automatic way to do this with prism, so I went ahead and altered the way the line numbers plugin worked.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;el.attr[&#39;class&#39;] = &quot;language-#{lang}&quot; unless lang.empty?
+&lt;p&gt;Here is the original prism.js plugin code&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;Prism.hooks.add(&#39;after-highlight&#39;, function (env) {
+	// works only for &amp;lt;code&amp;gt; wrapped inside &amp;lt;pre data-line-numbers&amp;gt; (not inline)
+	var pre = env.element.parentNode;
+	if (!pre || !/pre/i.test(pre.nodeName) || pre.className.indexOf(&#39;line-numbers&#39;) === -1) {
+		return;
+	}
+
+	var linesNum = (1 + env.code.split(&#39;\n&#39;).length);
+	var lineNumbersWrapper;
+
+	var lines = new Array(linesNum);
+	lines = lines.join(&#39;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&#39;);
+
+	lineNumbersWrapper = document.createElement(&#39;span&#39;);
+	lineNumbersWrapper.className = &#39;line-numbers-rows&#39;;
+	lineNumbersWrapper.innerHTML = lines;
+
+	if (pre.hasAttribute(&#39;data-start&#39;)) {
+		pre.style.counterReset = &#39;linenumber &#39; + (parseInt(pre.getAttribute(&#39;data-start&#39;), 10) - 1);
+	}
+
+	env.element.appendChild(lineNumbersWrapper);
+
+});
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;to&lt;/p&gt;
+&lt;p&gt;and my changes&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;el.attr[&#39;class&#39;] = &quot;language-#{lang} line-numbers&quot; unless lang.empty?
+&lt;pre&gt;&lt;code class=&quot;language-javascript&quot;&gt;Prism.hooks.add(&#39;after-highlight&#39;, function (env) {
+	// works only for &amp;lt;code&amp;gt; wrapped inside &amp;lt;pre data-line-numbers&amp;gt; (not inline)
+	var pre = env.element.parentNode;
+	var multiLineCheck = env.code.match(/\n(?!$)/g);
+
+	//ignore if not a pre element or if only one line
+	if (!pre || !/pre/i.test(pre.nodeName) || !multiLineCheck) {
+		return;
+	}
+
+	//for the highlighting CSS
+	if(pre.className.indexOf(&#39;line-numbers&#39;) === -1) {
+		pre.className += &#39; line-numbers&#39;;
+	}
+
+	var linesNum = multiLineCheck.length + 1;
+	var lineNumbersWrapper;
+
+	var lines = new Array(linesNum + 1);
+	lines = lines.join(&#39;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&#39;);
+
+	lineNumbersWrapper = document.createElement(&#39;span&#39;);
+	lineNumbersWrapper.className = &#39;line-numbers-rows&#39;;
+	lineNumbersWrapper.innerHTML = lines;
+
+	if (pre.hasAttribute(&#39;data-start&#39;)) {
+		pre.style.counterReset = &#39;linenumber &#39; + (parseInt(pre.getAttribute(&#39;data-start&#39;), 10) - 1);
+	}
+
+	env.element.appendChild(lineNumbersWrapper);
+
+});
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Now every code block has the class of &lt;code&gt;line-numbers&lt;/code&gt; added to it as well. 😀&lt;/p&gt;
-
-&lt;p&gt;After implementing prism.js, I noticed that there seemed to be an extra blank line added to the code blocks. This seems to be a &lt;a href=&quot;https://github.com/PrismJS/prism/issues/403&quot;&gt;known bug&lt;/a&gt;, so I just downloaded the development version of prism.js (aka the unminified source) and changed the code to what is listing in the change &lt;a href=&quot;https://github.com/haarg/prism/commit/2e7409189114e14b940fc80fe8d22c0072114f48&quot;&gt;here&lt;/a&gt; as it has not yet been merged into the official prism.js code yet.&lt;/p&gt;
+&lt;p&gt;You can see it now only checks to see if it is a pre element and if it has more than one line. Then if it doesn’t have a class name of “line-numbers” it adds it in order for the CSS rules for the line numbering to be applied. (note: my code uses some code from &lt;a href=&quot;https://github.com/PrismJS/prism/pull/385/commits&quot;&gt;this pull request&lt;/a&gt; to fix extra lines being added)&lt;/p&gt;
 
 &lt;h3 id=&quot;plugins--building-locally&quot;&gt;Plugins &amp;amp; Building Locally&lt;/h3&gt;
 
@@ -441,15 +495,15 @@ print_hi(&#39;Tom&#39;)
 
 &lt;p&gt;My Alfred workflow shortcuts look like this:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;http://coopcoding.com/assets/images/blogpostimages/Jek-Alfred-ss2.png&quot; alt=&quot;Jekyll Alfred Screenshot&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://coopcoding.com/assets/images/blogpostimages/Jek-Alfred-ss3.png&quot; alt=&quot;Jekyll Alfred Screenshot&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;When I select a new blog post it runs the following bash commands:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Adjust these variables to your installation:
 
-sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
-editor=&quot;MacDown.app&quot;
-extension=markdown
+sitedir=/Users/username/site_jekyll_files/
+editor=&quot;Typora.app&quot;
+extension=md
 
 filename=$(echo $sitedir/_posts/blog/$(date +&#39;%Y-%m-%d&#39;)-{query}.$extension | sed -e &#39;s, ,-,g&#39; | tr &#39;[:upper:]&#39; &#39;[:lower:]&#39;)
 
@@ -460,19 +514,20 @@ date: $(date +&#39;%Y-%m-%d %H:%M:%S&#39;)
 tags:[]
 ---
 
+
 EOT
 open -a &quot;$editor&quot; $filename
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the &lt;code&gt;_posts/blog/&lt;/code&gt; directory and uses that title and date as the file name (Jekyll needs a &lt;code&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt; format for post file names). Then it adds the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor &lt;a href=&quot;http://macdown.uranusjr.com/&quot;&gt;Macdown.app&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the &lt;code&gt;_posts/blog/&lt;/code&gt; directory and uses that title and date as the file name (Jekyll needs a &lt;code&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt; format for post file names). Then it adds the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor &lt;a href=&quot;http://typora.io/&quot;&gt;Typora.app&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;When I select a new project post it runs the following bash commands:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;language-bash&quot;&gt;# Adjust these variables to your installation:
 
-sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
-editor=&quot;Whiskey.app&quot;
-extension=markdown
+sitedir=/Users/username/site_jekyll_files/
+editor=&quot;Typora.app&quot;
+extension=md
 
 filename=$(echo $sitedir/_posts/projects/$(date +&#39;%Y-%m-%d&#39;)-{query}.$extension | sed -e &#39;s, ,-,g&#39; | tr &#39;[:upper:]&#39; &#39;[:lower:]&#39;)
 
@@ -481,8 +536,9 @@ cat &amp;lt;&amp;lt;EOT &amp;gt;&amp;gt; $filename
 title: {query}
 date: $(date +&#39;%Y-%m-%d %H:%M:%S&#39;)
 tags: []
-summary:
+summary: 
 ---
+
 
 EOT
 open -a &quot;$editor&quot; $filename
@@ -555,7 +611,11 @@ fi
 
 &lt;p&gt;What this does is iterate through all of the files in the &lt;code&gt;_posts/blog&lt;/code&gt; directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in the markdown editor.&lt;/p&gt;
 
-&lt;p&gt;You can grab my Alfred workflow &lt;a href=&quot;https://drive.google.com/uc?export=download&amp;amp;id=0B2rOnFGX-QzGZUx3aTVicmpnbU0&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The “Serve Jekyll Blog” opens a terminal, cd’s to the jekyll blog files then serves from that directory&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://coopcoding.com/assets/images/blogpostimages/Alfred Preferences.png&quot; alt=&quot;Alfred Screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can grab my Alfred workflow &lt;a href=&quot;https://drive.google.com/uc?export=download&amp;amp;id=0B2rOnFGX-QzGajEySER5TWd5OEU&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
         <pubDate>Mon, 06 Apr 2015 22:46:26 +1000</pubDate>
         <link>http://coopcoding.com/blog/my-jekyll-setup-for-this-blog</link>
