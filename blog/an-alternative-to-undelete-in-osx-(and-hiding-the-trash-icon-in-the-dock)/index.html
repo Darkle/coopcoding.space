@@ -137,7 +137,7 @@
 
 <p>Specifically, we are after the array after the <code>&lt;key&gt;trash&lt;/key&gt;</code>:</p>
 
-<pre class="line-numbers"><code class="language-xml">    &lt;key&gt;trash&lt;/key&gt;
+<pre class="line-numbers"><code class="language-markup">    &lt;key&gt;trash&lt;/key&gt;
     &lt;array&gt;
       &lt;dict&gt;
         &lt;key&gt;command&lt;/key&gt;
@@ -172,7 +172,7 @@
 
 <p>What we want to do is insert the following XML into the array element immediately after the <code>&lt;key&gt;trash&lt;/key&gt;</code> element:</p>
 
-<pre class="line-numbers"><code class="language-xml">&lt;dict&gt;
+<pre class="line-numbers"><code class="language-markup">&lt;dict&gt;
   &lt;key&gt;command&lt;/key&gt;
   &lt;integer&gt;1004&lt;/integer&gt;
   &lt;key&gt;name&lt;/key&gt;
@@ -191,17 +191,17 @@
 
 <p>To get the trash key via xpath, we can use</p>
 
-<pre class="line-numbers"><code class="language-javascript">"/plist/dict/key[.='trash']" ...
+<pre class="line-numbers"><code class="language-bash">"/plist/dict/key[.='trash']" ...
 </code></pre>
 
 <p>then we grab the first sibling and make sure it’s an array</p>
 
-<pre class="line-numbers"><code class="language-javascript">"/following-sibling::*[1][self::array]"
+<pre class="line-numbers"><code class="language-bash">"/following-sibling::*[1][self::array]"
 </code></pre>
 
 <p>so all up its</p>
 
-<pre class="line-numbers"><code class="language-javascript">"/plist/dict/key[.='trash']/following-sibling::*[1][self::array]"
+<pre class="line-numbers"><code class="language-bash">"/plist/dict/key[.='trash']/following-sibling::*[1][self::array]"
 </code></pre>
 
 <p>Then as the XMLStarlet command</p>
@@ -213,7 +213,7 @@
 
 <p>This should result in the following XML inside the trash array</p>
 
-<pre class="line-numbers"><code class="language-xml">    &lt;array&gt;
+<pre class="line-numbers"><code class="language-markup">    &lt;array&gt;
       &lt;dict&gt;
         &lt;key&gt;command&lt;/key&gt;
         &lt;integer&gt;1000&lt;/integer&gt;
@@ -249,7 +249,7 @@
 
 <p>The lack of attributes (classes or id’s) or text in the dict elements makes it tough to be sure we are getting the right one to next insert the</p>
 
-<pre class="line-numbers"><code class="language-xml">  &lt;key&gt;command&lt;/key&gt;
+<pre class="line-numbers"><code class="language-markup">  &lt;key&gt;command&lt;/key&gt;
   &lt;integer&gt;1004&lt;/integer&gt;
   &lt;key&gt;name&lt;/key&gt;
   &lt;string&gt;REMOVE_FROM_DOCK&lt;/string&gt;
@@ -295,7 +295,6 @@ xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -
 
 ### Run the applescript that select the right-click menu to hide the Trash icon
 osascript $backupFolder/HideTrashIconInDock.scpt
-
 </code></pre>
 
 <p>In the <code>HideTrashIconInDock.scpt</code> script is the following Applescript</p>
@@ -310,7 +309,7 @@ end tell
 
 <p>Then I created a file called <code>com.coop.removeTrashIconFromDock.plist</code> in the <code>/Users/coop/Library/LaunchAgents/</code>folder conatining the following XML</p>
 
-<pre class="line-numbers"><code class="language-xml">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+<pre class="line-numbers"><code class="language-markup">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 &lt;!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd"&gt;
 &lt;plist version="1.0"&gt;
 	&lt;dict&gt;

@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 18 Apr 2015 17:48:51 +1000</pubDate>
-    <lastBuildDate>Sat, 18 Apr 2015 17:48:51 +1000</lastBuildDate>
+    <pubDate>Sat, 18 Apr 2015 17:52:10 +1000</pubDate>
+    <lastBuildDate>Sat, 18 Apr 2015 17:52:10 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -33,7 +33,7 @@
 
 &lt;p&gt;Specifically, we are after the array after the &lt;code&gt;&amp;lt;key&amp;gt;trash&amp;lt;/key&amp;gt;&lt;/code&gt;:&lt;/p&gt;
 
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;    &amp;lt;key&amp;gt;trash&amp;lt;/key&amp;gt;
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-markup&quot;&gt;    &amp;lt;key&amp;gt;trash&amp;lt;/key&amp;gt;
     &amp;lt;array&amp;gt;
       &amp;lt;dict&amp;gt;
         &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
@@ -68,7 +68,7 @@
 
 &lt;p&gt;What we want to do is insert the following XML into the array element immediately after the &lt;code&gt;&amp;lt;key&amp;gt;trash&amp;lt;/key&amp;gt;&lt;/code&gt; element:&lt;/p&gt;
 
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&amp;lt;dict&amp;gt;
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-markup&quot;&gt;&amp;lt;dict&amp;gt;
   &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
   &amp;lt;integer&amp;gt;1004&amp;lt;/integer&amp;gt;
   &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
@@ -87,17 +87,17 @@
 
 &lt;p&gt;To get the trash key via xpath, we can use&lt;/p&gt;
 
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&quot;/plist/dict/key[.=&#39;trash&#39;]&quot; ...
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&quot;/plist/dict/key[.=&#39;trash&#39;]&quot; ...
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;then we grab the first sibling and make sure it’s an array&lt;/p&gt;
 
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&quot;/following-sibling::*[1][self::array]&quot;
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&quot;/following-sibling::*[1][self::array]&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;so all up its&lt;/p&gt;
 
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&quot;/plist/dict/key[.=&#39;trash&#39;]/following-sibling::*[1][self::array]&quot;
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-bash&quot;&gt;&quot;/plist/dict/key[.=&#39;trash&#39;]/following-sibling::*[1][self::array]&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Then as the XMLStarlet command&lt;/p&gt;
@@ -109,7 +109,7 @@
 
 &lt;p&gt;This should result in the following XML inside the trash array&lt;/p&gt;
 
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;    &amp;lt;array&amp;gt;
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-markup&quot;&gt;    &amp;lt;array&amp;gt;
       &amp;lt;dict&amp;gt;
         &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
         &amp;lt;integer&amp;gt;1000&amp;lt;/integer&amp;gt;
@@ -145,7 +145,7 @@
 
 &lt;p&gt;The lack of attributes (classes or id’s) or text in the dict elements makes it tough to be sure we are getting the right one to next insert the&lt;/p&gt;
 
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;  &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-markup&quot;&gt;  &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
   &amp;lt;integer&amp;gt;1004&amp;lt;/integer&amp;gt;
   &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
   &amp;lt;string&amp;gt;REMOVE_FROM_DOCK&amp;lt;/string&amp;gt;
@@ -191,7 +191,6 @@ xml ed -L -s &quot;/plist/dict/key[.=&#39;trash&#39;]/following-sibling::*[1][se
 
 ### Run the applescript that select the right-click menu to hide the Trash icon
 osascript $backupFolder/HideTrashIconInDock.scpt
-
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;In the &lt;code&gt;HideTrashIconInDock.scpt&lt;/code&gt; script is the following Applescript&lt;/p&gt;
@@ -206,7 +205,7 @@ end tell
 
 &lt;p&gt;Then I created a file called &lt;code&gt;com.coop.removeTrashIconFromDock.plist&lt;/code&gt; in the &lt;code&gt;/Users/coop/Library/LaunchAgents/&lt;/code&gt;folder conatining the following XML&lt;/p&gt;
 
-&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-xml&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
+&lt;pre class=&quot;line-numbers&quot;&gt;&lt;code class=&quot;language-markup&quot;&gt;&amp;lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&amp;gt;
 &amp;lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&amp;gt;
 &amp;lt;plist version=&quot;1.0&quot;&amp;gt;
 	&amp;lt;dict&amp;gt;
