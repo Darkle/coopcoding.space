@@ -89,6 +89,10 @@
         <a href="/blog/my-jekyll-setup-for-this-blog">My Jekyll Setup For This Blog</a>
       </li>
       
+      <li>
+        <a href="/blog/my-jekyll-setup-for-this-blog">My Jekyll Setup For This Blog</a>
+      </li>
+      
     </ul>
   </div>
   
@@ -271,13 +275,11 @@ print_hi('Tom')
 <p>But that seemed like a bit of a hassle, so I went ahead and looked in the kramdown source files that were installed on my computer; I’m on a mac, so the kramdown folder was in <code>/usr/local/Cellar/ruby/2.2.1/lib/ruby/gems/2.2.0/gems/kramdown-1.6.0/lib/kramdown/</code>. From that folder, I went to the <code>parser/kramdown/codeblock.rb</code> file, then opened it and changed line 44 from</p>
 
 <pre><code class="language-ruby">el.attr['class'] = "language-#{lang}" unless lang.empty?
-
 </code></pre>
 
 <p>to</p>
 
 <pre><code class="language-ruby">el.attr['class'] = "language-#{lang} line-numbers" unless lang.empty?
-
 </code></pre>
 
 <p>Now every code block has the class of <code>line-numbers</code> added to it as well. 😀</p>
