@@ -86,6 +86,10 @@
       </li>
       
       <li>
+        <a href="/blog/an-alternative-to-undelete-in-osx-(and-hiding-the-trash-icon-in-the-dock)">An Alternative To Undelete In Osx (and Hiding The Trash Icon In The Dock)</a>
+      </li>
+      
+      <li>
         <a href="/blog/my-jekyll-setup-for-this-blog">My Jekyll Setup For This Blog</a>
       </li>
       
@@ -141,37 +145,37 @@
 
 <p>Specifically, we are after the array after the <code>&lt;key&gt;trash&lt;/key&gt;</code>:</p>
 
-<pre><code class="language-markup">    &lt;key&gt;trash&lt;/key&gt;
-    &lt;array&gt;
-      &lt;dict&gt;
-        &lt;key&gt;command&lt;/key&gt;
-        &lt;integer&gt;1000&lt;/integer&gt;
-        &lt;key&gt;name&lt;/key&gt;
-        &lt;string&gt;OPEN&lt;/string&gt;
-      &lt;/dict&gt;
-      &lt;dict&gt;
-        &lt;key&gt;command&lt;/key&gt;
-        &lt;integer&gt;2000&lt;/integer&gt;
-        &lt;key&gt;separator&lt;/key&gt;
-        &lt;true/&gt;
-      &lt;/dict&gt;
-      &lt;dict&gt;
-        &lt;key&gt;command&lt;/key&gt;
-        &lt;integer&gt;1001&lt;/integer&gt;
-        &lt;key&gt;dynamic&lt;/key&gt;
-        &lt;integer&gt;0&lt;/integer&gt;
-        &lt;key&gt;name&lt;/key&gt;
-        &lt;string&gt;EMPTY_TRASH&lt;/string&gt;
-      &lt;/dict&gt;
-      &lt;dict&gt;
-        &lt;key&gt;command&lt;/key&gt;
-        &lt;integer&gt;1040&lt;/integer&gt;
-        &lt;key&gt;dynamic&lt;/key&gt;
-        &lt;integer&gt;2&lt;/integer&gt;
-        &lt;key&gt;name&lt;/key&gt;
-        &lt;string&gt;SECURE_EMPTY_TRASH&lt;/string&gt;
-      &lt;/dict&gt;
-    &lt;/array&gt;
+<pre><code class="language-markup">&lt;key&gt;trash&lt;/key&gt;
+&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;command&lt;/key&gt;
+    &lt;integer&gt;1000&lt;/integer&gt;
+    &lt;key&gt;name&lt;/key&gt;
+    &lt;string&gt;OPEN&lt;/string&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;command&lt;/key&gt;
+    &lt;integer&gt;2000&lt;/integer&gt;
+    &lt;key&gt;separator&lt;/key&gt;
+    &lt;true/&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;command&lt;/key&gt;
+    &lt;integer&gt;1001&lt;/integer&gt;
+    &lt;key&gt;dynamic&lt;/key&gt;
+    &lt;integer&gt;0&lt;/integer&gt;
+    &lt;key&gt;name&lt;/key&gt;
+    &lt;string&gt;EMPTY_TRASH&lt;/string&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;command&lt;/key&gt;
+    &lt;integer&gt;1040&lt;/integer&gt;
+    &lt;key&gt;dynamic&lt;/key&gt;
+    &lt;integer&gt;2&lt;/integer&gt;
+    &lt;key&gt;name&lt;/key&gt;
+    &lt;string&gt;SECURE_EMPTY_TRASH&lt;/string&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;
 </code></pre>
 
 <p>What we want to do is insert the following XML into the array element immediately after the <code>&lt;key&gt;trash&lt;/key&gt;</code> element:</p>
@@ -217,38 +221,38 @@
 
 <p>This should result in the following XML inside the trash array</p>
 
-<pre><code class="language-markup">    &lt;array&gt;
-      &lt;dict&gt;
-        &lt;key&gt;command&lt;/key&gt;
-        &lt;integer&gt;1000&lt;/integer&gt;
-        &lt;key&gt;name&lt;/key&gt;
-        &lt;string&gt;OPEN&lt;/string&gt;
-      &lt;/dict&gt;
-      &lt;dict&gt;
-        &lt;key&gt;command&lt;/key&gt;
-        &lt;integer&gt;2000&lt;/integer&gt;
-        &lt;key&gt;separator&lt;/key&gt;
-        &lt;true/&gt;
-      &lt;/dict&gt;
-      &lt;dict&gt;
-        &lt;key&gt;command&lt;/key&gt;
-        &lt;integer&gt;1001&lt;/integer&gt;
-        &lt;key&gt;dynamic&lt;/key&gt;
-        &lt;integer&gt;0&lt;/integer&gt;
-        &lt;key&gt;name&lt;/key&gt;
-        &lt;string&gt;EMPTY_TRASH&lt;/string&gt;
-      &lt;/dict&gt;
-      &lt;dict&gt;
-        &lt;key&gt;command&lt;/key&gt;
-        &lt;integer&gt;1040&lt;/integer&gt;
-        &lt;key&gt;dynamic&lt;/key&gt;
-        &lt;integer&gt;2&lt;/integer&gt;
-        &lt;key&gt;name&lt;/key&gt;
-        &lt;string&gt;SECURE_EMPTY_TRASH&lt;/string&gt;
-      &lt;/dict&gt;
-      &lt;dict&gt;
-      &lt;/dict&gt;
-    &lt;/array&gt;
+<pre><code class="language-markup">&lt;array&gt;
+  &lt;dict&gt;
+    &lt;key&gt;command&lt;/key&gt;
+    &lt;integer&gt;1000&lt;/integer&gt;
+    &lt;key&gt;name&lt;/key&gt;
+    &lt;string&gt;OPEN&lt;/string&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;command&lt;/key&gt;
+    &lt;integer&gt;2000&lt;/integer&gt;
+    &lt;key&gt;separator&lt;/key&gt;
+    &lt;true/&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;command&lt;/key&gt;
+    &lt;integer&gt;1001&lt;/integer&gt;
+    &lt;key&gt;dynamic&lt;/key&gt;
+    &lt;integer&gt;0&lt;/integer&gt;
+    &lt;key&gt;name&lt;/key&gt;
+    &lt;string&gt;EMPTY_TRASH&lt;/string&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+    &lt;key&gt;command&lt;/key&gt;
+    &lt;integer&gt;1040&lt;/integer&gt;
+    &lt;key&gt;dynamic&lt;/key&gt;
+    &lt;integer&gt;2&lt;/integer&gt;
+    &lt;key&gt;name&lt;/key&gt;
+    &lt;string&gt;SECURE_EMPTY_TRASH&lt;/string&gt;
+  &lt;/dict&gt;
+  &lt;dict&gt;
+  &lt;/dict&gt;
+&lt;/array&gt;
 </code></pre>
 
 <p>The lack of attributes (classes or id’s) or text in the dict elements makes it tough to be sure we are getting the right one to next insert the</p>
