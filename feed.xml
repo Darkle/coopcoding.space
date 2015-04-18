@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 18 Apr 2015 20:47:52 +1000</pubDate>
-    <lastBuildDate>Sat, 18 Apr 2015 20:47:52 +1000</lastBuildDate>
+    <pubDate>Sat, 18 Apr 2015 20:48:36 +1000</pubDate>
+    <lastBuildDate>Sat, 18 Apr 2015 20:48:36 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -145,10 +145,10 @@
 
 &lt;p&gt;The lack of attributes (classes or id’s) or text in the dict elements makes it tough to be sure we are getting the right one to next insert the&lt;/p&gt;
 
-&lt;pre&gt;&lt;code class=&quot;language-markup&quot;&gt;  &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
-  &amp;lt;integer&amp;gt;1004&amp;lt;/integer&amp;gt;
-  &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
-  &amp;lt;string&amp;gt;REMOVE_FROM_DOCK&amp;lt;/string&amp;gt;
+&lt;pre&gt;&lt;code class=&quot;language-markup&quot;&gt;&amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+&amp;lt;integer&amp;gt;1004&amp;lt;/integer&amp;gt;
+&amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
+&amp;lt;string&amp;gt;REMOVE_FROM_DOCK&amp;lt;/string&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;so I used the xpath option of checking for a dict element that had no child nodes, and then giving it a unique id to make the rest of the XML editing easier&lt;/p&gt;
@@ -414,10 +414,10 @@ xml ed -L -s &quot;/plist/dict/key[.=&#39;trash&#39;]/following-sibling::*[1][se
 &lt;p&gt;The lack of attributes (classes or id’s) or text in the dict elements makes it tough to be sure we are getting the right one to next insert the&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;markup
-  &amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
-  &amp;lt;integer&amp;gt;1004&amp;lt;/integer&amp;gt;
-  &amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
-  &amp;lt;string&amp;gt;REMOVE_FROM_DOCK&amp;lt;/string&amp;gt;
+&amp;lt;key&amp;gt;command&amp;lt;/key&amp;gt;
+&amp;lt;integer&amp;gt;1004&amp;lt;/integer&amp;gt;
+&amp;lt;key&amp;gt;name&amp;lt;/key&amp;gt;
+&amp;lt;string&amp;gt;REMOVE_FROM_DOCK&amp;lt;/string&amp;gt;
 &lt;/code&gt;&lt;/p&gt;
 
 &lt;p&gt;so I used the xpath option of checking for a dict element that had no child nodes, and then giving it a unique id to make the rest of the XML editing easier&lt;/p&gt;
