@@ -323,6 +323,8 @@ osascript $backupFolder/HideTrashIconInDock.scpt
 end tell
 </code></pre>
 
+<p>What this does is it uses the accessibility features in OSX to show the right-click menu for the trash then select the “Remove from Dock” option.</p>
+
 <p>Then I created a file called <code>com.coop.removeTrashIconFromDock.plist</code> in the <code>/Users/coop/Library/LaunchAgents/</code>folder conatining the following XML</p>
 
 <pre><code class="language-markup">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
