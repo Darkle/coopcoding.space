@@ -196,25 +196,21 @@
 <p>To get the trash key via xpath, we can use</p>
 
 <pre class="line-numbers"><code class="language-bash">"/plist/dict/key[.='trash']" ...
-
 </code></pre>
 
 <p>then we grab the first sibling and make sure it’s an array</p>
 
 <pre class="line-numbers"><code class="language-bash">"/following-sibling::*[1][self::array]"
-
 </code></pre>
 
 <p>so all up its</p>
 
 <pre class="line-numbers"><code class="language-bash">"/plist/dict/key[.='trash']/following-sibling::*[1][self::array]"
-
 </code></pre>
 
 <p>Then as the XMLStarlet command</p>
 
 <pre class="line-numbers"><code class="language-bash">xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -t elem -n dict
-
 </code></pre>
 
 <p>(<code>-L</code> option means to <a href="http://stackoverflow.com/questions/5954168/how-to-insert-a-new-element-under-another-with-xmlstarlet/9172796#9172796">edit the file in place</a>)</p>
@@ -274,7 +270,6 @@
 <p>Now it’s easier to add more elements by just querying</p>
 
 <pre class="line-numbers"><code class="language-bash">"//dict[@id='removeFromDockDictionaryInsert']"
-
 </code></pre>
 
 <p>Here is the final complete command</p>
@@ -285,7 +280,6 @@
 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n integer -v 1004 \
 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n key -v "name" \
 -s "//dict[@id='removeFromDockDictionaryInsert']" -t elem -n string -v "REMOVE_FROM_DOCK" DocMenus.plist
-
 </code></pre>
 
 <p>After this is run on the <code>DocMenus.plist</code> file, your right-click menu for the Trash icon in the dock should look like this:</p>
@@ -346,13 +340,11 @@ end tell
 <p>If you don’t want to wait for a restart to load the Launch Agent, you can use the following command:</p>
 
 <pre class="line-numbers"><code class="language-bash">launchctl load ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
-
 </code></pre>
 
 <p>and to unload</p>
 
 <pre class="line-numbers"><code class="language-bash">launchctl unload  ~/Library/LaunchAgents/com.coop.removeTrashIconFromDock.plist
-
 </code></pre>
 
 <p>More info here: <a href="http://launchd.info/">http://launchd.info/)</a> (click on the “Operation” tab</p>
