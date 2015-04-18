@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 18 Apr 2015 18:45:49 +1000</pubDate>
-    <lastBuildDate>Sat, 18 Apr 2015 18:45:49 +1000</lastBuildDate>
+    <pubDate>Sat, 18 Apr 2015 18:55:18 +1000</pubDate>
+    <lastBuildDate>Sat, 18 Apr 2015 18:55:18 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -205,6 +205,8 @@ xml ed -L -s &quot;/plist/dict/key[.=&#39;trash&#39;]/following-sibling::*[1][se
 ### Run the applescript that select the right-click menu to hide the Trash icon
 osascript $backupFolder/HideTrashIconInDock.scpt
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and then make it executable by running &lt;code&gt;chmod +x bakupAndAlterPlist.sh&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;In the &lt;code&gt;HideTrashIconInDock.scpt&lt;/code&gt; script is the following Applescript&lt;/p&gt;
 

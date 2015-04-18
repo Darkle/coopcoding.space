@@ -310,6 +310,8 @@ xml ed -L -s "/plist/dict/key[.='trash']/following-sibling::*[1][self::array]" -
 osascript $backupFolder/HideTrashIconInDock.scpt
 </code></pre>
 
+<p>and then make it executable by running <code>chmod +x bakupAndAlterPlist.sh</code>.</p>
+
 <p>In the <code>HideTrashIconInDock.scpt</code> script is the following Applescript</p>
 
 <pre class="line-numbers"><code class="language-applescript">tell application "System Events" to tell process "Dock"
