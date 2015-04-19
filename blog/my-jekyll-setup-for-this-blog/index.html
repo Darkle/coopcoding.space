@@ -336,7 +336,7 @@ print_hi('Tom')
 
 <p>You can see it now only checks to see if it is a pre element and if it has more than one line. Then if it doesn’t have a class name of “line-numbers” it adds it in order for the CSS rules for the line numbering to be applied. (note: my code uses some code from <a href="https://github.com/PrismJS/prism/pull/385/commits">this pull request</a> to fix extra lines being added)</p>
 
-<h3 id="plugins--building-locally">Plugins &amp; Building Locally</h3>
+<h3 id="plugins-building-locally--alfred">Plugins, Building Locally &amp; Alfred</h3>
 
 <p>Because Github pages only supports a <a href="https://help.github.com/articles/using-jekyll-plugins-with-github-pages/">few plugins</a> and I wanted to use <a href="http://charliepark.org/tags-in-jekyll/">this</a> tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my <a href="https://github.com/Darkle/darkle.github.io">darkle.github.io repository</a>. Doing this manually is a bit of a pain, but I stumbled on to <a href="http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/">this neat article</a> about using an <a href="http://www.alfredapp.com/">Alfred</a> workflow to make things faster and easier.</p>
 
@@ -462,9 +462,23 @@ fi
 
 <p>The “Serve Jekyll Blog” opens a terminal, cd’s to the jekyll blog files then serves from that directory</p>
 
-<p><img src="http://coopcoding.com/assets/images/blogpostimages/Alfred Preferences.png" alt="Alfred Screenshot" /></p>
+<p><img src="http://coopcoding.com/assets/images/blogpostimages/AlfredPreferences.png" alt="Alfred Screenshot" /></p>
+
+<p>Then it opens the blog in the default browser by running the following bash commands</p>
+
+<pre><code class="language-bash">#wait for the jekyll server to start up
+sleep 3
+open http://127.0.0.1:4000/
+</code></pre>
+
+<h3 id="editing-the-markdown">Editing The Markdown</h3>
+
+<p>I tried a number of Markdown editors, but settled on <a href="http://typora.io/">Typora</a>. It has a number of neat features such as supporting github style code blocks (and highlighting them), YAML front matter recognition and showing images while editing the post. Here’s a screenshot of me editing this post in Typora:</p>
+
+<p><img src="http://coopcoding.com/assets/images/blogpostimages/TyporaSS.png" alt="Typora Screenshot" /></p>
 
 <p>You can grab my Alfred workflow <a href="https://drive.google.com/uc?export=download&amp;id=0B2rOnFGX-QzGajEySER5TWd5OEU">here</a>.</p>
+
 
 
     </section>
