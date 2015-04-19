@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sun, 19 Apr 2015 10:08:37 +1000</pubDate>
-    <lastBuildDate>Sun, 19 Apr 2015 10:08:37 +1000</lastBuildDate>
+    <pubDate>Sun, 19 Apr 2015 10:46:00 +1000</pubDate>
+    <lastBuildDate>Sun, 19 Apr 2015 10:46:00 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -536,7 +536,7 @@ cat &amp;lt;&amp;lt;EOT &amp;gt;&amp;gt; $filename
 title: {query}
 date: $(date +&#39;%Y-%m-%d %H:%M:%S&#39;)
 tags: []
-summary: 
+summary:
 ---
 
 
@@ -622,13 +622,123 @@ sleep 3
 open http://127.0.0.1:4000/
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;You can grab my Alfred workflow &lt;a href=&quot;https://drive.google.com/uc?export=download&amp;amp;id=0B2rOnFGX-QzGajEySER5TWd5OEU&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
 &lt;h3 id=&quot;editing-the-markdown&quot;&gt;Editing The Markdown&lt;/h3&gt;
 
-&lt;p&gt;I tried a number of Markdown editors, but settled on &lt;a href=&quot;http://typora.io/&quot;&gt;Typora&lt;/a&gt;. It has a number of neat features such as supporting github style code blocks (and highlighting them), YAML front matter recognition and showing images while editing the post. Here’s a screenshot of me editing this post in Typora:&lt;/p&gt;
+&lt;p&gt;I tried a number of Markdown editors, but settled on &lt;a href=&quot;http://typora.io/&quot;&gt;Typora&lt;/a&gt;. It has a number of neat features such as supporting &lt;a href=&quot;https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks&quot;&gt;github style code fences&lt;/a&gt;(and highlighting them), YAML front matter recognition and showing images while editing the post. Here’s a screenshot of me editing this post in Typora:&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;http://coopcoding.com/assets/images/blogpostimages/TyporaSS.png&quot; alt=&quot;Typora Screenshot&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;You can grab my Alfred workflow &lt;a href=&quot;https://drive.google.com/uc?export=download&amp;amp;id=0B2rOnFGX-QzGajEySER5TWd5OEU&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You can see that the code block is highlighted and the image is displayed while editing. Check out all the features it has here: &lt;a href=&quot;http://typora.io/#feature&quot;&gt;http://typora.io/#feature&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;automatic-images-in-typora&quot;&gt;Automatic Images In Typora&lt;/h3&gt;
+
+&lt;p&gt;In order to get the images that I’m working with for blog posts to show up while I’m editing them, they needed to be hosted online. I thought about just using an image hoster like imgur, but I really wanted to keep control of the hosting.&lt;/p&gt;
+
+&lt;p&gt;I could always build and push the blog every time I added a new image to the blog post I was editing, but that seemed really inefficient. What I settled on was using OSX’s folder action feature to copy the file from the image assets folder in my jekyll folder to the static output folder and then pushing that to github so that the image is now being served by github and Typora can display it in the editor.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-applescript&quot;&gt;--from http://foolsworkshop.com/applescript/2008/05/an-applescript-replace-text-method/
+on replaceText(find, replace, subject)
+  set prevTIDs to text item delimiters of AppleScript
+  set text item delimiters of AppleScript to find
+  set subject to text items of subject
+
+  set text item delimiters of AppleScript to replace
+  set subject to &quot;&quot; &amp;amp; subject
+  set text item delimiters of AppleScript to prevTIDs
+
+  return subject
+end replaceText
+
+on adding folder items to this_folder after receiving added_items
+  try
+    tell application &quot;Finder&quot;
+      --get the name of the folder
+      set the folder_name to the name of this_folder
+    end tell
+
+    set textToReplace to &quot;file:///Users/coop/Dropbox/Coding/Projects/coopcoding.com/coopcoding.com_jekyll_version&quot;
+    set folderToCopyTo to &quot;Macintosh HD:Users:coop:Dropbox:Coding:Projects:coopcoding.com:darkle.github.io:assets:images:blogpostimages&quot;
+    set convertedTextForClipboard to &quot;&quot;
+
+    repeat with aFile in added_items
+
+      tell application &quot;Finder&quot;
+        try
+          set fileProps to (get properties of aFile)
+          set fileURL to (get URL of fileProps) as string
+        on error errMsg
+          display dialog &quot;ERROR: &quot; &amp;amp; errMsg
+        end try
+
+      end tell
+
+      --the last &amp;amp; is for a new line in case there is more than one image
+      set convertedTextForClipboard to convertedTextForClipboard &amp;amp; (get replaceText(textToReplace, &quot;http://coopcoding.com&quot;, fileURL)) &amp;amp; &quot;
+&quot;
+      set filePosixURL to get replaceText(&quot;file://&quot;, &quot;&quot;, fileURL)
+
+      tell application &quot;Finder&quot;
+        copy aFile to folder folderToCopyTo
+      end tell
+
+    end repeat
+
+    set the clipboard to convertedTextForClipboard
+
+    do shell script &quot;DATE_TIME=$(date +&#39;%Y-%m-%d %H:%M:%S&#39;) &amp;amp;&amp;amp; cd &#39;/Users/coop/Dropbox/Coding/Projects/coopcoding.com/darkle.github.io/&#39; &amp;amp;&amp;amp; git add . &amp;amp;&amp;amp; git commit -a -m &#39;Post $DATE_TIME&#39; &amp;amp;&amp;amp; git push origin master &amp;amp;&amp;amp; export PATH=/usr/local/bin:$PATH &amp;amp;&amp;amp; terminal-notifier -title &#39;Git Push for CoopCoding Static Images Done&#39; -message &#39;&#39; -open &#39;https://github.com/Darkle/darkle.github.io&#39;&quot;
+
+  on error errMsg
+    display dialog &quot;ERROR: &quot; &amp;amp; errMsg
+  end try
+
+end adding folder items to
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&quot;image-optimization&quot;&gt;Image Optimization&lt;/h3&gt;
+
+&lt;p&gt;In order to optimize the images before serving them, I used the great &lt;a href=&quot;https://imageoptim.com/&quot;&gt;ImageOptim&lt;/a&gt; app and a folder action to trigger it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-applescript&quot;&gt;on adding folder items to this_folder after receiving added_items
+  --delay so dont interfere with the other folder action that copies the image
+  delay 3
+  try
+    tell application &quot;Finder&quot;
+      --get the name of the folder
+      set the folder_name to the name of this_folder
+    end tell
+
+    set the item_count to the number of items in the added_items
+
+    repeat with aFile in added_items
+
+      tell application &quot;Finder&quot;
+        try
+          set fileProps to (get properties of aFile)
+          set fName to (get name of fileProps)
+
+        on error errMsg
+          display dialog &quot;ERROR: &quot; &amp;amp; errMsg
+        end try
+
+      end tell
+
+      tell application &quot;ImageOptim&quot; to open aFile
+
+    end repeat
+
+    delay 2
+
+    tell application &quot;ImageOptim&quot; to activate
+
+  on error errMsg
+    display dialog &quot;ERROR: &quot; &amp;amp; errMsg
+  end try
+end adding folder items to
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now every time I add a new photo to the &lt;code&gt;/assets/images/blogpostimages&lt;/code&gt; folder, it runs the applescript above and opens the image(s) in ImageOptim and optimises the image(s).&lt;/p&gt;
 
 </description>
         <pubDate>Mon, 06 Apr 2015 22:46:26 +1000</pubDate>
@@ -638,6 +748,539 @@ open http://127.0.0.1:4000/
         <category>Jekyll</category>
         
         <category>Alfred</category>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>My Jekyll Setup For This Blog</title>
+        <description>&lt;hr /&gt;
+
+&lt;p&gt;title: My Jekyll Setup For This Blog
+date: 2015-04-06 12:46:26&lt;/p&gt;
+
+&lt;h2&gt;tags: [Jekyll, Alfred]&lt;/h2&gt;
+
+&lt;p&gt;So I wanted to set up a coding blog I decided on using &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; because it’s relatively easy to set up and there’s tons of good info &amp;amp; tutorials on the web. I briefly played around with &lt;a href=&quot;http://gohugo.io/&quot;&gt;Hugo&lt;/a&gt;, and although the documentation on the site is really good, I didn’t find much in the way of tutorials and articles from 3rd-party sites, so I stuck with Jekyll.&lt;/p&gt;
+
+&lt;h3&gt;Blog Structure&lt;/h3&gt;
+
+&lt;p&gt;For the site structure, I wanted it to be &lt;code&gt;coopcoding.com/projects/projectname/&lt;/code&gt; and &lt;code&gt;coopcoding.com/blog/blog post title/&lt;/code&gt;. This turned out to be a bit more difficult than I first envisioned. The &lt;code&gt;coopcoding.com/blog/blog post title/&lt;/code&gt; was fairly easy to set up, but &lt;code&gt;coopcoding.com/projects/projectname/&lt;/code&gt; took a bit of work.&lt;/p&gt;
+
+&lt;p&gt;At first I thought I would use the &lt;a href=&quot;http://jekyllrb.com/docs/pages/&quot;&gt;default&lt;/a&gt; way of creating pages and just stick them in the &lt;code&gt;coopcoding.com/projects/&lt;/code&gt; folder, but unfortunately there is currently (&lt;small&gt;&lt;small&gt;jekyll 2.5.3&lt;/small&gt;&lt;/small&gt;) no way to iterate through all the pages in a directory. You can use collections or add data to the data directory, but these won&amp;rsquo;t really work with the default pagination.&lt;/p&gt;
+
+&lt;p&gt;What I ended up doing was creating only blog posts and giving them either a &amp;ldquo;blog&amp;rdquo; category or a &amp;ldquo;projects&amp;rdquo; category. Then I used tags for if I wanted to show a grouping of posts or projects, e.g. if I was creating a blog post or a project about a chrome extension, in the yaml front matter for that post I would write something like:&lt;/p&gt;
+
+&lt;h2&gt;``` yaml&lt;/h2&gt;
+
+&lt;p&gt;title:  &amp;ldquo;My Chrome Extension Project&amp;rdquo;
+date:   2015-02-15 10:14:35
+tags:
+  -Chrome Extension
+  -Browser&lt;/p&gt;
+
+&lt;h2&gt;summary: &amp;ldquo;This is the summary for the chrome extension project&amp;rdquo;&lt;/h2&gt;
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;Then, in my _config.yml for the site I put the following:&lt;/p&gt;
+
+&lt;p&gt;``` yaml
+permalink: /:categories/:title&lt;/p&gt;
+
+&lt;h2&gt;defaults:&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;scope:
+  path: &quot;blog&quot;
+  type: &quot;posts&quot;
+values:
+  layout: &quot;post&quot;
+  category: &quot;blog&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;  -
+    scope:
+      path: &amp;ldquo;projects&amp;rdquo;
+      type: &amp;ldquo;posts&amp;rdquo;
+    values:
+      layout: &amp;ldquo;project&amp;rdquo;
+      category: &amp;ldquo;projects&amp;rdquo;
+```&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;permalink: /:categories/:title&lt;/code&gt; tells jekyll to spit out all the posts in the &lt;code&gt;_posts&lt;/code&gt; folder and take what category they are (in this case either a blog or project) and create subfolders in the output directory of &lt;code&gt;coopcoding.com/projects/&lt;/code&gt; &amp;amp; &lt;code&gt;coopcoding.com/blog/&lt;/code&gt; and generate all the blog posts in those subdirectories for each category.&lt;/p&gt;
+
+&lt;p&gt;Then I created an index.html page inside of the &lt;code&gt;/projects/&lt;/code&gt; folder and inside of the &lt;code&gt;/blog/&lt;/code&gt; folder. These were so that when a user visited &lt;code&gt;coopcoding.com/projects/&lt;/code&gt;, they would be shown a list of the latest project pages, and when they visited &lt;code&gt;coopcoding.com/blog/&lt;/code&gt;, they would be shown a list of the latest blog posts.&lt;/p&gt;
+
+&lt;p&gt;Here are screenshots of my Jekyll folder structure to better explain it:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://coopcoding.com/assets/images/blogpostimages/jek-folder-ss.png&quot; alt=&quot;Jekyll Folder Structure&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;and a screenshot of Jekyll&amp;rsquo;s output folder structure:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://coopcoding.com/assets/images/blogpostimages/jek-build-folder-structure.png&quot; alt=&quot;Jekyll Output Folder Structure&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Here is the html for the index.html in the &lt;code&gt;/projects/&lt;/code&gt; folder: &lt;a href=&quot;https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html&quot;&gt;https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;You can see I&amp;rsquo;m looping over the &lt;code&gt;site.categories.projects&lt;/code&gt; and listing each post in the &amp;ldquo;projects&amp;rdquo; category.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s pretty much the same for the html in the index.html in the &lt;code&gt;/blog/&lt;/code&gt; folder: &lt;a href=&quot;https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html&quot;&gt;https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;Tags&lt;/h3&gt;
+
+&lt;p&gt;For generating &amp;ldquo;tag&amp;rdquo; pages, I used the code and process listed &lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;here&lt;/a&gt;. You can see the tag pages output in the screenshot of Jekyll&amp;rsquo;s output folder structure above.&lt;/p&gt;
+
+&lt;h3&gt;Blog &amp;amp; Project Layouts&lt;/h3&gt;
+
+&lt;p&gt;Obviously I wanted to have different layouts for the blog post and project posts, so I used the following in my &lt;code&gt;_config.yml&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;``` yaml&lt;/p&gt;
+
+&lt;h2&gt;defaults:&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;scope:
+  path: &quot;blog&quot;
+  type: &quot;posts&quot;
+values:
+  layout: &quot;post&quot;
+  category: &quot;blog&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;  -
+    scope:
+      path: &amp;ldquo;projects&amp;rdquo;
+      type: &amp;ldquo;posts&amp;rdquo;
+    values:
+      layout: &amp;ldquo;project&amp;rdquo;
+      category: &amp;ldquo;projects&amp;rdquo;
+```&lt;/p&gt;
+
+&lt;p&gt;This tells Jekyll that for posts in that end up in the path &lt;code&gt;coopcoding.com/blog/&lt;/code&gt; and are of the type &amp;ldquo;posts&amp;rdquo; that they are all in the category of &amp;ldquo;blog&amp;rdquo; and should use the layout &amp;ldquo;post&amp;rdquo;. The layout of &amp;ldquo;post&amp;rdquo; corresponds to the &lt;a href=&quot;https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/post.html&quot;&gt;post.html&lt;/a&gt; in the &lt;code&gt;_layouts directory&lt;/code&gt;. It then tells Jekyll that for posts in that end up in the path &lt;code&gt;coopcoding.com/projects/&lt;/code&gt; and are of the type &amp;ldquo;posts&amp;rdquo; that they are all in the category of &amp;ldquo;projects&amp;rdquo; and should use the layout &amp;ldquo;project&amp;rdquo;. The layout of &amp;ldquo;post&amp;rdquo; corresponds to the &lt;a href=&quot;https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_layouts/project.html&quot;&gt;project.html&lt;/a&gt; in the &lt;code&gt;_layouts directory&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can also see my complete &lt;code&gt;_config.yml&lt;/code&gt; here: &lt;a href=&quot;https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml&quot;&gt;https://github.com/Darkle/coopcoding.com_jekyll_version/blob/master/_config.yml&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;Syntax Highlighting&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://jekyllrb.com/docs/templates/#code-snippet-highlighting&quot;&gt;Pygments&lt;/a&gt; is the default syntax highlighter for Jekyll. It&amp;rsquo;s pretty good, but I didn&amp;rsquo;t really like the syntax that you have to use for code blocks:&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{% highlight ruby %}
+
+def foo
+
+  puts &#39;foo&#39;
+
+end
+
+{% endhighlight %}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;/p&gt;
+
+&lt;p&gt;Luckily, the Kramdown &lt;a href=&quot;http://jekyllrb.com/docs/configuration/#kramdown&quot;&gt;markdown interpreter in Jekyll supports&lt;/a&gt; Github Flavoured Markdown, specifically the &lt;a href=&quot;https://help.github.com/articles/github-flavored-markdown/#syntax-highlighting&quot;&gt;code blocks&lt;/a&gt;. With this enabled, a code block like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;``` ruby
+
+def print_hi(name)
+
+  puts &quot;Hi, #{name}&quot;
+
+end
+
+print_hi(&#39;Tom&#39;)
+
+#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.
+
+```
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;will be render into this HTML:&lt;/p&gt;
+
+&lt;p&gt;``` markup&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-ruby&quot;&gt;
+def print_hi(name)
+  puts &quot;Hi, #{name}&quot;
+end
+print_hi(&#39;Tom&#39;)
+#=&gt; prints &#39;Hi, Tom&#39; to STDOUT.
+&lt;/code&gt;&lt;/pre&gt;
+
+
+&lt;p&gt;```&lt;/p&gt;
+
+&lt;p&gt;For the actual syntax highlighting, I couldn&amp;rsquo;t seem to get rouge to generate line numbers, so I used &lt;a href=&quot;http://prismjs.com/&quot;&gt;prism.js&lt;/a&gt;. The prism.js output looks great and I figure so long as the javascript is at the bottom of the page and not blocking anything loading it should be fine and wont annoy people viewing the page. On the &lt;a href=&quot;http://prismjs.com/download.html&quot;&gt;prism.js download page&lt;/a&gt; you can pick and choose what languages to support, which is pretty neat.&lt;/p&gt;
+
+&lt;p&gt;Prism checks any &lt;code&gt;&amp;lt;code&amp;gt;&lt;/code&gt; elements on the page for the class &lt;code&gt;&quot;language-foo&quot;&lt;/code&gt;, where &amp;ldquo;foo&amp;rdquo; is the name of the language that&amp;rsquo;s in the code block.&lt;/p&gt;
+
+&lt;p&gt;One thing that did trip me up a bit with prism.js was that in order to use the line number feature, you need to give the code block a class of &lt;code&gt;line-numbers&lt;/code&gt;, which isn&amp;rsquo;t too big of a deal as I could just add the element attribute to the end of each code block like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;``` ruby
+
+def print_hi(name)
+
+  puts &quot;Hi, #{name}&quot;
+
+end
+
+print_hi(&#39;Tom&#39;)
+
+#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.
+
+```
+
+{: .line-numbers}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;But that seemed like a bit of a hassle. What I really wanted was for the line numbers to show up if the code was more than one line. Unfortunately there is no automatic way to do this with prism, so I went ahead and altered the way the line numbers plugin worked.&lt;/p&gt;
+
+&lt;p&gt;Here is the original prism.js plugin code&lt;/p&gt;
+
+&lt;p&gt;``` javascript
+Prism.hooks.add(&amp;lsquo;after-highlight&amp;rsquo;, function (env) {
+    // works only for &lt;code&gt; wrapped inside &lt;pre data-line-numbers&gt; (not inline)
+    var pre = env.element.parentNode;
+    if (!pre || !/pre/i.test(pre.nodeName) || pre.className.indexOf(&amp;lsquo;line-numbers&amp;rsquo;) === -1) {
+        return;
+    }&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;var linesNum = (1 + env.code.split(&#39;\n&#39;).length);
+var lineNumbersWrapper;
+
+var lines = new Array(linesNum);
+lines = lines.join(&#39;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&#39;);
+
+lineNumbersWrapper = document.createElement(&#39;span&#39;);
+lineNumbersWrapper.className = &#39;line-numbers-rows&#39;;
+lineNumbersWrapper.innerHTML = lines;
+
+if (pre.hasAttribute(&#39;data-start&#39;)) {
+    pre.style.counterReset = &#39;linenumber &#39; + (parseInt(pre.getAttribute(&#39;data-start&#39;), 10) - 1);
+}
+
+env.element.appendChild(lineNumbersWrapper);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;});
+```&lt;/p&gt;
+
+&lt;p&gt;and my changes&lt;/p&gt;
+
+&lt;p&gt;``` javascript
+Prism.hooks.add(&amp;lsquo;after-highlight&amp;rsquo;, function (env) {
+    // works only for &lt;code&gt; wrapped inside &lt;pre data-line-numbers&gt; (not inline)
+    var pre = env.element.parentNode;
+    var multiLineCheck = env.code.match(/\n(?!$)/g);&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;//ignore if not a pre element or if only one line
+if (!pre || !/pre/i.test(pre.nodeName) || !multiLineCheck) {
+    return;
+}
+
+//for the highlighting CSS
+if(pre.className.indexOf(&#39;line-numbers&#39;) === -1) {
+    pre.className += &#39; line-numbers&#39;;
+}
+
+var linesNum = multiLineCheck.length + 1;
+var lineNumbersWrapper;
+
+var lines = new Array(linesNum + 1);
+lines = lines.join(&#39;&amp;lt;span&amp;gt;&amp;lt;/span&amp;gt;&#39;);
+
+lineNumbersWrapper = document.createElement(&#39;span&#39;);
+lineNumbersWrapper.className = &#39;line-numbers-rows&#39;;
+lineNumbersWrapper.innerHTML = lines;
+
+if (pre.hasAttribute(&#39;data-start&#39;)) {
+    pre.style.counterReset = &#39;linenumber &#39; + (parseInt(pre.getAttribute(&#39;data-start&#39;), 10) - 1);
+}
+
+env.element.appendChild(lineNumbersWrapper);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;});
+```&lt;/p&gt;
+
+&lt;p&gt;You can see it now only checks to see if it is a pre element and if it has more than one line. Then if it doesn’t have a class name of “line-numbers” it adds it in order for the CSS rules for the line numbering to be applied. (note: my code uses some code from &lt;a href=&quot;https://github.com/PrismJS/prism/pull/385/commits&quot;&gt;this pull request&lt;/a&gt; to fix extra lines being added)&lt;/p&gt;
+
+&lt;h3&gt;Plugins, Building Locally &amp;amp; Alfred&lt;/h3&gt;
+
+&lt;p&gt;Because Github pages only supports a &lt;a href=&quot;https://help.github.com/articles/using-jekyll-plugins-with-github-pages/&quot;&gt;few plugins&lt;/a&gt; and I wanted to use &lt;a href=&quot;http://charliepark.org/tags-in-jekyll/&quot;&gt;this&lt;/a&gt; tag plugin, I had to set it up so that Jekyll built the site locally, then I pushed that built version to my &lt;a href=&quot;https://github.com/Darkle/darkle.github.io&quot;&gt;darkle.github.io repository&lt;/a&gt;. Doing this manually is a bit of a pain, but I stumbled on to &lt;a href=&quot;http://spinhalf.net/2015/01/04/getting-started-with-a-jekyll-blog/&quot;&gt;this neat article&lt;/a&gt; about using an &lt;a href=&quot;http://www.alfredapp.com/&quot;&gt;Alfred&lt;/a&gt; workflow to make things faster and easier.&lt;/p&gt;
+
+&lt;p&gt;Basically it allows you to create a new Jekyll post (including front-matter) with an shortcut in Alfred.&lt;/p&gt;
+
+&lt;p&gt;My Alfred workflow shortcuts look like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://coopcoding.com/assets/images/blogpostimages/Jek-Alfred-ss3.png&quot; alt=&quot;Jekyll Alfred Screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;When I select a new blog post it runs the following bash commands:&lt;/p&gt;
+
+&lt;p&gt;``` bash&lt;/p&gt;
+
+&lt;h1&gt;Adjust these variables to your installation:&lt;/h1&gt;
+
+&lt;p&gt;sitedir=/Users/username/site_jekyll_files/
+editor=&amp;ldquo;Typora.app&amp;rdquo;
+extension=md&lt;/p&gt;
+
+&lt;p&gt;filename=$(echo $sitedir/_posts/blog/$(date +&amp;lsquo;%Y-%m-%d&amp;rsquo;)-{query}.$extension | sed -e &amp;rsquo;s, ,-,g&#39; | tr &amp;lsquo;[:upper:]&amp;rsquo; &amp;lsquo;[:lower:]&amp;rsquo;)&lt;/p&gt;
+
+&lt;h2&gt;cat &amp;lt;&lt;EOT &gt;&gt; $filename&lt;/h2&gt;
+
+&lt;p&gt;title: {query}
+date: $(date +&amp;lsquo;%Y-%m-%d %H:%M:%S&amp;rsquo;)&lt;/p&gt;
+
+&lt;h2&gt;tags:[]&lt;/h2&gt;
+
+&lt;p&gt;EOT
+open -a &amp;ldquo;$editor&amp;rdquo; $filename
+```&lt;/p&gt;
+
+&lt;p&gt;What this does is takes the title I gave it in Alfred and prepends the current date to that, then it creates a new file in the &lt;code&gt;_posts/blog/&lt;/code&gt; directory and uses that title and date as the file name (Jekyll needs a &lt;code&gt;YEAR-MONTH-DAY-title.MARKUP&lt;/code&gt; format for post file names). Then it adds the default front-matter for blog posts, plus the blog title that was specified by me in Alfred. It then opens that file in my markdown editor &lt;a href=&quot;http://typora.io/&quot;&gt;Typora.app&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;When I select a new project post it runs the following bash commands:&lt;/p&gt;
+
+&lt;p&gt;``` bash&lt;/p&gt;
+
+&lt;h1&gt;Adjust these variables to your installation:&lt;/h1&gt;
+
+&lt;p&gt;sitedir=/Users/username/site_jekyll_files/
+editor=&amp;ldquo;Typora.app&amp;rdquo;
+extension=md&lt;/p&gt;
+
+&lt;p&gt;filename=$(echo $sitedir/_posts/projects/$(date +&amp;lsquo;%Y-%m-%d&amp;rsquo;)-{query}.$extension | sed -e &amp;rsquo;s, ,-,g&#39; | tr &amp;lsquo;[:upper:]&amp;rsquo; &amp;lsquo;[:lower:]&amp;rsquo;)&lt;/p&gt;
+
+&lt;h2&gt;cat &amp;lt;&lt;EOT &gt;&gt; $filename&lt;/h2&gt;
+
+&lt;p&gt;title: {query}
+date: $(date +&amp;lsquo;%Y-%m-%d %H:%M:%S&amp;rsquo;)
+tags: []&lt;/p&gt;
+
+&lt;h2&gt;summary:&lt;/h2&gt;
+
+&lt;p&gt;EOT
+open -a &amp;ldquo;$editor&amp;rdquo; $filename
+```&lt;/p&gt;
+
+&lt;p&gt;which is pretty much the same except it creates the post in the &lt;code&gt;_posts/projects/&lt;/code&gt; folder and it has a slightly different front-matter.&lt;/p&gt;
+
+&lt;p&gt;The &amp;ldquo;Build And Push To Github&amp;rdquo; runs the following bash commands:&lt;/p&gt;
+
+&lt;p&gt;``` bash&lt;/p&gt;
+
+&lt;h1&gt;Adjust these variables to your installation:&lt;/h1&gt;
+
+&lt;p&gt;export PATH=/usr/local/bin:$PATH&lt;/p&gt;
+
+&lt;p&gt;JEKYLL_BLOG_DIRECTORY=&amp;ldquo;/Users/username/Coding/Projects/coopcoding.com/jekyll_files/&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;DATE_TIME=$(date +&amp;lsquo;%Y-%m-%d %H:%M:%S&amp;rsquo;)&lt;/p&gt;
+
+&lt;p&gt;cd $JEKYLL_BLOG_DIRECTORY
+git add .
+git commit -a -m &amp;ldquo;Post $DATE_TIME&amp;rdquo;&lt;/p&gt;
+
+&lt;h1&gt;check if there were any new files made on github&lt;/h1&gt;
+
+&lt;p&gt;git pull &amp;ndash;rebase&lt;/p&gt;
+
+&lt;h1&gt;push to github&lt;/h1&gt;
+
+&lt;p&gt;git push origin master&lt;/p&gt;
+
+&lt;p&gt;terminal-notifier -title &amp;ldquo;Git Push for CoopCoding Jekyll Files Done&amp;rdquo; -message &amp;ldquo;&amp;rdquo; -open &amp;ldquo;https://github.com/Darkle/coopcoding.com_jekyll_version&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;jekyll build&lt;/p&gt;
+
+&lt;p&gt;terminal-notifier -title &amp;ldquo;Jekyll Built Static Files&amp;rdquo; -message &amp;ldquo;&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;STATIC_BLOG_DIRECTORY=&amp;ldquo;/Users/username/Coding/Projects/coopcoding.com/darkle.github.io/&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;cd $STATIC_BLOG_DIRECTORY
+git add .
+git commit -a -m &amp;ldquo;Post $DATE_TIME&amp;rdquo;
+git push origin master&lt;/p&gt;
+
+&lt;p&gt;terminal-notifier -title &amp;ldquo;Git Push for CoopCoding Static Files Done&amp;rdquo; -message &amp;ldquo;&amp;rdquo; -open &amp;ldquo;https://github.com/Darkle/darkle.github.io&amp;rdquo;
+```&lt;/p&gt;
+
+&lt;p&gt;This adds all files/new files to the git repository in my jekyll files folder. Then commits the change(s) to the repository with a message that includes the date and time. Then it checks to see if there were any changes made from somewhere else, then it pushes to github.&lt;/p&gt;
+
+&lt;p&gt;Next, jekyll builds the static site, then the script adds files to the static git repository, commits and pushes to github.&lt;/p&gt;
+
+&lt;p&gt;Originally I was going to use the default notifier for OSX in the bash script to notify me when the git pushes and the jekyll build was finished but it wasn&amp;rsquo;t working for me, so I used this library insted: &lt;a href=&quot;https://github.com/alloy/terminal-notifier&quot;&gt;https://github.com/alloy/terminal-notifier&lt;/a&gt;. Note: the bash shell jekyll uses didn&amp;rsquo;t seem to load my default &lt;code&gt;.bash_profile&lt;/code&gt; file automatically, so I had to manually put in &lt;code&gt;export PATH=/usr/local/bin:$PATH&lt;/code&gt; so that it could see the terminal-notifier library I had installed via homebrew.&lt;/p&gt;
+
+&lt;p&gt;The &amp;ldquo;Open Blog Post&amp;rdquo; runs the following bash commands:&lt;/p&gt;
+
+&lt;p&gt;``` bash&lt;/p&gt;
+
+&lt;h1&gt;Adjust these variables to your installation:&lt;/h1&gt;
+
+&lt;p&gt;sitedir=/Users/username/Coding/Projects/coopcoding.com/jekyll_files/
+extension=markdown&lt;/p&gt;
+
+&lt;p&gt;IFS=$&amp;lsquo;\n&amp;rsquo;&lt;/p&gt;
+
+&lt;p&gt;files=$(find $sitedir/&lt;em&gt;posts/blog -iname &amp;ldquo;*.$extension&amp;rdquo; | xargs ls -r |perl -MHTML::Entities -CS -pe&#39;$&lt;/em&gt; = encode_entities($_, q{&amp;amp;&amp;lt;&gt;&amp;ldquo;&amp;lsquo;\&amp;rsquo;&amp;lsquo;})&amp;rsquo;)&lt;/p&gt;
+
+&lt;p&gt;echo &amp;ldquo;&amp;lt;?xml version=&amp;lsquo;1.0&amp;rsquo;?&gt;&lt;items&gt;&amp;rdquo;
+for file in ${files}; do
+    echo &amp;ldquo;&lt;item uuid=&#39;file&#39; arg=&#39;${file}&#39; type=&#39;file&#39;&gt;&amp;rdquo;
+    echo &amp;ldquo;&lt;title&gt;$(basename ${file})&lt;/title&gt;&amp;rdquo;
+    echo &amp;ldquo;&lt;subtitle&gt;${file}&lt;/subtitle&gt;&amp;rdquo;
+    echo &amp;ldquo;&lt;icon type=&#39;fileicon&#39;&gt;${file}&lt;/icon&gt;&amp;rdquo;
+    echo &amp;ldquo;&lt;/item&gt;&amp;rdquo;
+done
+echo &amp;ldquo;&lt;/items&gt;&amp;rdquo;
+fi
+```&lt;/p&gt;
+
+&lt;p&gt;What this does is iterate through all of the files in the &lt;code&gt;_posts/blog&lt;/code&gt; directory and then list them in Alfred. When you select which file you want, Alfred then opens that file in the markdown editor.&lt;/p&gt;
+
+&lt;p&gt;The “Serve Jekyll Blog” opens a terminal, cd’s to the jekyll blog files then serves from that directory&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://coopcoding.com/assets/images/blogpostimages/AlfredPreferences.png&quot; alt=&quot;Alfred Screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Then it opens the blog in the default browser by running the following bash commands&lt;/p&gt;
+
+&lt;p&gt;``` bash&lt;/p&gt;
+
+&lt;h1&gt;wait for the jekyll server to start up&lt;/h1&gt;
+
+&lt;p&gt;sleep 3
+open http://127.0.0.1:4000/
+```&lt;/p&gt;
+
+&lt;p&gt;You can grab my Alfred workflow &lt;a href=&quot;https://drive.google.com/uc?export=download&amp;amp;id=0B2rOnFGX-QzGajEySER5TWd5OEU&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Editing The Markdown&lt;/h3&gt;
+
+&lt;p&gt;I tried a number of Markdown editors, but settled on &lt;a href=&quot;http://typora.io/&quot;&gt;Typora&lt;/a&gt;. It has a number of neat features such as supporting &lt;a href=&quot;https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks&quot;&gt;github style code fences&lt;/a&gt;(and highlighting them), YAML front matter recognition and showing images while editing the post. Here’s a screenshot of me editing this post in Typora:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://coopcoding.com/assets/images/blogpostimages/TyporaSS.png&quot; alt=&quot;Typora Screenshot&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can see that the code block is highlighted and the image is displayed while editing. Check out all the features it has here: &lt;a href=&quot;http://typora.io/#feature&quot;&gt;http://typora.io/#feature&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Automatic Images In Typora&lt;/h3&gt;
+
+&lt;p&gt;In order to get the images that I’m working with for blog posts to show up while I’m editing them, they needed to be hosted online. I thought about just using an image hoster like imgur, but I really wanted to keep control of the hosting.&lt;/p&gt;
+
+&lt;p&gt;I could always build and push the blog every time I added a new image to the blog post I was editing, but that seemed really inefficient. What I settled on was using OSX’s folder action feature to copy the file from the image assets folder in my jekyll folder to the static output folder and then pushing that to github so that the image is now being served by github and Typora can display it in the editor.&lt;/p&gt;
+
+&lt;p&gt;``` applescript
+&amp;ndash;from http://foolsworkshop.com/applescript/2008/05/an-applescript-replace-text-method/
+on replaceText(find, replace, subject)
+  set prevTIDs to text item delimiters of AppleScript
+  set text item delimiters of AppleScript to find
+  set subject to text items of subject&lt;/p&gt;
+
+&lt;p&gt;  set text item delimiters of AppleScript to replace
+  set subject to &amp;ldquo;&amp;rdquo; &amp;amp; subject
+  set text item delimiters of AppleScript to prevTIDs&lt;/p&gt;
+
+&lt;p&gt;  return subject
+end replaceText&lt;/p&gt;
+
+&lt;p&gt;on adding folder items to this_folder after receiving added_items
+  try
+    tell application &amp;ldquo;Finder&amp;rdquo;
+      &amp;ndash;get the name of the folder
+      set the folder_name to the name of this_folder
+    end tell&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set textToReplace to &quot;file:///Users/coop/Dropbox/Coding/Projects/coopcoding.com/coopcoding.com_jekyll_version&quot;
+set folderToCopyTo to &quot;Macintosh HD:Users:coop:Dropbox:Coding:Projects:coopcoding.com:darkle.github.io:assets:images:blogpostimages&quot;
+set convertedTextForClipboard to &quot;&quot;
+
+repeat with aFile in added_items
+
+  tell application &quot;Finder&quot;
+    try
+      set fileProps to (get properties of aFile)
+      set fileURL to (get URL of fileProps) as string
+    on error errMsg
+      display dialog &quot;ERROR: &quot; &amp;amp; errMsg
+    end try
+
+  end tell
+
+  --the last &amp;amp; is for a new line in case there is more than one image
+  set convertedTextForClipboard to convertedTextForClipboard &amp;amp; (get replaceText(textToReplace, &quot;http://coopcoding.com&quot;, fileURL)) &amp;amp; &quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&amp;ldquo;
+      set filePosixURL to get replaceText(&quot;file://&amp;rdquo;, &amp;ldquo;&amp;rdquo;, fileURL)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  tell application &quot;Finder&quot;
+    copy aFile to folder folderToCopyTo
+  end tell
+
+end repeat
+
+set the clipboard to convertedTextForClipboard
+
+do shell script &quot;DATE_TIME=$(date +&#39;%Y-%m-%d %H:%M:%S&#39;) &amp;amp;&amp;amp; cd &#39;/Users/coop/Dropbox/Coding/Projects/coopcoding.com/darkle.github.io/&#39; &amp;amp;&amp;amp; git add . &amp;amp;&amp;amp; git commit -a -m &#39;Post $DATE_TIME&#39; &amp;amp;&amp;amp; git push origin master &amp;amp;&amp;amp; export PATH=/usr/local/bin:$PATH &amp;amp;&amp;amp; terminal-notifier -title &#39;Git Push for CoopCoding Static Images Done&#39; -message &#39;&#39; -open &#39;https://github.com/Darkle/darkle.github.io&#39;&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;  on error errMsg
+    display dialog &amp;ldquo;ERROR: &amp;rdquo; &amp;amp; errMsg
+  end try&lt;/p&gt;
+
+&lt;p&gt;end adding folder items to
+```&lt;/p&gt;
+
+&lt;h3&gt;Image Optimization&lt;/h3&gt;
+
+&lt;p&gt;In order to optimize the images before serving them, I used the great &lt;a href=&quot;https://imageoptim.com/&quot;&gt;ImageOptim&lt;/a&gt; app and a folder action to trigger it.&lt;/p&gt;
+
+&lt;p&gt;``` applescript
+on adding folder items to this_folder after receiving added_items
+  &amp;ndash;delay so dont interfere with the other folder action that copies the image
+  delay 3
+  try
+    tell application &amp;ldquo;Finder&amp;rdquo;
+      &amp;ndash;get the name of the folder
+      set the folder_name to the name of this_folder
+    end tell&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set the item_count to the number of items in the added_items
+
+repeat with aFile in added_items
+
+  tell application &quot;Finder&quot;
+    try
+      set fileProps to (get properties of aFile)
+      set fName to (get name of fileProps)
+
+    on error errMsg
+      display dialog &quot;ERROR: &quot; &amp;amp; errMsg
+    end try
+
+  end tell
+
+  tell application &quot;ImageOptim&quot; to open aFile
+
+end repeat
+
+delay 2
+
+tell application &quot;ImageOptim&quot; to activate
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;  on error errMsg
+    display dialog &amp;ldquo;ERROR: &amp;rdquo; &amp;amp; errMsg
+  end try
+end adding folder items to
+```&lt;/p&gt;
+
+&lt;p&gt;Now every time I add a new photo to the &lt;code&gt;/assets/images/blogpostimages&lt;/code&gt; folder, it runs the applescript above and opens the image(s) in ImageOptim and optimises the image(s).&lt;/p&gt;
+</description>
+        <pubDate>Mon, 06 Apr 2015 00:00:00 +1000</pubDate>
+        <link>http://coopcoding.com/blog/my-jekyll-setup-for-this-blog</link>
+        <guid isPermaLink="true">http://coopcoding.com/blog/my-jekyll-setup-for-this-blog</guid>
         
         
         <category>blog</category>

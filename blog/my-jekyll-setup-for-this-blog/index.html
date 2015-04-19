@@ -89,6 +89,10 @@
         <a href="/blog/my-jekyll-setup-for-this-blog">My Jekyll Setup For This Blog</a>
       </li>
       
+      <li>
+        <a href="/blog/my-jekyll-setup-for-this-blog">My Jekyll Setup For This Blog</a>
+      </li>
+      
     </ul>
   </div>
   
@@ -385,7 +389,7 @@ cat &lt;&lt;EOT &gt;&gt; $filename
 title: {query}
 date: $(date +'%Y-%m-%d %H:%M:%S')
 tags: []
-summary: 
+summary:
 ---
 
 
@@ -471,13 +475,123 @@ sleep 3
 open http://127.0.0.1:4000/
 </code></pre>
 
+<p>You can grab my Alfred workflow <a href="https://drive.google.com/uc?export=download&amp;id=0B2rOnFGX-QzGajEySER5TWd5OEU">here</a>.</p>
+
 <h3 id="editing-the-markdown">Editing The Markdown</h3>
 
-<p>I tried a number of Markdown editors, but settled on <a href="http://typora.io/">Typora</a>. It has a number of neat features such as supporting github style code blocks (and highlighting them), YAML front matter recognition and showing images while editing the post. Here’s a screenshot of me editing this post in Typora:</p>
+<p>I tried a number of Markdown editors, but settled on <a href="http://typora.io/">Typora</a>. It has a number of neat features such as supporting <a href="https://help.github.com/articles/github-flavored-markdown/#fenced-code-blocks">github style code fences</a>(and highlighting them), YAML front matter recognition and showing images while editing the post. Here’s a screenshot of me editing this post in Typora:</p>
 
 <p><img src="http://coopcoding.com/assets/images/blogpostimages/TyporaSS.png" alt="Typora Screenshot" /></p>
 
-<p>You can grab my Alfred workflow <a href="https://drive.google.com/uc?export=download&amp;id=0B2rOnFGX-QzGajEySER5TWd5OEU">here</a>.</p>
+<p>You can see that the code block is highlighted and the image is displayed while editing. Check out all the features it has here: <a href="http://typora.io/#feature">http://typora.io/#feature</a>.</p>
+
+<h3 id="automatic-images-in-typora">Automatic Images In Typora</h3>
+
+<p>In order to get the images that I’m working with for blog posts to show up while I’m editing them, they needed to be hosted online. I thought about just using an image hoster like imgur, but I really wanted to keep control of the hosting.</p>
+
+<p>I could always build and push the blog every time I added a new image to the blog post I was editing, but that seemed really inefficient. What I settled on was using OSX’s folder action feature to copy the file from the image assets folder in my jekyll folder to the static output folder and then pushing that to github so that the image is now being served by github and Typora can display it in the editor.</p>
+
+<pre><code class="language-applescript">--from http://foolsworkshop.com/applescript/2008/05/an-applescript-replace-text-method/
+on replaceText(find, replace, subject)
+  set prevTIDs to text item delimiters of AppleScript
+  set text item delimiters of AppleScript to find
+  set subject to text items of subject
+
+  set text item delimiters of AppleScript to replace
+  set subject to "" &amp; subject
+  set text item delimiters of AppleScript to prevTIDs
+
+  return subject
+end replaceText
+
+on adding folder items to this_folder after receiving added_items
+  try
+    tell application "Finder"
+      --get the name of the folder
+      set the folder_name to the name of this_folder
+    end tell
+
+    set textToReplace to "file:///Users/coop/Dropbox/Coding/Projects/coopcoding.com/coopcoding.com_jekyll_version"
+    set folderToCopyTo to "Macintosh HD:Users:coop:Dropbox:Coding:Projects:coopcoding.com:darkle.github.io:assets:images:blogpostimages"
+    set convertedTextForClipboard to ""
+
+    repeat with aFile in added_items
+
+      tell application "Finder"
+        try
+          set fileProps to (get properties of aFile)
+          set fileURL to (get URL of fileProps) as string
+        on error errMsg
+          display dialog "ERROR: " &amp; errMsg
+        end try
+
+      end tell
+
+      --the last &amp; is for a new line in case there is more than one image
+      set convertedTextForClipboard to convertedTextForClipboard &amp; (get replaceText(textToReplace, "http://coopcoding.com", fileURL)) &amp; "
+"
+      set filePosixURL to get replaceText("file://", "", fileURL)
+
+      tell application "Finder"
+        copy aFile to folder folderToCopyTo
+      end tell
+
+    end repeat
+
+    set the clipboard to convertedTextForClipboard
+
+    do shell script "DATE_TIME=$(date +'%Y-%m-%d %H:%M:%S') &amp;&amp; cd '/Users/coop/Dropbox/Coding/Projects/coopcoding.com/darkle.github.io/' &amp;&amp; git add . &amp;&amp; git commit -a -m 'Post $DATE_TIME' &amp;&amp; git push origin master &amp;&amp; export PATH=/usr/local/bin:$PATH &amp;&amp; terminal-notifier -title 'Git Push for CoopCoding Static Images Done' -message '' -open 'https://github.com/Darkle/darkle.github.io'"
+
+  on error errMsg
+    display dialog "ERROR: " &amp; errMsg
+  end try
+
+end adding folder items to
+</code></pre>
+
+<h3 id="image-optimization">Image Optimization</h3>
+
+<p>In order to optimize the images before serving them, I used the great <a href="https://imageoptim.com/">ImageOptim</a> app and a folder action to trigger it.</p>
+
+<pre><code class="language-applescript">on adding folder items to this_folder after receiving added_items
+  --delay so dont interfere with the other folder action that copies the image
+  delay 3
+  try
+    tell application "Finder"
+      --get the name of the folder
+      set the folder_name to the name of this_folder
+    end tell
+
+    set the item_count to the number of items in the added_items
+
+    repeat with aFile in added_items
+
+      tell application "Finder"
+        try
+          set fileProps to (get properties of aFile)
+          set fName to (get name of fileProps)
+
+        on error errMsg
+          display dialog "ERROR: " &amp; errMsg
+        end try
+
+      end tell
+
+      tell application "ImageOptim" to open aFile
+
+    end repeat
+
+    delay 2
+
+    tell application "ImageOptim" to activate
+
+  on error errMsg
+    display dialog "ERROR: " &amp; errMsg
+  end try
+end adding folder items to
+</code></pre>
+
+<p>Now every time I add a new photo to the <code>/assets/images/blogpostimages</code> folder, it runs the applescript above and opens the image(s) in ImageOptim and optimises the image(s).</p>
 
 
 
