@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 23 Apr 2015 15:17:21 +1000</pubDate>
-    <lastBuildDate>Thu, 23 Apr 2015 15:17:21 +1000</lastBuildDate>
+    <pubDate>Sat, 25 Apr 2015 15:43:29 +1000</pubDate>
+    <lastBuildDate>Sat, 25 Apr 2015 15:43:29 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -192,10 +192,15 @@ origPlist=/System/Library/CoreServices/Dock.app/Contents/Resources/DockMenus;
 backupFolder=/Users/coop/Dropbox/OSXStuff/DockTrashScripts
 cp $origPlist.plist $backupFolder/DockMenus-BAK.plist;
 
-### Edit the DockMenus.plist file with XMLStarlet
-xml ed -L -s &quot;/plist/dict/key[.=&#39;trash&#39;]/following-sibling::*[1][self::array]&quot; -t elem -n dict -i &quot;/plist/dict/key[.=&#39;trash&#39;]/following-sibling::*[1][self::array]/dict[not(*)]&quot; -t &quot;attr&quot; -n &quot;id&quot; -v &quot;removeFromDockDictionaryInsert&quot; -s &quot;//dict[@id=&#39;removeFromDockDictionaryInsert&#39;]&quot; -t elem -n key -v &quot;command&quot; -s &quot;//dict[@id=&#39;removeFromDockDictionaryInsert&#39;]&quot; -t elem -n integer -v 1004 -s &quot;//dict[@id=&#39;removeFromDockDictionaryInsert&#39;]&quot; -t elem -n key -v &quot;name&quot; -s &quot;//dict[@id=&#39;removeFromDockDictionaryInsert&#39;]&quot; -t elem -n string -v &quot;REMOVE_FROM_DOCK&quot; $origPlist.plist
+### Double check it&#39;s not already there
+elemCheck=$(xml sel -t -v &quot;count(//dict[@id=&#39;removeFromDockDictionaryInsert&#39;])&quot; $origPlist.plist)
 
-### Run the applescript that select the right-click menu to hide the Trash icon
+if [ $elemCheck -eq 0 ]
+then
+    xml ed -L -s &quot;/plist/dict/key[.=&#39;trash&#39;]/following-sibling::*[1][self::array]&quot; -t elem -n dict -i &quot;/plist/dict/key[.=&#39;trash&#39;]/following-sibling::*[1][self::array]/dict[not(*)]&quot; -t &quot;attr&quot; -n &quot;id&quot; -v &quot;removeFromDockDictionaryInsert&quot; -s &quot;//dict[@id=&#39;removeFromDockDictionaryInsert&#39;]&quot; -t elem -n key -v &quot;command&quot; -s &quot;//dict[@id=&#39;removeFromDockDictionaryInsert&#39;]&quot; -t elem -n integer -v 1004 -s &quot;//dict[@id=&#39;removeFromDockDictionaryInsert&#39;]&quot; -t elem -n key -v &quot;name&quot; -s &quot;//dict[@id=&#39;removeFromDockDictionaryInsert&#39;]&quot; -t elem -n string -v &quot;REMOVE_FROM_DOCK&quot; $origPlist.plist
+fi
+
+### Run the applescript that selects the right-click menu to hide the Trash icon
 osascript $backupFolder/HideTrashIconInDock.scpt
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -222,7 +227,9 @@ end tell
 		&amp;lt;key&amp;gt;Label&amp;lt;/key&amp;gt;
 		&amp;lt;string&amp;gt;com.coop.removeTrashIconFromDock&amp;lt;/string&amp;gt;
 		&amp;lt;key&amp;gt;Program&amp;lt;/key&amp;gt;
-		&amp;lt;string&amp;gt;/Users/coop/Dropbox/OSXStuff/DockTrashScripts/bakupAndAlterPlist.sh&amp;lt;/string&amp;gt;
+		&amp;lt;key&amp;gt;LaunchOnlyOnce&amp;lt;/key&amp;gt;
+		&amp;lt;true/&amp;gt;
+        &amp;lt;string&amp;gt;/Users/coop/Dropbox/OSXStuff/DockTrashScripts/bakupAndAlterPlist.sh&amp;lt;/string&amp;gt;
 		&amp;lt;key&amp;gt;RunAtLoad&amp;lt;/key&amp;gt;
 		&amp;lt;true/&amp;gt;
 	&amp;lt;/dict&amp;gt;
