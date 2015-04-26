@@ -358,6 +358,18 @@ end tell
 
 <p><img src="https://support.apple.com/library/content/dam/edam/applecare/images/en_US/osx/privacy_prefs.png" alt="Security &amp; Privacy Preferences" /></p>
 
+<h3 id="wheres-my-trash">Where’s my Trash!</h3>
+
+<p>There are of course times when you will need to grab something that you accidentally moved to the trash. You could go to the hidden <code>~/.Trash</code> folder, but that would only show you the trashed items from your Macintosh HD and not everything from external hard drives. To solve this I created a simple Alfred workflow which you can grab <a href="https://drive.google.com/uc?export=download&amp;id=https://drive.google.com/file/d/0B2rOnFGX-QzGNGRqUGppSE9pVjg/view?usp=sharing">here</a>.</p>
+
+<p>The Alfred workflow just runs the following Applescript:</p>
+
+<pre><code class="language-Applescript">tell application "Finder"
+    open trash    
+end tell
+</code></pre>
+
+
 
     </section>
 

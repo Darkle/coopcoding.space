@@ -5,8 +5,8 @@
     <description>Coop&#39;s coding blog</description>
     <link>http://coopcoding.com/</link>
     <atom:link href="http://coopcoding.com/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Sat, 25 Apr 2015 15:43:29 +1000</pubDate>
-    <lastBuildDate>Sat, 25 Apr 2015 15:43:29 +1000</lastBuildDate>
+    <pubDate>Sun, 26 Apr 2015 12:50:58 +1000</pubDate>
+    <lastBuildDate>Sun, 26 Apr 2015 12:50:58 +1000</lastBuildDate>
     <generator>Jekyll v2.5.3</generator>
     
       <item>
@@ -253,6 +253,18 @@ end tell
 &lt;p&gt;Side note: For messing around with applescript in the terminal or in the applescript script editor with scripts that need to accesses accessibility features, you might want to add Terminal.app, &lt;a href=&quot;http://jacobsalmela.com/os-x-yosemite-osascript-enabling-access-assistive-devices/&quot;&gt;osascript&lt;/a&gt; and Script Editor.app to the Security and Privacy Accessibility&lt;/p&gt;
 
 &lt;p&gt;&lt;img src=&quot;https://support.apple.com/library/content/dam/edam/applecare/images/en_US/osx/privacy_prefs.png&quot; alt=&quot;Security &amp;amp; Privacy Preferences&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;wheres-my-trash&quot;&gt;Where’s my Trash!&lt;/h3&gt;
+
+&lt;p&gt;There are of course times when you will need to grab something that you accidentally moved to the trash. You could go to the hidden &lt;code&gt;~/.Trash&lt;/code&gt; folder, but that would only show you the trashed items from your Macintosh HD and not everything from external hard drives. To solve this I created a simple Alfred workflow which you can grab &lt;a href=&quot;https://drive.google.com/uc?export=download&amp;amp;id=https://drive.google.com/file/d/0B2rOnFGX-QzGNGRqUGppSE9pVjg/view?usp=sharing&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The Alfred workflow just runs the following Applescript:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&quot;language-Applescript&quot;&gt;tell application &quot;Finder&quot;
+    open trash    
+end tell
+&lt;/code&gt;&lt;/pre&gt;
+
 </description>
         <pubDate>Sun, 19 Apr 2015 01:43:40 +1000</pubDate>
         <link>http://coopcoding.com/blog/an-alternative-to-undelete-in-osx-(and-hiding-the-trash-icon-in-the-dock)</link>
