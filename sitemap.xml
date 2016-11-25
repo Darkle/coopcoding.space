@@ -1,37 +1,37 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://coopcoding.com/projects/cabin</loc>
+        <loc>http://coopcoding.space/projects/cabin</loc>
         <lastmod>2015-04-06T15:24:24+10:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/my-jekyll-setup-for-this-blog</loc>
+        <loc>http://coopcoding.space/blog/my-jekyll-setup-for-this-blog</loc>
         <lastmod>2015-04-19T10:41:59+10:00</lastmod>
     </url>
     <url>
         <loc>
-            http://coopcoding.com/blog/an-alternative-to-undelete-in-osx-(and-hiding-the-trash-icon-in-the-dock)
+            http://coopcoding.space/blog/an-alternative-to-undelete-in-osx-(and-hiding-the-trash-icon-in-the-dock)
         </loc>
         <lastmod>2015-04-26T16:07:12+10:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/blog/</loc>
+        <loc>http://coopcoding.space/blog/</loc>
         <lastmod>2015-04-06T12:13:28+10:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/projects/</loc>
+        <loc>http://coopcoding.space/projects/</loc>
         <lastmod>2015-04-06T12:13:28+10:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/</loc>
+        <loc>http://coopcoding.space/</loc>
         <lastmod>2015-04-26T16:07:12+10:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/contact/</loc>
+        <loc>http://coopcoding.space/contact/</loc>
         <lastmod>2015-04-06T12:13:28+10:00</lastmod>
     </url>
     <url>
-        <loc>http://coopcoding.com/robots.txt</loc>
+        <loc>http://coopcoding.space/robots.txt</loc>
         <lastmod>2015-03-28T15:45:44+11:00</lastmod>
     </url>
 </urlset>
