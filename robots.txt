@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: http://coopcoding.com/sitemap.xml
+Sitemap: http://coopcoding.space/sitemap.xml
